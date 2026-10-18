@@ -21,9 +21,9 @@ const sizeClasses = {
 }
 
 const italicColorClasses = {
-  gold: 'text-[#F5B642]',
-  teal: 'text-[#0E8E8E]',
-  muted: 'opacity-50',
+  gold: 'text-[var(--accent)]',
+  teal: 'text-[var(--trust)]',
+  muted: 'text-[var(--text-dim)]',
 }
 
 export function SectionHeading({

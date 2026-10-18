@@ -17,11 +17,11 @@ interface CTAButtonProps {
 }
 
 const variantClasses = {
-  gold: 'bg-[#F5B642] text-black hover:bg-[#FFC857]',
-  teal: 'bg-[#0E8E8E] text-white hover:bg-[#0A6E6E]',
-  glass: 'liquid-glass text-white hover:bg-white/5',
-  'glass-light': 'liquid-glass-light text-[#1A2E2E] hover:bg-[#0E8E8E]/5',
-  ghost: 'text-current/80 hover:text-current hover:opacity-80',
+  gold: 'bg-[var(--accent)] text-[var(--accent-text)] hover:bg-[var(--accent-hover)]',
+  teal: 'bg-[var(--trust)] text-white hover:bg-[var(--trust)]/80',
+  glass: 'glass-surface text-[var(--text)] hover:bg-[var(--bg-elevated)]',
+  'glass-light': 'glass-surface text-[var(--text)] hover:bg-[var(--bg-elevated)]',
+  ghost: 'text-[var(--text-muted)] hover:text-[var(--text)]',
   whatsapp: 'bg-[#25D366] text-white hover:bg-[#1FB855]',
 }
 

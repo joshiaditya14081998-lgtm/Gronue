@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import { ThemeProvider } from "@/components/shell/ThemeProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Groneu Healthcare" }],
   icons: {
-    icon: "/assets/brand/Groneu-logo.png",
+    icon: "/assets/brand/Groneu-logo.svg",
   },
   openGraph: {
     title: "Groneu Healthcare — Crafted with care. Built for trust.",
@@ -50,17 +51,35 @@ export const metadata: Metadata = {
   },
 };
 
+// FOUC prevention — runs before hydration to set initial theme class on <html>
+const themeInitScript = `
+(function() {
+  try {
+    var stored = localStorage.getItem('groneu-theme');
+    var theme = stored === 'light' || stored === 'dark' ? stored : 'dark';
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
+  } catch (e) {
+    document.documentElement.classList.add('dark');
+  }
+})();
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="dark">
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased bg-black text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
       >
-        {children}
+        <ThemeProvider>{children}</ThemeProvider>
         <Toaster />
       </body>
     </html>

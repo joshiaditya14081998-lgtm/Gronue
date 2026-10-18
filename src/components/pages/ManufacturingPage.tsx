@@ -96,7 +96,7 @@ export function ManufacturingPage() {
   })
 
   return (
-    <div className="bg-[#0A0A0A] text-white">
+    <div className="bg-[var(--bg)] text-[var(--text)]">
       {/* ===== HERO ===== */}
       <section className="relative flex min-h-[70vh] items-center overflow-hidden">
         {/* Background video */}
@@ -112,7 +112,7 @@ export function ManufacturingPage() {
             src={PLANT_VIDEO}
           />
           {/* Dark gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#0A0A0A]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[var(--bg)]" />
         </div>
 
         {/* Hero content */}
@@ -131,7 +131,7 @@ export function ManufacturingPage() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="font-serif-display mt-4 max-w-4xl text-5xl leading-[1.05] tracking-tight text-white md:text-7xl"
           >
-            Where precision meets <em className="italic text-[#F5B642]">care</em>
+            Where precision meets <em className="italic text-[var(--accent)]">care</em>
           </motion.h1>
 
           <motion.p
@@ -147,7 +147,7 @@ export function ManufacturingPage() {
       </section>
 
       {/* ===== PLANT SHOWCASE ===== */}
-      <section className="bg-[#0A0A0A] px-6 py-20 md:py-28">
+      <section className="bg-[var(--bg)] px-6 py-20 md:py-28">
         <div className="mx-auto max-w-6xl">
           {/* Main video player */}
           <motion.div
@@ -155,7 +155,7 @@ export function ManufacturingPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.8 }}
-            className="liquid-glass overflow-hidden rounded-3xl"
+            className="glass-surface overflow-hidden rounded-3xl"
           >
             <div className="relative aspect-video">
               <video
@@ -180,14 +180,14 @@ export function ManufacturingPage() {
                 delay={i * 0.1}
                 className="flex flex-col items-start gap-4 p-5"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#F5B642]/10">
-                  <tile.icon size={22} className="text-[#F5B642]" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--accent-soft)]">
+                  <tile.icon size={22} className="text-[var(--accent)]" />
                 </div>
                 <div>
-                  <p className="text-xs uppercase tracking-widest text-white/40">
+                  <p className="text-xs uppercase tracking-widest text-[var(--text-dim)]">
                     Plant Photo
                   </p>
-                  <p className="font-serif-display mt-1 text-lg text-white">
+                  <p className="font-serif-display mt-1 text-lg text-[var(--text)]">
                     {tile.label}
                   </p>
                 </div>
@@ -198,22 +198,22 @@ export function ManufacturingPage() {
       </section>
 
       {/* ===== INFRASTRUCTURE ===== */}
-      <section className="bg-[#0A0A0A] px-6 py-20 md:py-28">
+      <section className="bg-[var(--bg)] px-6 py-20 md:py-28">
         <div className="mx-auto max-w-6xl">
           <div className="mb-12">
             <SectionLabel>Inside the facility</SectionLabel>
-            <h2 className="font-serif-display mt-4 text-4xl tracking-tight text-white md:text-5xl">
-              Our <em className="italic text-[#F5B642]">Infrastructure</em>
+            <h2 className="font-serif-display mt-4 text-4xl tracking-tight text-[var(--text)] md:text-5xl">
+              Our <em className="italic text-[var(--accent)]">Infrastructure</em>
             </h2>
           </div>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {infrastructure.map((item, i) => (
               <GlassCard key={item.title} variant="dark" delay={i * 0.1} className="p-6">
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-[#F5B642]/10">
-                  <item.icon size={22} className="text-[#F5B642]" />
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--accent-soft)]">
+                  <item.icon size={22} className="text-[var(--accent)]" />
                 </div>
-                <h3 className="font-serif-display text-xl text-white">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/60">
+                <h3 className="font-serif-display text-xl text-[var(--text)]">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">
                   {item.description}
                 </p>
               </GlassCard>
@@ -226,12 +226,12 @@ export function ManufacturingPage() {
       <ProcessFlowSection />
 
       {/* ===== CAPACITY & CAPABILITIES ===== */}
-      <section className="bg-[#0A0A0A] px-6 py-20 md:py-28">
+      <section className="bg-[var(--bg)] px-6 py-20 md:py-28">
         <div className="mx-auto max-w-6xl">
           <div className="mb-12 text-center">
             <SectionLabel className="text-center">Capacity &amp; Capabilities</SectionLabel>
-            <h2 className="font-serif-display mt-4 text-4xl tracking-tight text-white md:text-5xl">
-              Built to <em className="italic text-[#F5B642]">scale</em>
+            <h2 className="font-serif-display mt-4 text-4xl tracking-tight text-[var(--text)] md:text-5xl">
+              Built to <em className="italic text-[var(--accent)]">scale</em>
             </h2>
           </div>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -242,35 +242,35 @@ export function ManufacturingPage() {
                 delay={i * 0.1}
                 className="p-8 text-center"
               >
-                <p className="font-serif-display text-5xl text-white md:text-6xl">
+                <p className="font-serif-display text-5xl text-[var(--text)] md:text-6xl">
                   {stat.value}
                   {stat.unit && (
-                    <span className="ml-1 text-2xl text-[#F5B642]">{stat.unit}</span>
+                    <span className="ml-1 text-2xl text-[var(--accent)]">{stat.unit}</span>
                   )}
                 </p>
-                <p className="mt-3 text-xs uppercase tracking-widest text-white/50">
+                <p className="mt-3 text-xs uppercase tracking-widest text-[var(--text-dim)]">
                   {stat.label}
                 </p>
               </GlassCard>
             ))}
           </div>
-          <p className="mx-auto mt-10 max-w-2xl text-center text-sm leading-relaxed text-white/60 md:text-base">
+          <p className="mx-auto mt-10 max-w-2xl text-center text-sm leading-relaxed text-[var(--text-muted)] md:text-base">
             From 50-pack minimums to 50,000-piece bulk orders, we scale to your needs.
           </p>
         </div>
       </section>
 
       {/* ===== CTA ===== */}
-      <section className="relative overflow-hidden bg-[#0A0A0A] px-6 py-20 md:py-28">
+      <section className="relative overflow-hidden bg-[var(--bg)] px-6 py-20 md:py-28">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(245,182,66,0.06)_0%,_transparent_60%)]" />
         <div className="relative mx-auto max-w-4xl text-center">
           <SectionLabel className="justify-center text-center">
             Visit our plant
           </SectionLabel>
-          <h2 className="font-serif-display mt-4 text-4xl tracking-tight text-white md:text-6xl">
-            Schedule a <em className="italic text-[#F5B642]">plant visit</em>
+          <h2 className="font-serif-display mt-4 text-4xl tracking-tight text-[var(--text)] md:text-6xl">
+            Schedule a <em className="italic text-[var(--accent)]">plant visit</em>
           </h2>
-          <p className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-white/60 md:text-base">
+          <p className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-[var(--text-muted)] md:text-base">
             See the line in action. Walk the floor where 600,000 pieces a day are
             produced, inspected, and dispatched — and discuss your requirements with
             our team.
@@ -283,15 +283,15 @@ export function ManufacturingPage() {
               Contact Us
             </CTAButton>
           </div>
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-white/50">
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-[var(--text-dim)]">
             <span className="flex items-center gap-2">
-              <CheckCircle2 size={16} className="text-[#F5B642]" /> GST registered
+              <CheckCircle2 size={16} className="text-[var(--accent)]" /> GST registered
             </span>
             <span className="flex items-center gap-2">
-              <CheckCircle2 size={16} className="text-[#F5B642]" /> IEC registered
+              <CheckCircle2 size={16} className="text-[var(--accent)]" /> IEC registered
             </span>
             <span className="flex items-center gap-2">
-              <CheckCircle2 size={16} className="text-[#F5B642]" /> 81% response rate
+              <CheckCircle2 size={16} className="text-[var(--accent)]" /> 81% response rate
             </span>
           </div>
         </div>
@@ -307,24 +307,24 @@ function ProcessFlowSection() {
   const inView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section className="bg-[#0A0A0A] px-6 py-20 md:py-28">
+    <section className="bg-[var(--bg)] px-6 py-20 md:py-28">
       <div className="mx-auto max-w-6xl">
         <div className="mb-12">
           <SectionLabel>Process</SectionLabel>
-          <h2 className="font-serif-display mt-4 text-4xl tracking-tight text-white md:text-5xl">
-            How we <em className="italic text-[#F5B642]">make it</em>
+          <h2 className="font-serif-display mt-4 text-4xl tracking-tight text-[var(--text)] md:text-5xl">
+            How we <em className="italic text-[var(--accent)]">make it</em>
           </h2>
         </div>
 
         <div ref={ref} className="relative">
           {/* Connecting line — horizontal on desktop */}
           <div
-            className="pointer-events-none absolute left-0 right-0 top-8 hidden h-px bg-gradient-to-r from-transparent via-white/15 to-transparent md:block"
+            className="pointer-events-none absolute left-0 right-0 top-8 hidden h-px bg-gradient-to-r from-transparent via-[var(--border-strong)] to-transparent md:block"
             aria-hidden="true"
           />
           {/* Connecting line — vertical on mobile */}
           <div
-            className="pointer-events-none absolute bottom-0 left-8 top-8 w-px bg-gradient-to-b from-white/15 via-white/10 to-transparent md:hidden"
+            className="pointer-events-none absolute bottom-0 left-8 top-8 w-px bg-gradient-to-b from-[var(--border-strong)] via-[var(--border)] to-transparent md:hidden"
             aria-hidden="true"
           />
 
@@ -337,14 +337,14 @@ function ProcessFlowSection() {
                 transition={{ duration: 0.7, delay: 0.15 * i }}
                 className="relative flex items-start gap-5 md:block md:gap-0"
               >
-                <div className="liquid-glass relative z-10 flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-2xl md:mx-auto">
-                  <span className="font-serif-display text-2xl text-[#F5B642]">
+                <div className="glass-surface relative z-10 flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-2xl md:mx-auto">
+                  <span className="font-serif-display text-2xl text-[var(--accent)]">
                     {step.number}
                   </span>
                 </div>
                 <div className="md:mt-5 md:text-center">
-                  <h3 className="font-serif-display text-xl text-white">{step.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-white/60 md:px-2">
+                  <h3 className="font-serif-display text-xl text-[var(--text)]">{step.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)] md:px-2">
                     {step.description}
                   </p>
                 </div>

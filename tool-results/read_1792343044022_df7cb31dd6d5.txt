@@ -1,0 +1,672 @@
+     1→// src/components/pages/WhiteLabelPage.tsx
+     2→'use client'
+     3→
+     4→import { motion, useInView } from 'framer-motion'
+     5→import { useRef, useState } from 'react'
+     6→import {
+     7→  Ruler,
+     8→  Package,
+     9→  Tag,
+    10→  Layers,
+    11→  CheckCircle2,
+    12→  Send,
+    13→  Plus,
+    14→  Minus,
+    15→  Factory,
+    16→  ShieldCheck,
+    17→  MapPin,
+    18→  Globe,
+    19→} from 'lucide-react'
+    20→import { toast } from 'sonner'
+    21→import { CTAButton } from '@/components/primitives/CTAButton'
+    22→import { GlassCard } from '@/components/primitives/GlassCard'
+    23→import { SectionLabel } from '@/components/primitives/SectionLabel'
+    24→import { useEnquiry } from '@/components/shell/SiteShell'
+    25→import { usePageMeta } from '@/hooks/usePageMeta'
+    26→
+    27→/* ---------------------------------- data ---------------------------------- */
+    28→
+    29→const explainer = [
+    30→  {
+    31→    step: '01',
+    32→    title: 'Choose Your Spec',
+    33→    description: 'Sizes, materials, absorbency, packaging — all customizable to your brand',
+    34→  },
+    35→  {
+    36→    step: '02',
+    37→    title: 'We Manufacture',
+    38→    description: '600K pcs/day capacity, BIS-standard quality, in our Palanpur facility',
+    39→  },
+    40→  {
+    41→    step: '03',
+    42→    title: 'You Sell',
+    43→    description: 'Products dispatch under your brand label, ready for your market',
+    44→  },
+    45→]
+    46→
+    47→const offerings = [
+    48→  {
+    49→    icon: Ruler,
+    50→    title: 'Custom Sizes',
+    51→    description: '240mm to 320mm — L, XL, XXL, XXXL',
+    52→  },
+    53→  {
+    54→    icon: Package,
+    55→    title: 'Custom Packaging',
+    56→    description: 'Loose, packet, trifold, pouch, or brand packing',
+    57→  },
+    58→  {
+    59→    icon: Tag,
+    60→    title: 'Private Branding',
+    61→    description: 'Your brand on wrapper and outer box',
+    62→  },
+    63→  {
+    64→    icon: Layers,
+    65→    title: 'MOQ Flexibility',
+    66→    description: 'From 50 packs to 50,000 pieces — we scale with you',
+    67→  },
+    68→]
+    69→
+    70→const productSpecs = [
+    71→  { label: 'Sizes', value: '240–320mm' },
+    72→  { label: 'Top Sheet', value: 'Cottony Soft, Dry Net, Non-Woven' },
+    73→  { label: 'Absorbency', value: '50–80ml, 2X' },
+    74→  { label: 'Pad Type', value: 'Straight, Trifold, Ultra Thin, Maxi, Fluffy Fold' },
+    75→  { label: 'Wings', value: 'With or without' },
+    76→]
+    77→
+    78→const packagingSpecs = [
+    79→  { label: 'Pack Sizes', value: '6–1200 pcs' },
+    80→  { label: 'Packaging Types', value: 'Packet, Trifold, Pouch, Box, Loose' },
+    81→  { label: 'Branding', value: 'Wrapper, Outer Box, Custom Logo' },
+    82→  { label: 'Scented Options', value: 'Scented / Unscented' },
+    83→]
+    84→
+    85→const processSteps = [
+    86→  {
+    87→    step: '01',
+    88→    title: 'Enquiry',
+    89→    description: 'Share your requirements — product type, volume, timeline',
+    90→  },
+    91→  {
+    92→    step: '02',
+    93→    title: 'Spec Finalization',
+    94→    description: 'We finalize sizes, materials, packaging, and branding together',
+    95→  },
+    96→  {
+    97→    step: '03',
+    98→    title: 'Sample',
+    99→    description: 'We produce a sample for your approval before bulk production',
+   100→  },
+   101→  {
+   102→    step: '04',
+   103→    title: 'Production',
+   104→    description: 'Manufacturing begins — 600K pcs/day capacity, in-process QA',
+   105→  },
+   106→  {
+   107→    step: '05',
+   108→    title: 'Dispatch',
+   109→    description: 'Quality-checked, packaged, and dispatched with export documentation',
+   110→  },
+   111→]
+   112→
+   113→const whyPartner = [
+   114→  {
+   115→    icon: Factory,
+   116→    title: 'Manufacturing Edge',
+   117→    description: 'Own facility, 600K pcs/day, not just a trader',
+   118→  },
+   119→  {
+   120→    icon: ShieldCheck,
+   121→    title: 'Quality Assurance',
+   122→    description: 'BIS standards, in-process QA, 36-month shelf life',
+   123→  },
+   124→  {
+   125→    icon: MapPin,
+   126→    title: 'Gujarat Location',
+   127→    description: 'Palanpur, Gujarat — well-connected for domestic and export',
+   128→  },
+   129→  {
+   130→    icon: Globe,
+   131→    title: 'Export Ready',
+   132→    description: 'IEC registered, export documentation handled, 81% response rate',
+   133→  },
+   134→]
+   135→
+   136→const faqs = [
+   137→  {
+   138→    q: 'What is the minimum order quantity?',
+   139→    a: "MOQ varies by product — from 50 packs to 50,000 pieces. Share your needs and we'll quote accordingly.",
+   140→  },
+   141→  {
+   142→    q: 'What is the lead time?',
+   143→    a: 'Typically 2-7 days depending on volume and customization. Bulk orders may take longer.',
+   144→  },
+   145→  {
+   146→    q: 'Do you handle export documentation?',
+   147→    a: "Yes. We're IEC registered (AAYFG3170H) and handle all export documentation.",
+   148→  },
+   149→  {
+   150→    q: 'Can I see a sample before bulk order?',
+   151→    a: 'Absolutely. We produce a sample for your approval before starting bulk production.',
+   152→  },
+   153→  {
+   154→    q: 'What payment terms do you offer?',
+   155→    a: 'Payment terms are discussed during spec finalization. Enquire for a quote to discuss.',
+   156→  },
+   157→]
+   158→
+   159→const initialForm = {
+   160→  company: '',
+   161→  name: '',
+   162→  email: '',
+   163→  phone: '',
+   164→  brand: '',
+   165→  market: '',
+   166→  volume: '',
+   167→  productType: '',
+   168→  timeline: '',
+   169→  message: '',
+   170→}
+   171→
+   172→/* --------------------------- helper components ----------------------------- */
+   173→
+   174→function Reveal({
+   175→  children,
+   176→  delay = 0,
+   177→  className = '',
+   178→}: {
+   179→  children: React.ReactNode
+   180→  delay?: number
+   181→  className?: string
+   182→}) {
+   183→  const ref = useRef(null)
+   184→  const inView = useInView(ref, { once: true, margin: '-100px' })
+   185→  return (
+   186→    <motion.div
+   187→      ref={ref}
+   188→      initial={{ opacity: 0, y: 30 }}
+   189→      animate={inView ? { opacity: 1, y: 0 } : {}}
+   190→      transition={{ duration: 0.7, delay }}
+   191→      className={className}
+   192→    >
+   193→      {children}
+   194→    </motion.div>
+   195→  )
+   196→}
+   197→
+   198→interface ProcessStepData {
+   199→  step: string
+   200→  title: string
+   201→  description: string
+   202→}
+   203→
+   204→function ProcessStep({ step, index }: { step: ProcessStepData; index: number }) {
+   205→  const ref = useRef(null)
+   206→  const inView = useInView(ref, { once: true, margin: '-100px' })
+   207→  return (
+   208→    <motion.div
+   209→      ref={ref}
+   210→      initial={{ opacity: 0, y: 30 }}
+   211→      animate={inView ? { opacity: 1, y: 0 } : {}}
+   212→      transition={{ duration: 0.7, delay: index * 0.12 }}
+   213→      className="relative pl-16"
+   214→    >
+   215→      {/* Number circle, sits on the vertical line */}
+   216→      <div className="absolute left-0 top-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#0A0A0A] font-serif-display text-lg text-[#F5B642] ring-1 ring-[#F5B642]/30">
+   217→        {step.step}
+   218→      </div>
+   219→      <GlassCard variant="dark" animate={false} className="p-6" hover>
+   220→        <h3 className="font-serif-display text-xl text-white">{step.title}</h3>
+   221→        <p className="mt-2 text-sm leading-relaxed text-white/60">{step.description}</p>
+   222→      </GlassCard>
+   223→    </motion.div>
+   224→  )
+   225→}
+   226→
+   227→/* --------------------------------- page ----------------------------------- */
+   228→
+   229→export function WhiteLabelPage() {
+   230→  const { openEnquiry } = useEnquiry()
+   231→  const [openFaq, setOpenFaq] = useState<number | null>(0)
+   232→  const [form, setForm] = useState(initialForm)
+   233→
+   234→  usePageMeta({
+   235→    title: 'White-Label Manufacturing',
+   236→    description:
+   237→      'Launch your sanitary product line. Custom sizes, materials, packaging, branding. MOQ flexible. IEC registered exporter. Enquire for quote.',
+   238→  })
+   239→
+   240→  const scrollToProcess = () => {
+   241→    document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' })
+   242→  }
+   243→
+   244→  const handleSubmit = (e: React.FormEvent) => {
+   245→    e.preventDefault()
+   246→    toast.success(
+   247→      'Thank you! Your quote request has been submitted. We will respond within 24 hours.',
+   248→    )
+   249→    setForm(initialForm)
+   250→  }
+   251→
+   252→  const inputClass =
+   253→    'w-full rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm text-white placeholder:text-white/40 outline-none transition-colors focus:border-[#F5B642]'
+   254→
+   255→  return (
+   256→    <div className="bg-[#0A0A0A] text-white">
+   257→      {/* ===== HERO ===== */}
+   258→      <section className="relative flex min-h-[90vh] flex-col overflow-hidden bg-[#0A0A0A]">
+   259→        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(245,182,66,0.04)_0%,_transparent_70%)]" />
+   260→        <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 py-32 text-center">
+   261→          <motion.div
+   262→            initial={{ opacity: 0, y: 20 }}
+   263→            animate={{ opacity: 1, y: 0 }}
+   264→            transition={{ duration: 0.6 }}
+   265→          >
+   266→            <SectionLabel className="justify-center text-center">
+   267→              White-Label Manufacturing
+   268→            </SectionLabel>
+   269→          </motion.div>
+   270→          <motion.h1
+   271→            initial={{ opacity: 0, y: 30 }}
+   272→            animate={{ opacity: 1, y: 0 }}
+   273→            transition={{ duration: 0.8, delay: 0.1 }}
+   274→            className="font-serif-display mt-6 max-w-5xl text-5xl leading-[1.05] tracking-tight text-white md:text-7xl lg:text-8xl"
+   275→          >
+   276→            Your brand. Our <em className="italic text-[#F5B642]">expertise</em>.
+   277→          </motion.h1>
+   278→          <motion.p
+   279→            initial={{ opacity: 0, y: 20 }}
+   280→            animate={{ opacity: 1, y: 0 }}
+   281→            transition={{ duration: 0.7, delay: 0.3 }}
+   282→            className="mt-6 max-w-xl text-base leading-relaxed text-white/70 md:text-lg"
+   283→          >
+   284→            Launch your own sanitary product line without a factory. We manufacture under your
+   285→            label — custom sizes, materials, packaging, and branding.
+   286→          </motion.p>
+   287→          <motion.div
+   288→            initial={{ opacity: 0, y: 20 }}
+   289→            animate={{ opacity: 1, y: 0 }}
+   290→            transition={{ duration: 0.7, delay: 0.5 }}
+   291→            className="mt-10 flex flex-col gap-3 sm:flex-row"
+   292→          >
+   293→            <CTAButton variant="gold" size="lg" onClick={() => openEnquiry()} showArrow>
+   294→              Get Quote
+   295→            </CTAButton>
+   296→            <CTAButton variant="glass" size="lg" onClick={scrollToProcess}>
+   297→              See our process
+   298→            </CTAButton>
+   299→          </motion.div>
+   300→        </div>
+   301→      </section>
+   302→
+   303→      {/* ===== WHAT IS WHITE-LABEL ===== */}
+   304→      <section className="bg-[#0A0A0A] px-6 py-20 md:py-28">
+   305→        <div className="mx-auto max-w-6xl">
+   306→          <Reveal className="mb-12 text-center">
+   307→            <SectionLabel className="justify-center text-center">How it works</SectionLabel>
+   308→            <h2 className="font-serif-display mt-4 text-4xl tracking-tight text-white md:text-5xl">
+   309→              What is white-label <em className="italic text-[#F5B642]">manufacturing</em>?
+   310→            </h2>
+   311→          </Reveal>
+   312→          <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
+   313→            {explainer.map((item, i) => (
+   314→              <GlassCard key={item.step} variant="dark" delay={i * 0.1} className="p-8" hover>
+   315→                <p className="font-serif-display text-5xl text-[#F5B642]">{item.step}</p>
+   316→                <h3 className="font-serif-display mt-4 text-2xl text-white">{item.title}</h3>
+   317→                <p className="mt-3 text-sm leading-relaxed text-white/60">{item.description}</p>
+   318→              </GlassCard>
+   319→            ))}
+   320→          </div>
+   321→        </div>
+   322→      </section>
+   323→
+   324→      {/* ===== WHAT WE OFFER ===== */}
+   325→      <section className="bg-[#0A0A0A] px-6 py-20 md:py-28">
+   326→        <div className="mx-auto max-w-6xl">
+   327→          <Reveal className="mb-12">
+   328→            <SectionLabel>Capabilities</SectionLabel>
+   329→            <h2 className="font-serif-display mt-4 text-4xl tracking-tight text-white md:text-5xl">
+   330→              What we <em className="italic text-[#F5B642]">offer</em>
+   331→            </h2>
+   332→          </Reveal>
+   333→          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+   334→            {offerings.map((item, i) => (
+   335→              <GlassCard key={item.title} variant="dark" delay={i * 0.1} className="p-6" hover>
+   336→                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#F5B642]/10">
+   337→                  <item.icon size={22} className="text-[#F5B642]" />
+   338→                </div>
+   339→                <h3 className="font-serif-display text-xl text-white">{item.title}</h3>
+   340→                <p className="mt-2 text-sm leading-relaxed text-white/60">{item.description}</p>
+   341→              </GlassCard>
+   342→            ))}
+   343→          </div>
+   344→        </div>
+   345→      </section>
+   346→
+   347→      {/* ===== CUSTOMIZATION OPTIONS ===== */}
+   348→      <section className="bg-[#0A0A0A] px-6 py-20 md:py-28">
+   349→        <div className="mx-auto max-w-6xl">
+   350→          <Reveal className="mb-12">
+   351→            <SectionLabel>Full control</SectionLabel>
+   352→            <h2 className="font-serif-display mt-4 text-4xl tracking-tight text-white md:text-5xl">
+   353→              Customization <em className="italic text-[#F5B642]">options</em>
+   354→            </h2>
+   355→          </Reveal>
+   356→          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
+   357→            <GlassCard variant="dark" className="p-8 md:p-10">
+   358→              <h3 className="font-serif-display text-2xl text-white">Product Specifications</h3>
+   359→              <ul className="mt-6 space-y-4">
+   360→                {productSpecs.map((spec) => (
+   361→                  <li key={spec.label} className="flex items-start gap-3">
+   362→                    <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-[#F5B642]" />
+   363→                    <div>
+   364→                      <p className="text-xs uppercase tracking-widest text-white/40">
+   365→                        {spec.label}
+   366→                      </p>
+   367→                      <p className="mt-1 text-sm text-white/80">{spec.value}</p>
+   368→                    </div>
+   369→                  </li>
+   370→                ))}
+   371→              </ul>
+   372→            </GlassCard>
+   373→            <GlassCard variant="dark" delay={0.1} className="p-8 md:p-10">
+   374→              <h3 className="font-serif-display text-2xl text-white">Packaging &amp; Branding</h3>
+   375→              <ul className="mt-6 space-y-4">
+   376→                {packagingSpecs.map((spec) => (
+   377→                  <li key={spec.label} className="flex items-start gap-3">
+   378→                    <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-[#F5B642]" />
+   379→                    <div>
+   380→                      <p className="text-xs uppercase tracking-widest text-white/40">
+   381→                        {spec.label}
+   382→                      </p>
+   383→                      <p className="mt-1 text-sm text-white/80">{spec.value}</p>
+   384→                    </div>
+   385→                  </li>
+   386→                ))}
+   387→              </ul>
+   388→            </GlassCard>
+   389→          </div>
+   390→        </div>
+   391→      </section>
+   392→
+   393→      {/* ===== PROCESS ===== */}
+   394→      <section id="process" className="bg-[#0A0A0A] px-6 py-20 md:py-28">
+   395→        <div className="mx-auto max-w-4xl">
+   396→          <Reveal className="mb-12 text-center">
+   397→            <SectionLabel className="justify-center text-center">Step by step</SectionLabel>
+   398→            <h2 className="font-serif-display mt-4 text-4xl tracking-tight text-white md:text-5xl">
+   399→              Our <em className="italic text-[#F5B642]">process</em>
+   400→            </h2>
+   401→          </Reveal>
+   402→          <div className="relative">
+   403→            {/* Vertical line — sits behind the number circles */}
+   404→            <div className="absolute left-6 top-4 h-[calc(100%-2rem)] w-px bg-white/10" />
+   405→            <div className="space-y-6">
+   406→              {processSteps.map((step, i) => (
+   407→                <ProcessStep key={step.step} step={step} index={i} />
+   408→              ))}
+   409→            </div>
+   410→          </div>
+   411→        </div>
+   412→      </section>
+   413→
+   414→      {/* ===== WHY PARTNER WITH US ===== */}
+   415→      <section className="bg-[#0A0A0A] px-6 py-20 md:py-28">
+   416→        <div className="mx-auto max-w-6xl">
+   417→          <Reveal className="mb-12 text-center">
+   418→            <SectionLabel className="justify-center text-center">Why us</SectionLabel>
+   419→            <h2 className="font-serif-display mt-4 text-4xl tracking-tight text-white md:text-5xl">
+   420→              Why partner with <em className="italic text-[#F5B642]">us</em>
+   421→            </h2>
+   422→          </Reveal>
+   423→          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+   424→            {whyPartner.map((item, i) => (
+   425→              <GlassCard key={item.title} variant="dark" delay={i * 0.1} className="p-6" hover>
+   426→                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#F5B642]/10">
+   427→                  <item.icon size={22} className="text-[#F5B642]" />
+   428→                </div>
+   429→                <h3 className="font-serif-display text-xl text-white">{item.title}</h3>
+   430→                <p className="mt-2 text-sm leading-relaxed text-white/60">{item.description}</p>
+   431→              </GlassCard>
+   432→            ))}
+   433→          </div>
+   434→        </div>
+   435→      </section>
+   436→
+   437→      {/* ===== FAQ ===== */}
+   438→      <section className="bg-[#0A0A0A] px-6 py-20 md:py-28">
+   439→        <div className="mx-auto max-w-3xl">
+   440→          <Reveal className="mb-12 text-center">
+   441→            <SectionLabel className="justify-center text-center">FAQ</SectionLabel>
+   442→            <h2 className="font-serif-display mt-4 text-4xl tracking-tight text-white md:text-5xl">
+   443→              Frequently asked <em className="italic text-[#F5B642]">questions</em>
+   444→            </h2>
+   445→          </Reveal>
+   446→          <div className="space-y-3">
+   447→            {faqs.map((faq, i) => {
+   448→              const isOpen = openFaq === i
+   449→              return (
+   450→                <button
+   451→                  key={faq.q}
+   452→                  type="button"
+   453→                  onClick={() => setOpenFaq(isOpen ? null : i)}
+   454→                  className="liquid-glass w-full rounded-2xl px-6 py-5 text-left transition-colors hover:bg-white/[0.02]"
+   455→                  aria-expanded={isOpen}
+   456→                >
+   457→                  <div className="flex items-center justify-between gap-4">
+   458→                    <span className="font-serif-display text-lg text-white">{faq.q}</span>
+   459→                    {isOpen ? (
+   460→                      <Minus size={18} className="shrink-0 text-[#F5B642]" />
+   461→                    ) : (
+   462→                      <Plus size={18} className="shrink-0 text-[#F5B642]" />
+   463→                    )}
+   464→                  </div>
+   465→                  <div
+   466→                    className={`grid transition-all duration-300 ${
+   467→                      isOpen ? 'mt-3 grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+   468→                    }`}
+   469→                  >
+   470→                    <div className="overflow-hidden">
+   471→                      <p className="text-sm leading-relaxed text-white/60">{faq.a}</p>
+   472→                    </div>
+   473→                  </div>
+   474→                </button>
+   475→              )
+   476→            })}
+   477→          </div>
+   478→        </div>
+   479→      </section>
+   480→
+   481→      {/* ===== ENQUIRY FORM CTA ===== */}
+   482→      <section className="relative overflow-hidden bg-[#0A0A0A] px-6 py-20 md:py-28">
+   483→        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(245,182,66,0.04)_0%,_transparent_60%)]" />
+   484→        <div className="relative mx-auto max-w-4xl">
+   485→          <Reveal className="mb-10 text-center">
+   486→            <SectionLabel className="justify-center text-center">Let&apos;s begin</SectionLabel>
+   487→            <h2 className="font-serif-display mt-4 text-4xl tracking-tight text-white md:text-6xl">
+   488→              Ready to launch your <em className="italic text-[#F5B642]">brand</em>?
+   489→            </h2>
+   490→          </Reveal>
+   491→          <GlassCard variant="dark" className="p-8 md:p-12">
+   492→            <form onSubmit={handleSubmit} className="space-y-5">
+   493→              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+   494→                <div>
+   495→                  <label
+   496→                    className="mb-1.5 block text-xs uppercase tracking-widest text-white/40"
+   497→                    htmlFor="wl-company"
+   498→                  >
+   499→                    Company Name *
+   500→                  </label>
+   501→                  <input
+   502→                    id="wl-company"
+   503→                    required
+   504→                    value={form.company}
+   505→                    onChange={(e) => setForm({ ...form, company: e.target.value })}
+   506→                    className={inputClass}
+   507→                    placeholder="Your company"
+   508→                  />
+   509→                </div>
+   510→                <div>
+   511→                  <label
+   512→                    className="mb-1.5 block text-xs uppercase tracking-widest text-white/40"
+   513→                    htmlFor="wl-name"
+   514→                  >
+   515→                    Your Name *
+   516→                  </label>
+   517→                  <input
+   518→                    id="wl-name"
+   519→                    required
+   520→                    value={form.name}
+   521→                    onChange={(e) => setForm({ ...form, name: e.target.value })}
+   522→                    className={inputClass}
+   523→                    placeholder="Your name"
+   524→                  />
+   525→                </div>
+   526→                <div>
+   527→                  <label
+   528→                    className="mb-1.5 block text-xs uppercase tracking-widest text-white/40"
+   529→                    htmlFor="wl-email"
+   530→                  >
+   531→                    Email *
+   532→                  </label>
+   533→                  <input
+   534→                    id="wl-email"
+   535→                    type="email"
+   536→                    required
+   537→                    value={form.email}
+   538→                    onChange={(e) => setForm({ ...form, email: e.target.value })}
+   539→                    className={inputClass}
+   540→                    placeholder="you@email.com"
+   541→                  />
+   542→                </div>
+   543→                <div>
+   544→                  <label
+   545→                    className="mb-1.5 block text-xs uppercase tracking-widest text-white/40"
+   546→                    htmlFor="wl-phone"
+   547→                  >
+   548→                    Phone *
+   549→                  </label>
+   550→                  <input
+   551→                    id="wl-phone"
+   552→                    required
+   553→                    value={form.phone}
+   554→                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
+   555→                    className={inputClass}
+   556→                    placeholder="+91 ..."
+   557→                  />
+   558→                </div>
+   559→                <div>
+   560→                  <label
+   561→                    className="mb-1.5 block text-xs uppercase tracking-widest text-white/40"
+   562→                    htmlFor="wl-brand"
+   563→                  >
+   564→                    Brand Name
+   565→                  </label>
+   566→                  <input
+   567→                    id="wl-brand"
+   568→                    value={form.brand}
+   569→                    onChange={(e) => setForm({ ...form, brand: e.target.value })}
+   570→                    className={inputClass}
+   571→                    placeholder="Brand to launch"
+   572→                  />
+   573→                </div>
+   574→                <div>
+   575→                  <label
+   576→                    className="mb-1.5 block text-xs uppercase tracking-widest text-white/40"
+   577→                    htmlFor="wl-market"
+   578→                  >
+   579→                    Target Market
+   580→                  </label>
+   581→                  <input
+   582→                    id="wl-market"
+   583→                    value={form.market}
+   584→                    onChange={(e) => setForm({ ...form, market: e.target.value })}
+   585→                    className={inputClass}
+   586→                    placeholder="India, export, region..."
+   587→                  />
+   588→                </div>
+   589→                <div>
+   590→                  <label
+   591→                    className="mb-1.5 block text-xs uppercase tracking-widest text-white/40"
+   592→                    htmlFor="wl-volume"
+   593→                  >
+   594→                    Expected Volume
+   595→                  </label>
+   596→                  <input
+   597→                    id="wl-volume"
+   598→                    value={form.volume}
+   599→                    onChange={(e) => setForm({ ...form, volume: e.target.value })}
+   600→                    className={inputClass}
+   601→                    placeholder="e.g. 50,000 pcs/month"
+   602→                  />
+   603→                </div>
+   604→                <div>
+   605→                  <label
+   606→                    className="mb-1.5 block text-xs uppercase tracking-widest text-white/40"
+   607→                    htmlFor="wl-type"
+   608→                  >
+   609→                    Product Type
+   610→                  </label>
+   611→                  <input
+   612→                    id="wl-type"
+   613→                    value={form.productType}
+   614→                    onChange={(e) => setForm({ ...form, productType: e.target.value })}
+   615→                    className={inputClass}
+   616→                    placeholder="Napkin, pad, size..."
+   617→                  />
+   618→                </div>
+   619→                <div className="sm:col-span-2">
+   620→                  <label
+   621→                    className="mb-1.5 block text-xs uppercase tracking-widest text-white/40"
+   622→                    htmlFor="wl-timeline"
+   623→                  >
+   624→                    Timeline
+   625→                  </label>
+   626→                  <input
+   627→                    id="wl-timeline"
+   628→                    value={form.timeline}
+   629→                    onChange={(e) => setForm({ ...form, timeline: e.target.value })}
+   630→                    className={inputClass}
+   631→                    placeholder="e.g. 30 days, ASAP, Q1 2026..."
+   632→                  />
+   633→                </div>
+   634→              </div>
+   635→              <div>
+   636→                <label
+   637→                  className="mb-1.5 block text-xs uppercase tracking-widest text-white/40"
+   638→                  htmlFor="wl-message"
+   639→                >
+   640→                  Message
+   641→                </label>
+   642→                <textarea
+   643→                  id="wl-message"
+   644→                  rows={3}
+   645→                  value={form.message}
+   646→                  onChange={(e) => setForm({ ...form, message: e.target.value })}
+   647→                  className={`w-full rounded-2xl border border-white/15 bg-white/5 px-5 py-3 text-sm text-white placeholder:text-white/40 outline-none transition-colors focus:border-[#F5B642]`}
+   648→                  placeholder="Anything else we should know?"
+   649→                />
+   650→              </div>
+   651→              <div className="flex flex-col items-center justify-between gap-4 pt-2 sm:flex-row">
+   652→                <p className="text-xs leading-relaxed text-white/40">
+   653→                  We respond within 24 hours. No pricing displayed publicly — all quotes are
+   654→                  custom.
+   655→                </p>
+   656→                <motion.button
+   657→                  type="submit"
+   658→                  whileHover={{ scale: 1.03 }}
+   659→                  whileTap={{ scale: 0.97 }}
+   660→                  className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#F5B642] px-8 py-3.5 text-base font-medium text-black transition-colors hover:bg-[#FFC857]"
+   661→                >
+   662→                  <Send size={16} /> Request Quote
+   663→                </motion.button>
+   664→              </div>
+   665→            </form>
+   666→          </GlassCard>
+   667→        </div>
+   668→      </section>
+   669→    </div>
+   670→  )
+   671→}
+   672→

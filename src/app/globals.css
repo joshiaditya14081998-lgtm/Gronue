@@ -138,17 +138,99 @@
   --groneu-border: rgba(255, 255, 255, 0.10);
 }
 
+/* ============================================================
+   SEMANTIC THEME TOKENS — single source of truth for components
+   Light = default (:root), Dark = .dark on <html>
+   Components use: bg-[var(--bg)] text-[var(--text)] etc.
+   ============================================================ */
+:root {
+  /* Surfaces */
+  --bg: #FAFAF7;                          /* page background — warm off-white */
+  --bg-solid: #FFFFFF;                    /* solid card background */
+  --bg-elevated: rgba(14, 142, 142, 0.04); /* elevated/active surface */
+  --bg-input: #FFFFFF;                    /* form input background */
+
+  /* Text */
+  --text: #1A2E2E;                        /* primary text — deep teal-charcoal */
+  --text-muted: #5A6B6B;                  /* secondary text */
+  --text-dim: #8A9A9A;                    /* labels, captions */
+
+  /* Borders */
+  --border: #E8E8E2;                      /* card borders */
+  --border-strong: rgba(14, 142, 142, 0.20);
+
+  /* Accents */
+  --accent: #0E8E8E;                      /* primary accent (teal on light) */
+  --accent-hover: #0A6E6E;
+  --accent-soft: rgba(14, 142, 142, 0.10);
+  --accent-text: #FFFFFF;                 /* text on accent (teal button = white text) */
+  --accent-secondary: #D4960E;            /* gold micro-accent on light (darker for contrast) */
+
+  /* Trust signal (teal for certs/checkmarks — same in both themes) */
+  --trust: #0E8E8E;
+
+  /* Navbar */
+  --nav-bg: rgba(250, 250, 247, 0.80);    /* scrolled navbar bg */
+  --nav-glass-bg: rgba(14, 142, 142, 0.02); /* top (transparent) navbar */
+
+  /* WhatsApp stays green in both */
+  --whatsapp: #25D366;
+
+  /* Code (prevents FOUC) — default to dark since dark is default theme */
+  color-scheme: dark;
+}
+
+.dark {
+  /* Surfaces */
+  --bg: #0A0A0A;                          /* page background — warm-tinted near-black */
+  --bg-solid: rgba(255, 255, 255, 0.04);  /* solid card background (glass) */
+  --bg-elevated: rgba(255, 255, 255, 0.06);
+  --bg-input: rgba(255, 255, 255, 0.05);
+
+  /* Text */
+  --text: #FFFFFF;
+  --text-muted: rgba(255, 255, 255, 0.60);
+  --text-dim: rgba(255, 255, 255, 0.40);
+
+  /* Borders */
+  --border: rgba(255, 255, 255, 0.10);
+  --border-strong: rgba(245, 182, 66, 0.25);
+
+  /* Accents */
+  --accent: #F5B642;                      /* primary accent (gold on dark) */
+  --accent-hover: #FFC857;
+  --accent-soft: rgba(245, 182, 66, 0.12);
+  --accent-text: #0A0A0A;                 /* text on accent (gold button = black text) */
+  --accent-secondary: #0E8E8E;            /* teal micro-accent on dark */
+
+  /* Trust signal (teal for certs/checkmarks — same in both themes) */
+  --trust: #0E8E8E;
+
+  /* Navbar */
+  --nav-bg: rgba(10, 10, 10, 0.80);       /* scrolled navbar bg */
+  --nav-glass-bg: rgba(255, 255, 255, 0.01); /* top (transparent) navbar */
+
+  --whatsapp: #25D366;
+
+  color-scheme: dark;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   html {
-    background-color: #000;
+    background-color: var(--bg);
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--bg);
+    color: var(--text);
     font-family: var(--font-sans);
+  }
+  /* Smooth theme transition */
+  body, .theme-transition * {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.15s ease;
   }
 }
 
@@ -209,6 +291,38 @@
       rgba(14, 142, 142, 0) 60%,
       rgba(14, 142, 142, 0.1) 80%,
       rgba(14, 142, 142, 0.3) 100%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* ============================================================
+     THEME-AWARE GLASS — uses CSS variables, works in both themes
+     Use this for all new/refactored components
+     ============================================================ */
+  .glass-surface {
+    background: var(--bg-solid);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid var(--border);
+    box-shadow: inset 0 1px 1px var(--accent-soft), 0 1px 3px rgba(0, 0, 0, 0.04);
+    position: relative;
+    overflow: hidden;
+  }
+  .glass-surface::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.4px;
+    background: linear-gradient(
+      180deg,
+      var(--accent-soft) 0%,
+      transparent 40%,
+      transparent 60%,
+      var(--accent-soft) 100%
     );
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;

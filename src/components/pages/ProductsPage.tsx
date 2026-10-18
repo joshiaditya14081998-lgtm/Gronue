@@ -73,7 +73,7 @@ export function ProductsPage() {
   }
 
   return (
-    <div className="bg-[#0A0A0A] text-white">
+    <div className="bg-[var(--bg)] text-[var(--text)]">
       {/* ===== HERO ===== */}
       <section className="px-6 pt-12 pb-8">
         <div className="mx-auto max-w-6xl">
@@ -82,15 +82,15 @@ export function ProductsPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="font-serif-display mt-4 max-w-4xl text-4xl tracking-tight text-white md:text-6xl lg:text-7xl"
+            className="font-serif-display mt-4 max-w-4xl text-4xl tracking-tight text-[var(--text)] md:text-6xl lg:text-7xl"
           >
-            Designed for comfort. Made for <em className="italic text-[#F5B642]">you</em>.
+            Designed for comfort. Made for <em className="italic text-[var(--accent)]">you</em>.
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="mt-6 max-w-2xl text-base leading-relaxed text-white/60 md:text-lg"
+            className="mt-6 max-w-2xl text-base leading-relaxed text-[var(--text-muted)] md:text-lg"
           >
             28+ products in cottony soft and dry net, sizes L to XXXL. Manufactured in Palanpur,
             Gujarat.
@@ -101,11 +101,11 @@ export function ProductsPage() {
       {/* ===== FILTER BAR ===== */}
       <section className="sticky top-20 z-20 px-6 pb-6">
         <div className="mx-auto max-w-6xl">
-          <div className="liquid-glass rounded-3xl p-4 md:p-5">
+          <div className="glass-surface rounded-3xl p-4 md:p-5">
             <div className="flex flex-col gap-4">
               {/* Categories */}
               <div className="flex flex-wrap items-center gap-2">
-                <span className="mr-2 text-xs uppercase tracking-widest text-white/40">
+                <span className="mr-2 text-xs uppercase tracking-widest text-[var(--text-dim)]">
                   Category
                 </span>
                 {CATEGORIES.map((cat) => (
@@ -114,8 +114,8 @@ export function ProductsPage() {
                     onClick={() => setCategory(cat.id)}
                     className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
                       category === cat.id
-                        ? 'bg-[#F5B642] text-black'
-                        : 'border border-white/10 bg-white/5 text-white/60 hover:bg-white/10'
+                        ? 'bg-[var(--accent)] text-[var(--accent-text)]'
+                        : 'border border-[var(--border)] bg-[var(--bg-elevated)] text-[var(--text-muted)] hover:bg-[var(--bg-elevated)]'
                     }`}
                   >
                     {cat.label} <span className="opacity-60">({cat.count})</span>
@@ -126,15 +126,15 @@ export function ProductsPage() {
               {/* Sizes + Top sheet */}
               <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="mr-1 text-xs uppercase tracking-widest text-white/40">Size</span>
+                  <span className="mr-1 text-xs uppercase tracking-widest text-[var(--text-dim)]">Size</span>
                   {SIZES.map((s) => (
                     <button
                       key={s}
                       onClick={() => setSize(s)}
                       className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
                         size === s
-                          ? 'bg-white/10 text-white'
-                          : 'border border-white/10 bg-white/5 text-white/60 hover:bg-white/10'
+                          ? 'bg-[var(--bg-elevated)] text-[var(--text)]'
+                          : 'border border-[var(--border)] bg-[var(--bg-elevated)] text-[var(--text-muted)] hover:bg-[var(--bg-elevated)]'
                       }`}
                     >
                       {s}
@@ -142,7 +142,7 @@ export function ProductsPage() {
                   ))}
                 </div>
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="mr-1 text-xs uppercase tracking-widest text-white/40">
+                  <span className="mr-1 text-xs uppercase tracking-widest text-[var(--text-dim)]">
                     Top Sheet
                   </span>
                   {TOP_SHEETS.map((t) => (
@@ -151,8 +151,8 @@ export function ProductsPage() {
                       onClick={() => setTopSheet(t)}
                       className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
                         topSheet === t
-                          ? 'bg-white/10 text-white'
-                          : 'border border-white/10 bg-white/5 text-white/60 hover:bg-white/10'
+                          ? 'bg-[var(--bg-elevated)] text-[var(--text)]'
+                          : 'border border-[var(--border)] bg-[var(--bg-elevated)] text-[var(--text-muted)] hover:bg-[var(--bg-elevated)]'
                       }`}
                     >
                       {t}
@@ -169,20 +169,20 @@ export function ProductsPage() {
       <section className="px-6 pb-16">
         <div className="mx-auto max-w-6xl">
           <div className="mb-6 flex items-center justify-between">
-            <p className="text-sm text-white/60">
+            <p className="text-sm text-[var(--text-muted)]">
               Showing{' '}
-              <span className="font-medium text-white">{filtered.length}</span> of{' '}
+              <span className="font-medium text-[var(--text)]">{filtered.length}</span> of{' '}
               {products.length} products
             </p>
           </div>
 
           {filtered.length === 0 ? (
-            <div className="rounded-3xl border border-white/10 liquid-glass p-12 text-center">
-              <PackageCheck size={48} className="mx-auto text-white/40" />
-              <p className="mt-4 text-white/60">No products match these filters.</p>
+            <div className="rounded-3xl border border-[var(--border)] glass-surface p-12 text-center">
+              <PackageCheck size={48} className="mx-auto text-[var(--text-dim)]" />
+              <p className="mt-4 text-[var(--text-muted)]">No products match these filters.</p>
               <button
                 onClick={clearFilters}
-                className="mt-4 text-sm font-medium text-[#F5B642] hover:underline"
+                className="mt-4 text-sm font-medium text-[var(--accent)] hover:underline"
               >
                 Clear filters
               </button>
@@ -200,14 +200,14 @@ export function ProductsPage() {
       {/* ===== BULK ENQUIRY CTA ===== */}
       <section className="px-6 pb-24">
         <div className="mx-auto max-w-6xl">
-          <div className="liquid-glass rounded-3xl p-8 md:p-12">
+          <div className="glass-surface rounded-3xl p-8 md:p-12">
             <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
               <div>
                 <SectionLabel>Bulk &amp; Distributor Enquiry</SectionLabel>
-                <h2 className="font-serif-display mt-3 text-3xl tracking-tight text-white md:text-4xl">
+                <h2 className="font-serif-display mt-3 text-3xl tracking-tight text-[var(--text)] md:text-4xl">
                   Looking for bulk quantities?
                 </h2>
-                <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/60 md:text-base">
+                <p className="mt-3 max-w-xl text-sm leading-relaxed text-[var(--text-muted)] md:text-base">
                   We offer competitive pricing for distributors, wholesalers, NGOs and hospitality
                   buyers. Tell us your volume and we&apos;ll send a custom quote.
                 </p>
@@ -240,30 +240,30 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: 0.05 * index }}
       onClick={() => navigateToProduct(product.slug)}
-      className="group cursor-pointer overflow-hidden rounded-3xl border border-white/10 liquid-glass shadow-sm transition-shadow hover:shadow-md"
+      className="group cursor-pointer overflow-hidden rounded-3xl border border-[var(--border)] glass-surface shadow-sm transition-shadow hover:shadow-md"
     >
       {/* Image area */}
       <div
         className="flex aspect-square items-center justify-center"
         style={{ backgroundColor: product.placeholderColor }}
       >
-        <PackageCheck size={56} className="text-white/30" />
+        <PackageCheck size={56} className="text-[var(--text-dim)]" />
       </div>
 
       {/* Body */}
       <div className="p-5">
-        <p className="text-xs uppercase tracking-widest text-[#0E8E8E]">{product.brand}</p>
-        <h3 className="font-serif-display mt-1 text-lg leading-tight text-white">
+        <p className="text-xs uppercase tracking-widest text-[var(--trust)]">{product.brand}</p>
+        <h3 className="font-serif-display mt-1 text-lg leading-tight text-[var(--text)]">
           {product.name}
         </h3>
-        <p className="mt-2 text-xs text-white/60">
+        <p className="mt-2 text-xs text-[var(--text-muted)]">
           {product.size} · {product.length} · {product.topSheet}
         </p>
         <div className="mt-4 flex items-center justify-between">
-          <p className="text-sm font-medium text-white">
+          <p className="text-sm font-medium text-[var(--text)]">
             {product.price} / {product.priceUnit}
           </p>
-          <span className="inline-flex items-center gap-1 text-xs font-medium text-[#F5B642] transition-transform group-hover:translate-x-0.5">
+          <span className="inline-flex items-center gap-1 text-xs font-medium text-[var(--accent)] transition-transform group-hover:translate-x-0.5">
             View Details <ArrowRight size={14} />
           </span>
         </div>

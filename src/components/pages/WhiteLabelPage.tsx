@@ -213,12 +213,12 @@ function ProcessStep({ step, index }: { step: ProcessStepData; index: number }) 
       className="relative pl-16"
     >
       {/* Number circle, sits on the vertical line */}
-      <div className="absolute left-0 top-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#0A0A0A] font-serif-display text-lg text-[#F5B642] ring-1 ring-[#F5B642]/30">
+      <div className="absolute left-0 top-3 flex h-12 w-12 items-center justify-center rounded-full bg-[var(--bg)] font-serif-display text-lg text-[var(--accent)] ring-1 ring-[var(--accent)]/30">
         {step.step}
       </div>
       <GlassCard variant="dark" animate={false} className="p-6" hover>
-        <h3 className="font-serif-display text-xl text-white">{step.title}</h3>
-        <p className="mt-2 text-sm leading-relaxed text-white/60">{step.description}</p>
+        <h3 className="font-serif-display text-xl text-[var(--text)]">{step.title}</h3>
+        <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">{step.description}</p>
       </GlassCard>
     </motion.div>
   )
@@ -250,12 +250,12 @@ export function WhiteLabelPage() {
   }
 
   const inputClass =
-    'w-full rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm text-white placeholder:text-white/40 outline-none transition-colors focus:border-[#F5B642]'
+    'w-full rounded-full border border-[var(--border)] bg-[var(--bg-input)] px-5 py-3 text-sm text-[var(--text)] placeholder:text-[var(--text-dim)] outline-none transition-colors focus:border-[var(--accent)]'
 
   return (
-    <div className="bg-[#0A0A0A] text-white">
+    <div className="bg-[var(--bg)] text-[var(--text)]">
       {/* ===== HERO ===== */}
-      <section className="relative flex min-h-[90vh] flex-col overflow-hidden bg-[#0A0A0A]">
+      <section className="relative flex min-h-[90vh] flex-col overflow-hidden bg-[var(--bg)]">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(245,182,66,0.04)_0%,_transparent_70%)]" />
         <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 py-32 text-center">
           <motion.div
@@ -271,15 +271,15 @@ export function WhiteLabelPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-serif-display mt-6 max-w-5xl text-5xl leading-[1.05] tracking-tight text-white md:text-7xl lg:text-8xl"
+            className="font-serif-display mt-6 max-w-5xl text-5xl leading-[1.05] tracking-tight text-[var(--text)] md:text-7xl lg:text-8xl"
           >
-            Your brand. Our <em className="italic text-[#F5B642]">expertise</em>.
+            Your brand. Our <em className="italic text-[var(--accent)]">expertise</em>.
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="mt-6 max-w-xl text-base leading-relaxed text-white/70 md:text-lg"
+            className="mt-6 max-w-xl text-base leading-relaxed text-[var(--text-muted)] md:text-lg"
           >
             Launch your own sanitary product line without a factory. We manufacture under your
             label — custom sizes, materials, packaging, and branding.
@@ -301,20 +301,20 @@ export function WhiteLabelPage() {
       </section>
 
       {/* ===== WHAT IS WHITE-LABEL ===== */}
-      <section className="bg-[#0A0A0A] px-6 py-20 md:py-28">
+      <section className="bg-[var(--bg)] px-6 py-20 md:py-28">
         <div className="mx-auto max-w-6xl">
           <Reveal className="mb-12 text-center">
             <SectionLabel className="justify-center text-center">How it works</SectionLabel>
-            <h2 className="font-serif-display mt-4 text-4xl tracking-tight text-white md:text-5xl">
-              What is white-label <em className="italic text-[#F5B642]">manufacturing</em>?
+            <h2 className="font-serif-display mt-4 text-4xl tracking-tight text-[var(--text)] md:text-5xl">
+              What is white-label <em className="italic text-[var(--accent)]">manufacturing</em>?
             </h2>
           </Reveal>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
             {explainer.map((item, i) => (
               <GlassCard key={item.step} variant="dark" delay={i * 0.1} className="p-8" hover>
-                <p className="font-serif-display text-5xl text-[#F5B642]">{item.step}</p>
-                <h3 className="font-serif-display mt-4 text-2xl text-white">{item.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-white/60">{item.description}</p>
+                <p className="font-serif-display text-5xl text-[var(--accent)]">{item.step}</p>
+                <h3 className="font-serif-display mt-4 text-2xl text-[var(--text)]">{item.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-[var(--text-muted)]">{item.description}</p>
               </GlassCard>
             ))}
           </div>
@@ -322,22 +322,22 @@ export function WhiteLabelPage() {
       </section>
 
       {/* ===== WHAT WE OFFER ===== */}
-      <section className="bg-[#0A0A0A] px-6 py-20 md:py-28">
+      <section className="bg-[var(--bg)] px-6 py-20 md:py-28">
         <div className="mx-auto max-w-6xl">
           <Reveal className="mb-12">
             <SectionLabel>Capabilities</SectionLabel>
-            <h2 className="font-serif-display mt-4 text-4xl tracking-tight text-white md:text-5xl">
-              What we <em className="italic text-[#F5B642]">offer</em>
+            <h2 className="font-serif-display mt-4 text-4xl tracking-tight text-[var(--text)] md:text-5xl">
+              What we <em className="italic text-[var(--accent)]">offer</em>
             </h2>
           </Reveal>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {offerings.map((item, i) => (
               <GlassCard key={item.title} variant="dark" delay={i * 0.1} className="p-6" hover>
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#F5B642]/10">
-                  <item.icon size={22} className="text-[#F5B642]" />
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--accent-soft)]">
+                  <item.icon size={22} className="text-[var(--accent)]" />
                 </div>
-                <h3 className="font-serif-display text-xl text-white">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/60">{item.description}</p>
+                <h3 className="font-serif-display text-xl text-[var(--text)]">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">{item.description}</p>
               </GlassCard>
             ))}
           </div>
@@ -345,42 +345,42 @@ export function WhiteLabelPage() {
       </section>
 
       {/* ===== CUSTOMIZATION OPTIONS ===== */}
-      <section className="bg-[#0A0A0A] px-6 py-20 md:py-28">
+      <section className="bg-[var(--bg)] px-6 py-20 md:py-28">
         <div className="mx-auto max-w-6xl">
           <Reveal className="mb-12">
             <SectionLabel>Full control</SectionLabel>
-            <h2 className="font-serif-display mt-4 text-4xl tracking-tight text-white md:text-5xl">
-              Customization <em className="italic text-[#F5B642]">options</em>
+            <h2 className="font-serif-display mt-4 text-4xl tracking-tight text-[var(--text)] md:text-5xl">
+              Customization <em className="italic text-[var(--accent)]">options</em>
             </h2>
           </Reveal>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
             <GlassCard variant="dark" className="p-8 md:p-10">
-              <h3 className="font-serif-display text-2xl text-white">Product Specifications</h3>
+              <h3 className="font-serif-display text-2xl text-[var(--text)]">Product Specifications</h3>
               <ul className="mt-6 space-y-4">
                 {productSpecs.map((spec) => (
                   <li key={spec.label} className="flex items-start gap-3">
-                    <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-[#F5B642]" />
+                    <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-[var(--accent)]" />
                     <div>
-                      <p className="text-xs uppercase tracking-widest text-white/40">
+                      <p className="text-xs uppercase tracking-widest text-[var(--text-dim)]">
                         {spec.label}
                       </p>
-                      <p className="mt-1 text-sm text-white/80">{spec.value}</p>
+                      <p className="mt-1 text-sm text-[var(--text-muted)]">{spec.value}</p>
                     </div>
                   </li>
                 ))}
               </ul>
             </GlassCard>
             <GlassCard variant="dark" delay={0.1} className="p-8 md:p-10">
-              <h3 className="font-serif-display text-2xl text-white">Packaging &amp; Branding</h3>
+              <h3 className="font-serif-display text-2xl text-[var(--text)]">Packaging &amp; Branding</h3>
               <ul className="mt-6 space-y-4">
                 {packagingSpecs.map((spec) => (
                   <li key={spec.label} className="flex items-start gap-3">
-                    <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-[#F5B642]" />
+                    <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-[var(--accent)]" />
                     <div>
-                      <p className="text-xs uppercase tracking-widest text-white/40">
+                      <p className="text-xs uppercase tracking-widest text-[var(--text-dim)]">
                         {spec.label}
                       </p>
-                      <p className="mt-1 text-sm text-white/80">{spec.value}</p>
+                      <p className="mt-1 text-sm text-[var(--text-muted)]">{spec.value}</p>
                     </div>
                   </li>
                 ))}
@@ -391,17 +391,17 @@ export function WhiteLabelPage() {
       </section>
 
       {/* ===== PROCESS ===== */}
-      <section id="process" className="bg-[#0A0A0A] px-6 py-20 md:py-28">
+      <section id="process" className="bg-[var(--bg)] px-6 py-20 md:py-28">
         <div className="mx-auto max-w-4xl">
           <Reveal className="mb-12 text-center">
             <SectionLabel className="justify-center text-center">Step by step</SectionLabel>
-            <h2 className="font-serif-display mt-4 text-4xl tracking-tight text-white md:text-5xl">
-              Our <em className="italic text-[#F5B642]">process</em>
+            <h2 className="font-serif-display mt-4 text-4xl tracking-tight text-[var(--text)] md:text-5xl">
+              Our <em className="italic text-[var(--accent)]">process</em>
             </h2>
           </Reveal>
           <div className="relative">
             {/* Vertical line — sits behind the number circles */}
-            <div className="absolute left-6 top-4 h-[calc(100%-2rem)] w-px bg-white/10" />
+            <div className="absolute left-6 top-4 h-[calc(100%-2rem)] w-px bg-[var(--border)]" />
             <div className="space-y-6">
               {processSteps.map((step, i) => (
                 <ProcessStep key={step.step} step={step} index={i} />
@@ -412,22 +412,22 @@ export function WhiteLabelPage() {
       </section>
 
       {/* ===== WHY PARTNER WITH US ===== */}
-      <section className="bg-[#0A0A0A] px-6 py-20 md:py-28">
+      <section className="bg-[var(--bg)] px-6 py-20 md:py-28">
         <div className="mx-auto max-w-6xl">
           <Reveal className="mb-12 text-center">
             <SectionLabel className="justify-center text-center">Why us</SectionLabel>
-            <h2 className="font-serif-display mt-4 text-4xl tracking-tight text-white md:text-5xl">
-              Why partner with <em className="italic text-[#F5B642]">us</em>
+            <h2 className="font-serif-display mt-4 text-4xl tracking-tight text-[var(--text)] md:text-5xl">
+              Why partner with <em className="italic text-[var(--accent)]">us</em>
             </h2>
           </Reveal>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {whyPartner.map((item, i) => (
               <GlassCard key={item.title} variant="dark" delay={i * 0.1} className="p-6" hover>
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#F5B642]/10">
-                  <item.icon size={22} className="text-[#F5B642]" />
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--accent-soft)]">
+                  <item.icon size={22} className="text-[var(--accent)]" />
                 </div>
-                <h3 className="font-serif-display text-xl text-white">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/60">{item.description}</p>
+                <h3 className="font-serif-display text-xl text-[var(--text)]">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">{item.description}</p>
               </GlassCard>
             ))}
           </div>
@@ -435,12 +435,12 @@ export function WhiteLabelPage() {
       </section>
 
       {/* ===== FAQ ===== */}
-      <section className="bg-[#0A0A0A] px-6 py-20 md:py-28">
+      <section className="bg-[var(--bg)] px-6 py-20 md:py-28">
         <div className="mx-auto max-w-3xl">
           <Reveal className="mb-12 text-center">
             <SectionLabel className="justify-center text-center">FAQ</SectionLabel>
-            <h2 className="font-serif-display mt-4 text-4xl tracking-tight text-white md:text-5xl">
-              Frequently asked <em className="italic text-[#F5B642]">questions</em>
+            <h2 className="font-serif-display mt-4 text-4xl tracking-tight text-[var(--text)] md:text-5xl">
+              Frequently asked <em className="italic text-[var(--accent)]">questions</em>
             </h2>
           </Reveal>
           <div className="space-y-3">
@@ -451,15 +451,15 @@ export function WhiteLabelPage() {
                   key={faq.q}
                   type="button"
                   onClick={() => setOpenFaq(isOpen ? null : i)}
-                  className="liquid-glass w-full rounded-2xl px-6 py-5 text-left transition-colors hover:bg-white/[0.02]"
+                  className="glass-surface w-full rounded-2xl px-6 py-5 text-left transition-colors hover:bg-[var(--bg-elevated)]"
                   aria-expanded={isOpen}
                 >
                   <div className="flex items-center justify-between gap-4">
-                    <span className="font-serif-display text-lg text-white">{faq.q}</span>
+                    <span className="font-serif-display text-lg text-[var(--text)]">{faq.q}</span>
                     {isOpen ? (
-                      <Minus size={18} className="shrink-0 text-[#F5B642]" />
+                      <Minus size={18} className="shrink-0 text-[var(--accent)]" />
                     ) : (
-                      <Plus size={18} className="shrink-0 text-[#F5B642]" />
+                      <Plus size={18} className="shrink-0 text-[var(--accent)]" />
                     )}
                   </div>
                   <div
@@ -468,7 +468,7 @@ export function WhiteLabelPage() {
                     }`}
                   >
                     <div className="overflow-hidden">
-                      <p className="text-sm leading-relaxed text-white/60">{faq.a}</p>
+                      <p className="text-sm leading-relaxed text-[var(--text-muted)]">{faq.a}</p>
                     </div>
                   </div>
                 </button>
@@ -479,13 +479,13 @@ export function WhiteLabelPage() {
       </section>
 
       {/* ===== ENQUIRY FORM CTA ===== */}
-      <section className="relative overflow-hidden bg-[#0A0A0A] px-6 py-20 md:py-28">
+      <section className="relative overflow-hidden bg-[var(--bg)] px-6 py-20 md:py-28">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(245,182,66,0.04)_0%,_transparent_60%)]" />
         <div className="relative mx-auto max-w-4xl">
           <Reveal className="mb-10 text-center">
             <SectionLabel className="justify-center text-center">Let&apos;s begin</SectionLabel>
-            <h2 className="font-serif-display mt-4 text-4xl tracking-tight text-white md:text-6xl">
-              Ready to launch your <em className="italic text-[#F5B642]">brand</em>?
+            <h2 className="font-serif-display mt-4 text-4xl tracking-tight text-[var(--text)] md:text-6xl">
+              Ready to launch your <em className="italic text-[var(--accent)]">brand</em>?
             </h2>
           </Reveal>
           <GlassCard variant="dark" className="p-8 md:p-12">
@@ -493,7 +493,7 @@ export function WhiteLabelPage() {
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <div>
                   <label
-                    className="mb-1.5 block text-xs uppercase tracking-widest text-white/40"
+                    className="mb-1.5 block text-xs uppercase tracking-widest text-[var(--text-dim)]"
                     htmlFor="wl-company"
                   >
                     Company Name *
@@ -509,7 +509,7 @@ export function WhiteLabelPage() {
                 </div>
                 <div>
                   <label
-                    className="mb-1.5 block text-xs uppercase tracking-widest text-white/40"
+                    className="mb-1.5 block text-xs uppercase tracking-widest text-[var(--text-dim)]"
                     htmlFor="wl-name"
                   >
                     Your Name *
@@ -525,7 +525,7 @@ export function WhiteLabelPage() {
                 </div>
                 <div>
                   <label
-                    className="mb-1.5 block text-xs uppercase tracking-widest text-white/40"
+                    className="mb-1.5 block text-xs uppercase tracking-widest text-[var(--text-dim)]"
                     htmlFor="wl-email"
                   >
                     Email *
@@ -542,7 +542,7 @@ export function WhiteLabelPage() {
                 </div>
                 <div>
                   <label
-                    className="mb-1.5 block text-xs uppercase tracking-widest text-white/40"
+                    className="mb-1.5 block text-xs uppercase tracking-widest text-[var(--text-dim)]"
                     htmlFor="wl-phone"
                   >
                     Phone *
@@ -558,7 +558,7 @@ export function WhiteLabelPage() {
                 </div>
                 <div>
                   <label
-                    className="mb-1.5 block text-xs uppercase tracking-widest text-white/40"
+                    className="mb-1.5 block text-xs uppercase tracking-widest text-[var(--text-dim)]"
                     htmlFor="wl-brand"
                   >
                     Brand Name
@@ -573,7 +573,7 @@ export function WhiteLabelPage() {
                 </div>
                 <div>
                   <label
-                    className="mb-1.5 block text-xs uppercase tracking-widest text-white/40"
+                    className="mb-1.5 block text-xs uppercase tracking-widest text-[var(--text-dim)]"
                     htmlFor="wl-market"
                   >
                     Target Market
@@ -588,7 +588,7 @@ export function WhiteLabelPage() {
                 </div>
                 <div>
                   <label
-                    className="mb-1.5 block text-xs uppercase tracking-widest text-white/40"
+                    className="mb-1.5 block text-xs uppercase tracking-widest text-[var(--text-dim)]"
                     htmlFor="wl-volume"
                   >
                     Expected Volume
@@ -603,7 +603,7 @@ export function WhiteLabelPage() {
                 </div>
                 <div>
                   <label
-                    className="mb-1.5 block text-xs uppercase tracking-widest text-white/40"
+                    className="mb-1.5 block text-xs uppercase tracking-widest text-[var(--text-dim)]"
                     htmlFor="wl-type"
                   >
                     Product Type
@@ -618,7 +618,7 @@ export function WhiteLabelPage() {
                 </div>
                 <div className="sm:col-span-2">
                   <label
-                    className="mb-1.5 block text-xs uppercase tracking-widest text-white/40"
+                    className="mb-1.5 block text-xs uppercase tracking-widest text-[var(--text-dim)]"
                     htmlFor="wl-timeline"
                   >
                     Timeline
@@ -634,7 +634,7 @@ export function WhiteLabelPage() {
               </div>
               <div>
                 <label
-                  className="mb-1.5 block text-xs uppercase tracking-widest text-white/40"
+                  className="mb-1.5 block text-xs uppercase tracking-widest text-[var(--text-dim)]"
                   htmlFor="wl-message"
                 >
                   Message
@@ -644,12 +644,12 @@ export function WhiteLabelPage() {
                   rows={3}
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  className={`w-full rounded-2xl border border-white/15 bg-white/5 px-5 py-3 text-sm text-white placeholder:text-white/40 outline-none transition-colors focus:border-[#F5B642]`}
+                  className={`w-full rounded-2xl border border-[var(--border)] bg-[var(--bg-input)] px-5 py-3 text-sm text-[var(--text)] placeholder:text-[var(--text-dim)] outline-none transition-colors focus:border-[var(--accent)]`}
                   placeholder="Anything else we should know?"
                 />
               </div>
               <div className="flex flex-col items-center justify-between gap-4 pt-2 sm:flex-row">
-                <p className="text-xs leading-relaxed text-white/40">
+                <p className="text-xs leading-relaxed text-[var(--text-dim)]">
                   We respond within 24 hours. No pricing displayed publicly — all quotes are
                   custom.
                 </p>
@@ -657,7 +657,7 @@ export function WhiteLabelPage() {
                   type="submit"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
-                  className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#F5B642] px-8 py-3.5 text-base font-medium text-black transition-colors hover:bg-[#FFC857]"
+                  className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[var(--accent)] px-8 py-3.5 text-base font-medium text-[var(--accent-text)] transition-colors hover:bg-[var(--accent-hover)]"
                 >
                   <Send size={16} /> Request Quote
                 </motion.button>

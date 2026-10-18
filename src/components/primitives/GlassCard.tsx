@@ -23,7 +23,7 @@ export function GlassCard({
 }: GlassCardProps) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
-  const glassClass = variant === 'dark' ? 'liquid-glass' : 'liquid-glass-light'
+  const glassClass = 'glass-surface'
 
   if (!animate) {
     return (

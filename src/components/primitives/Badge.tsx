@@ -10,11 +10,11 @@ interface BadgeProps {
 export function Badge({ children, variant = 'glass', className = '' }: BadgeProps) {
   const base = 'inline-flex items-center rounded-full px-3 py-1 text-xs font-medium'
   const variants = {
-    gold: 'bg-[#F5B642] text-black',
-    teal: 'bg-[#0E8E8E] text-white',
-    glass: 'liquid-glass text-white/80',
-    'glass-light': 'liquid-glass-light text-[#1A2E2E]',
-    outline: 'border border-current/30 text-current/70',
+    gold: 'bg-[var(--accent)] text-[var(--accent-text)]',
+    teal: 'bg-[var(--trust)] text-white',
+    glass: 'glass-surface text-[var(--text-muted)]',
+    'glass-light': 'glass-surface text-[var(--text-muted)]',
+    outline: 'border border-[var(--border)] text-[var(--text-muted)]',
   }
   return <span className={`${base} ${variants[variant]} ${className}`}>{children}</span>
 }

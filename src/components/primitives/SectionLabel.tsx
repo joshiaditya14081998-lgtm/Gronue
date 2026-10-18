@@ -19,7 +19,7 @@ export function SectionLabel({ children, className = '' }: SectionLabelProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6 }}
-      className={`text-xs uppercase tracking-widest opacity-50 ${className}`}
+      className={`text-xs uppercase tracking-widest text-[var(--text-dim)] ${className}`}
     >
       {children}
     </motion.p>

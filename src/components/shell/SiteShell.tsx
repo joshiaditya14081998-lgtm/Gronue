@@ -7,7 +7,9 @@ import { Navbar } from './Navbar'
 import { Footer } from './Footer'
 import { FloatingWhatsApp } from './FloatingWhatsApp'
 import { EnquiryModal } from './EnquiryModal'
+import { MobileBottomNav } from './MobileBottomNav'
 import { useHashRoute } from '@/hooks/useHashRoute'
+import { useTheme } from './ThemeProvider'
 import { HomePage } from '@/components/pages/HomePage'
 import { AboutPage } from '@/components/pages/AboutPage'
 import { ProductsPage } from '@/components/pages/ProductsPage'
@@ -31,6 +33,7 @@ export function useEnquiry() {
 
 export function SiteShell() {
   const route = useHashRoute()
+  const { theme } = useTheme()
   const [enquiryOpen, setEnquiryOpen] = useState(false)
   const [enquiryProduct, setEnquiryProduct] = useState<string | undefined>(undefined)
 
@@ -66,10 +69,14 @@ export function SiteShell() {
 
   return (
     <EnquiryContext.Provider value={{ openEnquiry }}>
-      <div className="flex min-h-screen flex-col bg-[#0A0A0A] text-white">
+      <div
+        className="theme-transition flex min-h-screen flex-col"
+        style={{ backgroundColor: 'var(--bg)', color: 'var(--text)' }}
+        data-theme={theme}
+      >
         <Navbar currentPage={route.page} />
 
-        <main className="flex-1 overflow-x-hidden pt-20">
+        <main className="flex-1 overflow-x-hidden pt-20 lg:pt-20">
           <AnimatePresence mode="wait">
             <motion.div
               key={route.page + (route.productSlug ?? '')}
@@ -85,6 +92,7 @@ export function SiteShell() {
 
         <Footer />
         <FloatingWhatsApp />
+        <MobileBottomNav currentPage={route.page} />
         <EnquiryModal
           key={enquiryProduct ?? 'default'}
           open={enquiryOpen}

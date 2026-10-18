@@ -3,10 +3,11 @@
 
 import { useState, useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Sun, Moon } from 'lucide-react'
 import Image from 'next/image'
 import { navLinks } from '@/data/navigation'
 import { navigateTo, type PageId } from '@/lib/router'
+import { useTheme } from './ThemeProvider'
 
 interface NavbarProps {
   currentPage: PageId
@@ -15,6 +16,7 @@ interface NavbarProps {
 export function Navbar({ currentPage }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const { theme, toggleTheme } = useTheme()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -33,11 +35,12 @@ export function Navbar({ currentPage }: NavbarProps) {
   return (
     <nav className="fixed left-0 right-0 top-0 z-50 px-4 py-4 md:px-6 md:py-5">
       <div
-        className={`mx-auto flex max-w-6xl items-center justify-between rounded-full px-4 py-2.5 transition-all duration-300 md:px-6 md:py-3 ${
+        className="mx-auto flex max-w-6xl items-center justify-between rounded-full px-4 py-2.5 transition-all duration-300 md:px-6 md:py-3"
+        style={
           solidBg
-            ? 'bg-[#0A0A0A]/80 shadow-lg shadow-black/20 backdrop-blur-xl'
-            : 'liquid-glass'
-        }`}
+            ? { backgroundColor: 'var(--nav-bg)', backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)', boxShadow: '0 4px 20px rgba(0,0,0,0.15)' }
+            : { backgroundColor: 'var(--nav-glass-bg)', backdropFilter: 'blur(4px)', WebkitBackdropFilter: 'blur(4px)' }
+        }
       >
         {/* Logo + Brand */}
         <button
@@ -46,14 +49,16 @@ export function Navbar({ currentPage }: NavbarProps) {
           aria-label="Groneu Healthcare home"
         >
           <Image
-            src="/assets/brand/Groneu-logo.png"
+            src="/assets/brand/Groneu-logo.svg"
             alt="Groneu Healthcare logo"
             width={32}
             height={32}
             className="h-8 w-auto"
             priority
           />
-          <span className="font-serif-display text-lg text-white">Groneu</span>
+          <span className="font-serif-display text-lg" style={{ color: 'var(--text)' }}>
+            Groneu
+          </span>
         </button>
 
         {/* Desktop nav */}
@@ -62,39 +67,62 @@ export function Navbar({ currentPage }: NavbarProps) {
             <button
               key={link.page}
               onClick={() => handleNav(link.page)}
-              className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
+              className="rounded-full px-4 py-1.5 text-sm font-medium transition-colors"
+              style={
                 currentPage === link.page
-                  ? 'bg-white/10 text-white'
-                  : 'text-white/80 hover:text-white'
-              }`}
+                  ? { backgroundColor: 'var(--accent-soft)', color: 'var(--accent)' }
+                  : { color: 'var(--text-muted)' }
+              }
+              onMouseEnter={(e) => {
+                if (currentPage !== link.page) e.currentTarget.style.color = 'var(--text)'
+              }}
+              onMouseLeave={(e) => {
+                if (currentPage !== link.page) e.currentTarget.style.color = 'var(--text-muted)'
+              }}
             >
               {link.label}
             </button>
           ))}
         </div>
 
-        {/* Desktop CTA */}
-        <div className="hidden lg:block">
+        {/* Right side: theme toggle + Get Quote + mobile menu */}
+        <div className="flex items-center gap-2">
+          {/* Theme toggle */}
+          <button
+            onClick={toggleTheme}
+            className="rounded-full p-2 transition-colors"
+            style={{ color: 'var(--text-muted)' }}
+            aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+            title={theme === 'dark' ? 'Light mode' : 'Dark mode'}
+          >
+            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+
+          {/* Desktop CTA */}
           <button
             onClick={() => handleNav('contact')}
-            className="rounded-full bg-[#F5B642] px-5 py-2 text-sm font-medium text-black transition-colors hover:bg-[#FFC857]"
+            className="hidden rounded-full px-5 py-2 text-sm font-medium transition-colors lg:block"
+            style={{ backgroundColor: 'var(--accent)', color: 'var(--accent-text)' }}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--accent-hover)')}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'var(--accent)')}
           >
             Get Quote
           </button>
-        </div>
 
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setMobileOpen((v) => !v)}
-          className="rounded-full p-2 text-white/80 lg:hidden"
-          aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-          aria-expanded={mobileOpen}
-        >
-          {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
+          {/* Mobile toggle */}
+          <button
+            onClick={() => setMobileOpen((v) => !v)}
+            className="rounded-full p-2 transition-colors lg:hidden"
+            style={{ color: 'var(--text-muted)' }}
+            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileOpen}
+          >
+            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu (top, opens on hamburger) */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -104,24 +132,33 @@ export function Navbar({ currentPage }: NavbarProps) {
             transition={{ duration: 0.2 }}
             className="mt-2 lg:hidden"
           >
-            <div className="mx-auto max-w-6xl rounded-3xl bg-[#0A0A0A]/90 p-4 backdrop-blur-xl">
+            <div
+              className="mx-auto max-w-6xl rounded-3xl p-4"
+              style={{
+                backgroundColor: 'var(--nav-bg)',
+                backdropFilter: 'blur(24px)',
+                WebkitBackdropFilter: 'blur(24px)',
+              }}
+            >
               <div className="flex flex-col gap-1">
                 {navLinks.map((link) => (
                   <button
                     key={link.page}
                     onClick={() => handleNav(link.page)}
-                    className={`rounded-2xl px-4 py-3 text-left text-sm font-medium transition-colors ${
+                    className="rounded-2xl px-4 py-3 text-left text-sm font-medium transition-colors"
+                    style={
                       currentPage === link.page
-                        ? 'bg-white/10 text-white'
-                        : 'text-white/80 hover:bg-white/5'
-                    }`}
+                        ? { backgroundColor: 'var(--accent-soft)', color: 'var(--accent)' }
+                        : { color: 'var(--text-muted)' }
+                    }
                   >
                     {link.label}
                   </button>
                 ))}
                 <button
                   onClick={() => handleNav('contact')}
-                  className="mt-2 rounded-2xl bg-[#F5B642] px-4 py-3 text-center text-sm font-medium text-black transition-colors"
+                  className="mt-2 rounded-2xl px-4 py-3 text-center text-sm font-medium transition-colors"
+                  style={{ backgroundColor: 'var(--accent)', color: 'var(--accent-text)' }}
                 >
                   Get Quote
                 </button>
