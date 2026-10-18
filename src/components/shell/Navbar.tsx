@@ -2,8 +2,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
-import { Menu, X, Sun, Moon } from 'lucide-react'
+import { Sun, Moon } from 'lucide-react'
 import { navLinks } from '@/data/navigation'
 import { navigateTo, type PageId } from '@/lib/router'
 import { useTheme } from './ThemeProvider'
@@ -14,7 +13,6 @@ interface NavbarProps {
 }
 
 export function Navbar({ currentPage }: NavbarProps) {
-  const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const { theme, toggleTheme } = useTheme()
 
@@ -26,11 +24,10 @@ export function Navbar({ currentPage }: NavbarProps) {
 
   const handleNav = (page: PageId) => {
     navigateTo(page)
-    setMobileOpen(false)
   }
 
-  // Solid background when scrolled OR mobile menu open (prevents content bleed-through)
-  const solidBg = scrolled || mobileOpen
+  // Solid background when scrolled (prevents content bleed-through)
+  const solidBg = scrolled
 
   return (
     <nav className="fixed left-0 right-0 top-0 z-50 px-4 py-4 md:px-6 md:py-5">
@@ -55,8 +52,8 @@ export function Navbar({ currentPage }: NavbarProps) {
           />
         </button>
 
-        {/* Desktop nav */}
-        <div className="hidden items-center gap-1 lg:flex">
+        {/* Desktop/Tablet nav (hidden on mobile — mobile uses bottom nav) */}
+        <div className="hidden items-center gap-1 md:flex">
           {navLinks.map((link) => (
             <button
               key={link.page}
@@ -79,7 +76,7 @@ export function Navbar({ currentPage }: NavbarProps) {
           ))}
         </div>
 
-        {/* Right side: theme toggle + Get Quote + mobile menu */}
+        {/* Right side: theme toggle + Get Quote (desktop/tablet only) */}
         <div className="flex items-center gap-2">
           {/* Theme toggle */}
           <button
@@ -92,10 +89,10 @@ export function Navbar({ currentPage }: NavbarProps) {
             {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
           </button>
 
-          {/* Desktop CTA */}
+          {/* Desktop/Tablet CTA (hidden on mobile) */}
           <button
             onClick={() => handleNav('contact')}
-            className="hidden rounded-full px-5 py-2 text-sm font-medium transition-colors lg:block"
+            className="hidden rounded-full px-5 py-2 text-sm font-medium transition-colors md:block"
             style={{ backgroundColor: 'var(--accent)', color: 'var(--accent-text)' }}
             onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--accent-hover)')}
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'var(--accent)')}
@@ -103,64 +100,8 @@ export function Navbar({ currentPage }: NavbarProps) {
             Get Quote
           </button>
 
-          {/* Mobile toggle */}
-          <button
-            onClick={() => setMobileOpen((v) => !v)}
-            className="rounded-full p-2 transition-colors lg:hidden"
-            style={{ color: 'var(--text-muted)' }}
-            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={mobileOpen}
-          >
-            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
         </div>
       </div>
-
-      {/* Mobile menu (top, opens on hamburger) */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-            className="mt-2 lg:hidden"
-          >
-            <div
-              className="mx-auto max-w-6xl rounded-3xl p-4"
-              style={{
-                backgroundColor: 'var(--nav-bg)',
-                backdropFilter: 'blur(24px)',
-                WebkitBackdropFilter: 'blur(24px)',
-              }}
-            >
-              <div className="flex flex-col gap-1">
-                {navLinks.map((link) => (
-                  <button
-                    key={link.page}
-                    onClick={() => handleNav(link.page)}
-                    className="rounded-2xl px-4 py-3 text-left text-sm font-medium transition-colors"
-                    style={
-                      currentPage === link.page
-                        ? { backgroundColor: 'var(--accent-soft)', color: 'var(--accent)' }
-                        : { color: 'var(--text-muted)' }
-                    }
-                  >
-                    {link.label}
-                  </button>
-                ))}
-                <button
-                  onClick={() => handleNav('contact')}
-                  className="mt-2 rounded-2xl px-4 py-3 text-center text-sm font-medium transition-colors"
-                  style={{ backgroundColor: 'var(--accent)', color: 'var(--accent-text)' }}
-                >
-                  Get Quote
-                </button>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </nav>
   )
 }

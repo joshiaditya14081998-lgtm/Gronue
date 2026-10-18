@@ -7,6 +7,7 @@ import { Navbar } from './Navbar'
 import { Footer } from './Footer'
 import { FloatingWhatsApp } from './FloatingWhatsApp'
 import { EnquiryModal } from './EnquiryModal'
+import { MobileBottomNav } from './MobileBottomNav'
 import { useHashRoute } from '@/hooks/useHashRoute'
 import { useTheme } from './ThemeProvider'
 import { HomePage } from '@/components/pages/HomePage'
@@ -91,6 +92,7 @@ export function SiteShell() {
 
         <Footer />
         <FloatingWhatsApp />
+        <MobileBottomNav currentPage={route.page} />
         <EnquiryModal
           key={enquiryProduct ?? 'default'}
           open={enquiryOpen}

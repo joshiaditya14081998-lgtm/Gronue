@@ -1,7 +1,7 @@
 // src/components/shell/MobileBottomNav.tsx
 'use client'
 
-import { Home, Package, Factory, Handshake, Phone } from 'lucide-react'
+import { Home, Package, Factory, Handshake, Info, ShieldCheck, Phone } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { navigateTo, type PageId } from '@/lib/router'
 
@@ -14,6 +14,8 @@ const bottomNavItems: { page: PageId; label: string; icon: typeof Home }[] = [
   { page: 'products', label: 'Products', icon: Package },
   { page: 'manufacturing', label: 'Plant', icon: Factory },
   { page: 'white-label', label: 'Partner', icon: Handshake },
+  { page: 'about', label: 'About', icon: Info },
+  { page: 'quality', label: 'Quality', icon: ShieldCheck },
   { page: 'contact', label: 'Contact', icon: Phone },
 ]
 
@@ -25,14 +27,14 @@ export function MobileBottomNav({ currentPage }: MobileBottomNavProps) {
       aria-label="Mobile navigation"
     >
       <div
-        className="mx-auto mb-3 flex max-w-sm items-center justify-around rounded-full px-2 py-2"
+        className="mx-auto mb-3 flex items-center justify-around rounded-full px-1 py-1.5"
         style={{
           backgroundColor: 'var(--nav-bg)',
           backdropFilter: 'blur(24px)',
           WebkitBackdropFilter: 'blur(24px)',
           boxShadow: '0 4px 20px rgba(0,0,0,0.2), inset 0 1px 1px var(--accent-soft)',
           border: '1px solid var(--border)',
-          margin: '0 12px',
+          margin: '0 8px',
         }}
       >
         {bottomNavItems.map((item) => {
@@ -42,23 +44,23 @@ export function MobileBottomNav({ currentPage }: MobileBottomNavProps) {
             <button
               key={item.page}
               onClick={() => navigateTo(item.page)}
-              className="relative flex flex-1 flex-col items-center gap-1 rounded-full px-2 py-2"
+              className="relative flex flex-1 flex-col items-center gap-0.5 rounded-full px-1 py-1"
               aria-label={item.label}
               aria-current={active ? 'page' : undefined}
             >
               <motion.div
-                whileTap={{ scale: 0.9 }}
-                className="flex h-9 w-9 items-center justify-center rounded-full"
+                whileTap={{ scale: 0.85 }}
+                className="flex h-7 w-7 items-center justify-center rounded-full"
                 style={
                   active
                     ? { backgroundColor: 'var(--accent)', color: 'var(--accent-text)' }
                     : { color: 'var(--text-muted)' }
                 }
               >
-                <Icon size={18} />
+                <Icon size={15} />
               </motion.div>
               <span
-                className="text-[10px] font-medium leading-none"
+                className="text-[8px] font-medium leading-none"
                 style={{ color: active ? 'var(--accent)' : 'var(--text-dim)' }}
               >
                 {item.label}
