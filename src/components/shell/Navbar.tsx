@@ -4,10 +4,10 @@
 import { useState, useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X, Sun, Moon } from 'lucide-react'
-import Image from 'next/image'
 import { navLinks } from '@/data/navigation'
 import { navigateTo, type PageId } from '@/lib/router'
 import { useTheme } from './ThemeProvider'
+import { asset } from '@/lib/asset'
 
 interface NavbarProps {
   currentPage: PageId
@@ -48,13 +48,10 @@ export function Navbar({ currentPage }: NavbarProps) {
           className="flex items-center gap-2.5"
           aria-label="Groneu Healthcare home"
         >
-          <Image
-            src="/assets/brand/Groneu-logo.svg"
+          <img
+            src={asset('/assets/brand/Groneu-logo.svg')}
             alt="Groneu Healthcare"
-            width={120}
-            height={32}
             className="h-8 w-auto"
-            priority
           />
         </button>
 

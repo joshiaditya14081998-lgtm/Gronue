@@ -5,6 +5,7 @@ import { Phone, Mail, MapPin, Globe } from 'lucide-react'
 import { company } from '@/data/company'
 import { navLinks } from '@/data/navigation'
 import { navigateTo, navigateToProduct } from '@/lib/router'
+import { asset } from '@/lib/asset'
 
 export function Footer() {
   const year = new Date().getFullYear()
@@ -22,7 +23,7 @@ export function Footer() {
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2">
               <img
-                src="/assets/brand/Groneu-logo.svg"
+                src={asset('/assets/brand/Groneu-logo.svg')}
                 alt="Groneu Healthcare"
                 className="h-12 w-auto"
               />

@@ -3,8 +3,9 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { Volume2, VolumeX } from 'lucide-react'
+import { asset } from '@/lib/asset'
 
-const HERO_VIDEO = '/assets/video/manufacturing-plant.mp4'
+const HERO_VIDEO = asset('/assets/video/manufacturing-plant.mp4')
 
 export function HeroVideo() {
   const videoRef = useRef<HTMLVideoElement>(null)

@@ -3,6 +3,7 @@
 
 import { PackageCheck } from 'lucide-react'
 import type { Product } from '@/data/products'
+import { asset } from '@/lib/asset'
 
 interface ProductImageProps {
   product: Product
@@ -36,7 +37,7 @@ export function ProductImage({
         style={{ backgroundColor: 'var(--bg-elevated)' }}
       >
         <img
-          src={product.image}
+          src={asset(product.image!)}
           alt={product.name}
           className="h-full w-full object-contain p-3"
           loading="lazy"

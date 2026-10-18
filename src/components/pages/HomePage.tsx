@@ -22,6 +22,7 @@ import { useEnquiry } from '@/components/shell/SiteShell'
 import { company } from '@/data/company'
 import { products } from '@/data/products'
 import { navigateTo, navigateToProduct } from '@/lib/router'
+import { asset } from '@/lib/asset'
 import { usePageMeta } from '@/hooks/usePageMeta'
 
 const capabilities = [
@@ -291,7 +292,7 @@ export function HomePage() {
                   loop
                   playsInline
                   preload="auto"
-                  src="/assets/video/manufacturing-plant.mp4"
+                  src={asset('/assets/video/manufacturing-plant.mp4')}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent lg:bg-gradient-to-r" />
               </div>
