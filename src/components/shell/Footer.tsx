@@ -14,7 +14,7 @@ export function Footer() {
 
   return (
     <footer
-      className="px-6 pb-24 pt-16 md:pb-16"
+      className="px-6 pb-16 pt-16"
       style={{ backgroundColor: 'var(--bg)', color: 'var(--text-muted)', borderTop: '1px solid var(--border)' }}
     >
       <div className="mx-auto max-w-6xl">
