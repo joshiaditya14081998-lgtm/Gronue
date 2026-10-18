@@ -1,0 +1,572 @@
+     1→============================================
+     2→=== SKILL: taste-skill ===
+     3→============================================
+     4→--- files ---
+     5→total 108
+     6→drwxrwxr-x 12 z    z     4096 Oct 18 15:52 .
+     7→drwxrwxrwt  1 root root  4096 Oct 18 15:52 ..
+     8→drwxrwxr-x  3 z    z     4096 Oct 18 15:52 .agents
+     9→drwxrwxr-x  2 z    z     4096 Oct 18 15:52 .claude-plugin
+    10→drwxrwxr-x  2 z    z     4096 Oct 18 15:52 .codex-plugin
+    11→drwxrwxr-x  8 z    z     4096 Oct 18 15:52 .git
+    12→-rw-rw-r--  1 z    z       17 Oct 18 15:52 .gitattributes
+    13→drwxrwxr-x  2 z    z     4096 Oct 18 15:52 .github
+    14→-rw-rw-r--  1 z    z       48 Oct 18 15:52 .gitignore
+    15→-rw-rw-r--  1 z    z    14519 Oct 18 15:52 CHANGELOG.md
+    16→-rw-rw-r--  1 z    z     1065 Oct 18 15:52 LICENSE
+    17→-rw-rw-r--  1 z    z    18616 Oct 18 15:52 README.md
+    18→drwxrwxr-x  3 z    z     4096 Oct 18 15:52 assets
+    19→drwxrwxr-x  3 z    z     4096 Oct 18 15:52 examples
+    20→-rwxrwxr-x  1 z    z     4012 Oct 18 15:52 install.sh
+    21→drwxrwxr-x  3 z    z     4096 Oct 18 15:52 research
+    22→-rw-rw-r--  1 z    z     2256 Oct 18 15:52 skill.sh
+    23→drwxrwxr-x 16 z    z     4096 Oct 18 15:52 skills
+    24→drwxrwxr-x  2 z    z     4096 Oct 18 15:52 tests
+    25→--- README (first 120 lines) ---
+    26→<p align="center">
+    27→  <img src="assets/readme-banner.webp" alt="Taste Skill - Anti-slop Agent Skills for premium frontends" width="100%" />
+    28→</p>
+    29→
+    30→<p align="center" style="margin-bottom: 8px;">
+    31→  <a href="https://tasteskill.dev" title="Visit tasteskill.dev"><img src="https://img.shields.io/badge/website-tasteskill.dev-24292f?style=flat" alt="Visit tasteskill.dev" /></a>
+    32→  &nbsp;
+    33→  <a href="https://tastecode.dev" title="Visit tastecode.dev"><img src="https://img.shields.io/badge/new-TasteCode-ff6b00?style=flat" alt="New: TasteCode" /></a>
+    34→  &nbsp;
+    35→  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-24292f?style=flat&amp;logo=github&amp;logoColor=white" alt="MIT License" /></a>
+    36→  &nbsp;
+    37→  <a href="https://github.com/vercel-labs/agent-skills"><img src="https://img.shields.io/badge/Agent_Skills-compatible-24292f?style=flat&amp;logo=github&amp;logoColor=white" alt="Agent Skills compatible" /></a>
+    38→  &nbsp;
+    39→  <a href="#install"><img src="https://img.shields.io/badge/Codex_%2F_Cursor_%2F_Claude-install-24292f?style=flat" alt="Codex, Cursor, Claude" /></a>
+    40→  &nbsp;
+    41→  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/changelog-view-24292f?style=flat" alt="Changelog" /></a>
+    42→</p>
+    43→
+    44→<p align="center">
+    45→  <a href="https://tastecode.dev"><img src="assets/readme-tastecode.webp" alt="TasteCode is here. Taste Skill as a desktop app, with a design agent built in. Free and open source. Download at tastecode.dev" width="100%" /></a>
+    46→</p>
+    47→
+    48→<p align="center"><sub>The easiest way to get Taste Skill results: <a href="https://tastecode.dev"><strong>download TasteCode</strong></a>. Its design agent briefs, builds and visually reviews your UI. <a href="https://github.com/Leonxlnx/tastecode">Source on GitHub</a>.</sub></p>
+    49→
+    50→<h3 align="center">Sponsors</h3>
+    51→
+    52→<table align="center">
+    53→  <tr>
+    54→    <td align="center" width="104"><a href="https://fluxionai.space/register?source=github&amp;campaign=github-tasteskill&amp;promo=TASTESKILL"><img src="assets/sponsors/sidrune-ai.png" alt="Sidrune AI" width="80" height="80" /></a></td>
+    55→    <td><sub><a href="https://fluxionai.space/register?source=github&amp;campaign=github-tasteskill&amp;promo=TASTESKILL"><strong>Sidrune AI</strong></a>: one API for GPT, Claude, and other leading AI models.<br />Sign up through this link and get $3 in API credit.</sub></td>
+    56→  </tr>
+    57→  <tr>
+    58→    <td align="center" width="104">
+    59→      <a href="https://interfaces.dev/?utm_source=tasteskill&utm_medium=sponsorship">
+    60→        <img src="assets/sponsors/interfaces-dev-icon.webp" alt="Interfaces" width="52" height="52" />
+    61→      </a>
+    62→    </td>
+    63→    <td><sub><a href="https://interfaces.dev/?utm_source=tasteskill&utm_medium=sponsorship"><strong>interfaces.dev</strong></a> · A design engineering magazine by <a href="https://github.com/jakubkrehel"><strong>Jakub Krehel</strong></a></sub></td>
+    64→  </tr>
+    65→  <tr>
+    66→    <td align="center" width="104">
+    67→      <a href="https://reactbits.dev">
+    68→        <picture>
+    69→          <source media="(prefers-color-scheme: dark)" srcset="assets/sponsors/reactbits-icon-dark.svg" />
+    70→          <img src="assets/sponsors/reactbits-icon-light.svg" alt="React Bits" width="52" height="52" />
+    71→        </picture>
+    72→      </a>
+    73→    </td>
+    74→    <td><sub><a href="https://reactbits.dev"><strong>React Bits</strong></a> · animated React components for creative interfaces</sub></td>
+    75→  </tr>
+    76→  <tr>
+    77→    <td align="center" width="104"><a href="https://img.ly/"><img src="assets/sponsors/imgly-logo.svg" alt="IMG.LY" width="52" height="52" /></a></td>
+    78→    <td><sub><a href="https://img.ly/"><strong>IMG.LY</strong></a> · CreativeEditor SDK</sub></td>
+    79→  </tr>
+    80→  <tr>
+    81→    <td align="center" width="104"><a href="https://www.sent.dm"><img src="assets/sponsors/sentdm.png" alt="Sent.dm" width="52" height="52" /></a></td>
+    82→    <td><sub><a href="https://www.sent.dm"><strong>Sent.dm</strong></a> · messaging APIs for SMS, WhatsApp, and RCS</sub></td>
+    83→  </tr>
+    84→</table>
+    85→
+    86→<p align="center"><sub><a href="https://github.com/sponsors/Leonxlnx">Become a sponsor</a></sub></p>
+    87→
+    88→**Taste Skill** is a set of Agent Skills that make coding agents design websites instead of assembling the average landing page. The default skill gives the agent an art direction, real pictures and a way to check its own work in a real browser.
+    89→
+    90→Pages it has built, each from one brief:
+    91→
+    92→<table>
+    93→  <tr>
+    94→    <td width="50%"><img src="examples/v2/coffee-storefront.webp" alt="Coffee shop page with a drawn storefront as its hero" /></td>
+    95→    <td width="50%"><img src="examples/v2/night-dates.webp" alt="Techno night page with its dates set into an archive photograph" /></td>
+    96→  </tr>
+    97→  <tr>
+    98→    <td width="50%"><img src="examples/v2/coffee-roast.webp" alt="Coffee shop page section showing the roast in four photographs" /></td>
+    99→    <td width="50%"><img src="examples/v2/coffee-questions.webp" alt="Coffee shop page questions as stacked index cards" /></td>
+   100→  </tr>
+   101→</table>
+   102→
+   103→The photographs are real, found in open archives and credited by the skill ([credits](examples/v2/CREDITS.md)). Watch the [launch film](https://github.com/Leonxlnx/taste-skill/releases/tag/v2.0.0).
+   104→
+   105→<p align="center"><sub><a href="#install">Install</a> · <a href="#how-v2-works">How it works</a> · <a href="#skills">Skills</a> · <a href="#common-questions">FAQ</a> · <a href="#support-the-project">Sponsors</a> · <a href="#license">License</a></sub></p>
+   106→
+   107→## Install
+   108→
+   109→```bash
+   110→npx skills add https://github.com/Leonxlnx/taste-skill
+   111→```
+   112→
+   113→That installs every skill in this repo with the [`npx skills`](https://github.com/vercel-labs/agent-skills) CLI. To install one, pass its install name:
+   114→
+   115→```bash
+   116→npx skills add https://github.com/Leonxlnx/taste-skill --skill "design-taste-frontend"
+   117→```
+   118→
+   119→The default skill runs its scripts with **Node 22+** and an installed **Chrome, Edge or Chromium**. It installs nothing and needs no API keys. Finding pictures needs network access.
+   120→
+   121→<details>
+   122→<summary>Claude Code plugin</summary>
+   123→
+   124→Run these inside Claude Code. Every skill is namespaced under `taste-skill:`, so they do not collide with your other skills.
+   125→
+   126→```
+   127→/plugin marketplace add Leonxlnx/taste-skill
+   128→/plugin install taste-skill@taste-skill
+   129→```
+   130→
+   131→`/plugin update` upgrades it later.
+   132→
+   133→</details>
+   134→
+   135→<details>
+   136→<summary>Codex plugin</summary>
+   137→
+   138→```bash
+   139→codex plugin marketplace add Leonxlnx/taste-skill
+   140→codex plugin add taste-skill@taste-skill
+   141→```
+   142→
+   143→Start a new Codex session afterwards so the skills are loaded.
+   144→
+   145→</details>
+   146→
+   147→============================================
+   148→=== SKILL: impeccable ===
+   149→============================================
+   150→--- files ---
+   151→total 476
+   152→drwxrwxr-x 40 z    z     4096 Oct 18 15:52 .
+   153→drwxrwxrwt  1 root root  4096 Oct 18 15:52 ..
+   154→drwxrwxr-x  3 z    z     4096 Oct 18 15:52 .agent
+   155→drwxrwxr-x  3 z    z     4096 Oct 18 15:52 .agents
+   156→-rw-rw-r--  1 z    z        7 Oct 18 15:52 .bun-version
+   157→drwxrwxr-x  2 z    z     4096 Oct 18 15:52 .cargo
+   158→drwxrwxr-x  4 z    z     4096 Oct 18 15:52 .claude
+   159→drwxrwxr-x  2 z    z     4096 Oct 18 15:52 .claude-plugin
+   160→drwxrwxr-x  2 z    z     4096 Oct 18 15:52 .codex
+   161→drwxrwxr-x  4 z    z     4096 Oct 18 15:52 .cursor
+   162→drwxrwxr-x  2 z    z     4096 Oct 18 15:52 .cursor-plugin
+   163→drwxrwxr-x  3 z    z     4096 Oct 18 15:52 .dsh
+   164→drwxrwxr-x  3 z    z     4096 Oct 18 15:52 .gemini
+   165→drwxrwxr-x  8 z    z     4096 Oct 18 15:52 .git
+   166→-rw-rw-r--  1 z    z     2511 Oct 18 15:52 .gitattributes
+   167→drwxrwxr-x  7 z    z     4096 Oct 18 15:52 .github
+   168→-rw-rw-r--  1 z    z     4756 Oct 18 15:52 .gitignore
+   169→drwxrwxr-x  5 z    z     4096 Oct 18 15:52 .grok
+   170→drwxrwxr-x  3 z    z     4096 Oct 18 15:52 .hermes
+   171→--- README (first 120 lines) ---
+   172→# Impeccable
+   173→
+   174→Design guidance for AI coding agents. 1 skill, 24 commands, live browser iteration, and 61 deterministic detector rules for AI-generated frontend design.
+   175→
+   176→> **Quick start:** From your project root, run `npx impeccable install`, then run `/impeccable init` inside your AI coding tool. Full docs: [impeccable.style](https://impeccable.style).
+   177→
+   178→## Why Impeccable?
+   179→
+   180→Anthropic's [frontend-design](https://github.com/anthropics/skills/tree/main/skills/frontend-design) was the first widely-used design skill for Claude. Impeccable started from there.
+   181→
+   182→Every model trained on the same SaaS templates. Skip the guidance and you get the same handful of tells on every project: Inter for everything, purple-to-blue gradients, cards nested in cards, gray text on colored backgrounds, the rounded-square icon tile above every heading.
+   183→
+   184→Impeccable adds:
+   185→- **One setup flow.** `/impeccable init` records durable product truth in `PRODUCT.md`, so later commands know the audience, purpose, operating context, constraints, voice, and evidence without confusing those facts with surface-level visual direction.
+   186→- **24 commands.** A shared design vocabulary with your AI: `polish`, `audit`, `critique`, `distill`, `animate`, `bolder`, `quieter`, and more.
+   187→- **61 deterministic detector rules** plus LLM-only critique checks. The CLI and browser extension run the deterministic rules with no LLM and no API key.
+   188→
+   189→## What's Included
+   190→
+   191→### The Skill: impeccable
+   192→
+   193→The skill installs as one command:
+   194→
+   195→```bash
+   196→/impeccable <command> <target>
+   197→```
+   198→
+   199→Start every new project with:
+   200→
+   201→```bash
+   202→/impeccable init
+   203→```
+   204→
+   205→`init` inspects the project, asks only for material gaps in durable product truth, and writes `PRODUCT.md`. Visitor mode and visual direction are chosen later for each surface; incumbent or newly built visual systems are recorded separately in `DESIGN.md`.
+   206→
+   207→### 24 Commands
+   208→
+   209→All commands are accessed through `/impeccable`:
+   210→
+   211→| Command | What it does |
+   212→|---------|--------------|
+   213→| `/impeccable craft` | Full shape-then-build flow with visual iteration |
+   214→| `/impeccable init` | One-time setup: gather durable product context, write PRODUCT.md, configure live mode when applicable, recommend next steps |
+   215→| `/impeccable document` | Generate root DESIGN.md from existing project code |
+   216→| `/impeccable extract` | Pull reusable components and tokens into the design system |
+   217→| `/impeccable shape` | Plan UX/UI before writing code |
+   218→| `/impeccable critique` | UX design review: hierarchy, clarity, emotional resonance |
+   219→| `/impeccable audit` | Run technical quality checks (a11y, performance, responsive) |
+   220→| `/impeccable polish` | Final pass, design system alignment, and shipping readiness |
+   221→| `/impeccable bolder` | Amplify boring designs |
+   222→| `/impeccable quieter` | Tone down overly bold designs |
+   223→| `/impeccable distill` | Strip to essence |
+   224→| `/impeccable harden` | Error handling, i18n, text overflow, edge cases |
+   225→| `/impeccable onboard` | First-run flows, empty states, activation paths |
+   226→| `/impeccable animate` | Add purposeful motion |
+   227→| `/impeccable colorize` | Introduce strategic color |
+   228→| `/impeccable typeset` | Fix font choices, hierarchy, sizing |
+   229→| `/impeccable layout` | Fix layout, spacing, visual rhythm |
+   230→| `/impeccable delight` | Add moments of joy |
+   231→| `/impeccable overdrive` | Add technically extraordinary effects |
+   232→| `/impeccable clarify` | Improve unclear UX copy |
+   233→| `/impeccable adapt` | Adapt for different devices |
+   234→| `/impeccable optimize` | Performance improvements |
+   235→| `/impeccable live` | Visual variant mode: iterate on elements in the browser |
+   236→| `/impeccable generate` | Generate variants of a named element in the live browser, no manual picking |
+   237→
+   238→Use `/impeccable pin <command>` to create standalone shortcuts (e.g., `pin audit` creates `/audit`).
+   239→
+   240→#### Usage Examples
+   241→
+   242→```
+   243→/impeccable audit blog           # Audit blog hub + post pages
+   244→/impeccable critique landing     # UX design review
+   245→/impeccable polish settings      # Final pass before shipping
+   246→/impeccable harden checkout      # Add error handling + edge cases
+   247→```
+   248→
+   249→Or use `/impeccable` directly with a description:
+   250→```
+   251→/impeccable redo this hero section
+   252→```
+   253→
+   254→### Anti-Patterns
+   255→
+   256→The skill includes explicit guidance on what to avoid:
+   257→
+   258→- Don't use overused fonts (Arial, Inter, system defaults)
+   259→- Don't use gray text on colored backgrounds
+   260→- Don't use pure black/gray (always tint)
+   261→- Don't wrap everything in cards or nest cards inside cards
+   262→- Don't use bounce/elastic easing (feels dated)
+   263→
+   264→## See It In Action
+   265→
+   266→Visit [the Neo Mirai case study](https://impeccable.style/cases/neo-mirai) to see a before/after case study of a real project transformed with Impeccable commands.
+   267→
+   268→## Installation
+   269→
+   270→The skill needs no runtime of its own. Every skill copy ships a small launcher (`scripts/impeccable`, plus `impeccable.cmd` for Windows) that runs the Impeccable engine, a self-contained binary that either sits next to the launcher or is downloaded once on first run into `~/.impeccable/bin/`. Node is only involved if you use the `npx impeccable` installer, which is a shim around the same binary; the manual and Git options below work without it.
+   271→
+   272→### Option 1: CLI installer (Recommended)
+   273→
+   274→From the root of your project, run:
+   275→
+   276→```bash
+   277→npx impeccable install
+   278→```
+   279→
+   280→This shows the harness folders or installed CLIs it detected (for example `~/.claude`, `~/.codex`, `~/.grok`, `~/.hermes`, `~/.veto`, or project-local `.cursor`), lets you keep the detected set or customize providers, then asks whether to install into the current project or globally. Use `--providers=claude,codex,cursor,grok,hermes,veto` and `--scope=project|global` to skip those choices in scripts. On Claude Code, Cursor, Codex, GitHub Copilot, and Grok Build, it also installs the provider-native hook manifest for the current project. Veto receives the packaged skill under `~/.veto/skills/` and does not run native Impeccable edit hooks. Works with Cursor, Claude Code, Gemini CLI, Codex CLI, Grok Build, Hermes Agent, Veto, and every other supported tool. Reload your harness afterward.
+   281→
+   282→To refresh an existing install, run:
+   283→
+   284→```bash
+   285→npx impeccable update
+   286→```
+   287→
+   288→Codex users should open `/hooks` after install or update and approve the project hook when prompted. Codex tracks trust by hook definition, so updates that change `.codex/hooks.json` can require approval again. Grok Build users need project folder trust (`/hooks-trust` or launch with `--trust`) before `.grok/hooks/` scripts run.
+   289→
+   290→See [Allow the hook in your harness](https://impeccable.style/docs/hooks#allow-the-hook-in-your-harness) for harness-specific trust and verification steps.
+   291→
+   292→
+   293→============================================
+   294→=== SKILL: awesome-design-md ===
+   295→============================================
+   296→--- files ---
+   297→total 56
+   298→drwxrwxr-x  5 z    z     4096 Oct 18 15:52 .
+   299→drwxrwxrwt  1 root root  4096 Oct 18 15:52 ..
+   300→drwxrwxr-x  8 z    z     4096 Oct 18 15:52 .git
+   301→drwxrwxr-x  3 z    z     4096 Oct 18 15:52 .github
+   302→-rw-rw-r--  1 z    z       10 Oct 18 15:52 .gitignore
+   303→-rw-rw-r--  1 z    z      912 Oct 18 15:52 CONTRIBUTING.md
+   304→-rw-rw-r--  1 z    z     1066 Oct 18 15:52 LICENSE
+   305→-rw-rw-r--  1 z    z    16863 Oct 18 15:52 README.md
+   306→drwxrwxr-x 86 z    z     4096 Oct 18 15:52 design-md
+   307→--- README (first 120 lines) ---
+   308→
+   309→<a href="https://github.com/VoltAgent/voltagent">
+   310→     <img width="1500"  alt="claude-skills" src="https://cdn.voltagent.dev/awesome-repo/logo.json.svg" />
+   311→</a>
+   312→
+   313→
+   314→<br/>
+   315→<br/>
+   316→
+   317→<div align="center">
+   318→    <strong>Curated collection of DESIGN.md analysis by developer focused websites.</strong>
+   319→    <br />
+   320→    <br />
+   321→
+   322→</div>
+   323→
+   324→<div align="center">
+   325→
+   326→[![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
+   327→![DESIGN.md Count](https://img.shields.io/badge/DESIGN.md%20count-84-10b981?style=classic)
+   328→[![Last Update](https://img.shields.io/github/last-commit/VoltAgent/awesome-design-md?label=Last%20update&style=classic)](https://github.com/VoltAgent/awesome-design-md)
+   329→[![Discord](https://img.shields.io/discord/1361559153780195478.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://s.voltagent.dev/discord)
+   330→[![Official MCP Servers](https://img.shields.io/badge/Official-MCP%20Servers-c2410c?style=classic&logo=github&logoColor=white&labelColor=24292f)](https://github.com/VoltAgent/official-mcp-servers)
+   331→
+   332→</div>
+   333→</div>
+   334→
+   335→# Awesome DESIGN.md
+   336→
+   337→Copy a DESIGN.md into your project, tell your AI agent “build me a page that looks like this,” and generate high-quality UI that stays visually consistent with the design language.
+   338→
+   339→Built with real design depth — including analyzed patterns, tokens, and rules — for high-quality UI generation, not surface-level outputs.
+   340→
+   341→
+   342→## What is DESIGN.md?
+   343→
+   344→[DESIGN.md](https://stitch.withgoogle.com/docs/design-md/overview/) is a new concept introduced by Google Stitch. A plain-text design system document that AI agents read to generate consistent UI.
+   345→
+   346→It's just a markdown file. No Figma exports, no JSON schemas, no special tooling. Drop it into your project root and any AI coding agent or Google Stitch instantly understands how your UI should look. Markdown is the format LLMs read best, so there's nothing to parse or configure.
+   347→
+   348→| File | Who reads it | What it defines |
+   349→|------|-------------|-----------------|
+   350→| `AGENTS.md` | Coding agents | How to build the project |
+   351→| `DESIGN.md` | Design agents | How the project should look and feel |
+   352→
+   353→**This repo provides ready-to-use DESIGN.md files** extracted from real websites. 
+   354→
+   355→## Request a DESIGN.md
+   356→
+   357→You can [request a DESIGN.md](https://getdesign.md/request) for specific website, including private requests delivered exclusively to you.
+   358→
+   359→
+   360→
+   361→<div align="center">
+   362→
+   363→<table>
+   364→<tr>
+   365→<td align="center" width="100%">
+   366→
+   367→<h4>👉 Feature your product alongside the developers, designers, and vibecoders shipping UI with AI coding agents and web builders.</h4>
+   368→
+   369→<sub>Ranked #150 globally on GitHub. A community resource used by developers, designers, and vibecoders.</sub>
+   370→
+   371→<a href="https://sponsors.voltagent.dev/#awesome-design-md"><img src="https://img.shields.io/badge/📩_Become_a_Sponsor-Contact_Us-blue?style=for-the-badge&logoColor=white" alt="Become a Sponsor" /></a>
+   372→
+   373→
+   374→</td>
+   375→</tr>
+   376→</table>
+   377→
+   378→</div>
+   379→
+   380→
+   381→
+   382→
+   383→
+   384→
+   385→## Collection
+   386→
+   387→### AI & LLM Platforms
+   388→
+   389→- [**Claude**](https://getdesign.md/claude/design-md) - Anthropic's AI assistant. Warm terracotta accent, clean editorial layout
+   390→- [**Cohere**](https://getdesign.md/cohere/design-md) - Enterprise AI platform. Vibrant gradients, data-rich dashboard aesthetic
+   391→- [**ElevenLabs**](https://getdesign.md/elevenlabs/design-md) - AI voice platform. Dark cinematic UI, audio-waveform aesthetics
+   392→- [**Jobright**](https://getdesign.md/jobright/design-md) - AI job-hunting platform. Spring-mint green, black pill buttons, condensed Titillium headlines
+   393→- [**Minimax**](https://getdesign.md/minimax/design-md) - AI model provider. Bold dark interface with neon accents
+   394→- [**Mistral AI**](https://getdesign.md/mistral.ai/design-md) - Open-weight LLM provider. French-engineered minimalism, purple-toned
+   395→- [**Ollama**](https://getdesign.md/ollama/design-md) - Run LLMs locally. Terminal-first, monochrome simplicity
+   396→- [**OpenCode AI**](https://getdesign.md/opencode.ai/design-md) - AI coding platform. Developer-centric dark theme
+   397→- [**Replicate**](https://getdesign.md/replicate/design-md) - Run ML models via API. Clean white canvas, code-forward
+   398→- [**Runway**](https://getdesign.md/runwayml/design-md) - AI creative-tools platform with an editorial film-festival aesthetic — cinematic dark heroes, paper-white reading bands, single proprietary sans, and pure black pill CTAs.
+   399→- [**Together AI**](https://getdesign.md/together.ai/design-md) - Open-source AI infrastructure. Technical, blueprint-style design
+   400→- [**VoltAgent**](https://getdesign.md/voltagent/design-md) - AI agent framework. Void-black canvas, emerald accent, terminal-native
+   401→- [**xAI**](https://getdesign.md/x.ai/design-md) - Elon Musk's AI lab. Stark monochrome, futuristic minimalism
+   402→
+   403→### Developer Tools & IDEs
+   404→
+   405→- [**Cursor**](https://getdesign.md/cursor/design-md) - AI-first code editor. Sleek dark interface, gradient accents
+   406→- [**Expo**](https://getdesign.md/expo/design-md) - React Native platform. Dark theme, tight letter-spacing, code-centric
+   407→- [**Lovable**](https://getdesign.md/lovable/design-md) - AI full-stack builder. Playful gradients, friendly dev aesthetic
+   408→- [**Raycast**](https://getdesign.md/raycast/design-md) - Productivity launcher. Sleek dark chrome, vibrant gradient accents
+   409→- [**Superhuman**](https://getdesign.md/superhuman/design-md) - Fast email client. Premium dark UI, keyboard-first, purple glow
+   410→- [**Vercel**](https://getdesign.md/vercel/design-md) - Frontend deployment platform. Black and white precision, Geist font
+   411→- [**Warp**](https://getdesign.md/warp/design-md) - Modern terminal. Dark IDE-like interface, block-based command UI
+   412→
+   413→### Backend, Database & DevOps
+   414→
+   415→- [**ClickHouse**](https://getdesign.md/clickhouse/design-md) - Fast analytics database. Yellow-accented, technical documentation style
+   416→- [**Composio**](https://getdesign.md/composio/design-md) - Tool integration platform. Modern dark with colorful integration icons
+   417→- [**HashiCorp**](https://getdesign.md/hashicorp/design-md) - Infrastructure automation. Enterprise-clean, black and white
+   418→- [**MongoDB**](https://getdesign.md/mongodb/design-md) - Document database. Green leaf branding, developer documentation focus
+   419→- [**Oracle**](https://getdesign.md/oracle/design-md) - Enterprise cloud and database software. Warm neutral ladder, charcoal-only actions, red saved for the wordmark
+   420→- [**PostHog**](https://getdesign.md/posthog/design-md) - Product analytics. Playful hedgehog branding, developer-friendly dark UI
+   421→- [**Sanity**](https://getdesign.md/sanity/design-md) - Headless content platform with a dark-first editorial marketing surface — 112px display type, IBM Plex Mono technical eyebrows, and a single coral-red accent reserved for the highest-priority CTA.
+   422→- [**Sentry**](https://getdesign.md/sentry/design-md) - Error monitoring. Dark dashboard, data-dense, pink-purple accent
+   423→- [**Supabase**](https://getdesign.md/supabase/design-md) - Open-source Firebase alternative. Dark emerald theme, code-first
+   424→
+   425→### Productivity & SaaS
+   426→
+   427→- [**Cal.com**](https://getdesign.md/cal/design-md) - Open-source scheduling. Clean neutral UI, developer-oriented simplicity
+   428→
+   429→============================================
+   430→=== SKILL: img2threejs ===
+   431→============================================
+   432→--- files ---
+   433→total 240
+   434→drwxrwxr-x 12 z    z     4096 Oct 18 15:52 .
+   435→drwxrwxrwt  1 root root  4096 Oct 18 15:52 ..
+   436→drwxrwxr-x  8 z    z     4096 Oct 18 15:52 .git
+   437→drwxrwxr-x  4 z    z     4096 Oct 18 15:52 .github
+   438→-rw-rw-r--  1 z    z     3640 Oct 18 15:52 .gitignore
+   439→-rw-rw-r--  1 z    z    39785 Oct 18 15:52 CHANGELOG.md
+   440→-rw-rw-r--  1 z    z     3413 Oct 18 15:52 CLAUDE.md
+   441→-rw-rw-r--  1 z    z     7962 Oct 18 15:52 CONTRIBUTING.md
+   442→-rw-rw-r--  1 z    z     5828 Oct 18 15:52 LAB-FINDINGS.md
+   443→-rw-rw-r--  1 z    z    11337 Oct 18 15:52 LICENSE
+   444→-rw-rw-r--  1 z    z    49545 Oct 18 15:52 README.md
+   445→-rw-rw-r--  1 z    z    20066 Oct 18 15:52 ROADMAP.md
+   446→-rw-rw-r--  1 z    z    32902 Oct 18 15:52 SKILL.md
+   447→drwxrwxr-x  3 z    z     4096 Oct 18 15:52 assets
+   448→drwxrwxr-x  2 z    z     4096 Oct 18 15:52 bin
+   449→drwxrwxr-x  8 z    z     4096 Oct 18 15:52 docs
+   450→drwxrwxr-x 10 z    z     4096 Oct 18 15:52 forge
+   451→drwxrwxr-x  9 z    z     4096 Oct 18 15:52 grimoire
+   452→drwxrwxr-x  5 z    z     4096 Oct 18 15:52 integrations
+   453→--- README (first 120 lines) ---
+   454→<div align="center">
+   455→
+   456→<img src="assets/logo.svg" width="112" height="104" alt="img2threejs logo" />
+   457→
+   458→# img2threejs
+   459→
+   460→**Rebuild the object in a reference image as a code-only, procedural Three.js model.**
+   461→
+   462→Quality-gated, animation-ready, and deliberately token-efficient — reconstruction-by-code, not photogrammetry, mesh extraction, or downloaded art packs.
+   463→
+   464→[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
+   465→[![Version](https://img.shields.io/badge/version-2.0.0-green.svg)](CHANGELOG.md)
+   466→[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+   467→[![Runtime](https://img.shields.io/badge/runtime-Three.js-000000.svg)](https://threejs.org)
+   468→[![Tooling](https://img.shields.io/badge/tooling-Python%203.10%2B%20stdlib-3776ab.svg)](forge)
+   469→[![Sponsor](https://img.shields.io/badge/Sponsor-Ko--fi-FF5E5B.svg?logo=kofi&logoColor=white)](https://ko-fi.com/iamnick)
+   470→[![Scripts](https://img.shields.io/badge/scripts-forge%20%2F%20scripts-3776ab.svg)](scripts)
+   471→[![Sponsored by Atlas Cloud](https://img.shields.io/badge/Sponsored%20by-Atlas%20Cloud-000000.svg?labelColor=1a1a1a&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4NDUuOTUgNzkyIj48cGF0aCBmaWxsPSIjZmZmIiBkPSJNNzEyLjA1LDU5NC4zTDQyMi45OCwxNS40NiwxMzMuOSw1OTQuM2wtOTEuMDEsMTgyLjI1YzU3LjE4LTM0LjU1LDExOS40OS02MS40LDE4NS40NC03OS40NSw2Mi4wMi0xNi45NywxMjcuMjQtMjYuMjEsMTk0LjY1LTI2LjIxLDM0LjY5LDAsNjguNzksMi40OSwxMDIuMTksNy4xOGwtNjUuNzItMTQxLjc2Yy0xOC42MS0zLjIzLTEwMS4yOC0zLjIzLTE2MS44Myw5Ljg0bDEyNS4zNi0yNzMuMTYsMTk0LjY1LDQyNC4xMmMuMzUuMS42OS4yMSwxLjAzLjMsNjUuNTcsMTguMDQsMTI3LjUzLDQ0Ljc4LDE4NC40MSw3OS4xNGwtOTEuMDEtMTgyLjI1WiIvPjwvc3ZnPg%3D%3D)](https://www.atlascloud.ai/console/coding-plan)
+   472→[![Sponsored by Tripo](https://img.shields.io/badge/Sponsored%20by-Tripo-000000.svg?labelColor=1a1a1a&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBmaWxsPSIjZmFjZTAwIiBkPSJNMTIuNjYxIDQuNzUyYS4wNC4wNCAwIDAwLS4wMTMtLjA1NS4wMzguMDM4IDAgMDAtLjAyLS4wMDVINi40OTZhLjE5LjE5IDAgMDEtLjE2NS0uMDkyTDQuMjQ1IDEuMDUyYS4wMzQuMDM0IDAgMDEuMDE0LS4wNDdBLjAzOC4wMzggMCAwMTQuMjc1IDFjNS40OTIgMCAxMC43MzMgMCAxNS43MjEuMDAyIDIuMDg5IDAgMy42OTkgMS41NCA0LjAwMyAzLjU5OC4wMDguMDYyLS4wMTkuMDkyLS4wOC4wOTJoLTYuNjdhLjIwNC4yMDQgMCAwMC0uMTc0LjFjLTEuNDE0IDIuNDEtMi44MiA0LjgwMy00LjIxOCA3LjE3OC0uMjguNDcyLS45Mi42Mi0xLjM3My4zNDItLjE5LS4xMTYtLjM1Ny0uMzA0LS41MDItLjU2MWEzNy45MTcgMzcuOTE3IDAgMDAtLjg4Mi0xLjQ4OWMtLjIyMi0uMzU2LS4yMzQtLjcwNy0uMDM1LTEuMDUyYTY2MS43NyA2NjEuNzcgMCAwMTIuNTk3LTQuNDZ2LjAwMnoiLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMTAuNzcyIDE2Ljk4NmMuNTcuOTcyIDEuOTM1LjkxNiAyLjQ4OS0uMDI4TDE5IDcuMTY0YS4xMjcuMTI3IDAgMDEuMTE2LS4wNjdoNC4yM2MuMDE3IDAgLjAzLjAxNC4wMjguMDMgMCAuMDA1LS4wMDEuMDEtLjAwMy4wMTMtMi42MDUgNC40MzItNS4yMzIgOC45MDYtNy44OCAxMy40Mi0xLjI4MyAyLjE5MS00LjI3OCAyLjUxNy02LjE3OS45NDctLjMwOC0uMjU0LS42NjUtLjcyNy0xLjA2OS0xLjQxNy0yLjUyNS00LjMyNC01LjA5OC04LjcxLTcuNzItMTMuMTYyLTEuMDYzLTEuODAzLS40MjQtMy45NDcgMS4xOS01LjIuMDUzLS4wNDEuMDk1LS4wMzMuMTI5LjAyMyAyLjkwNSA0Ljk1IDUuODgyIDEwLjAyOSA4LjkzIDE1LjIzNnoiLz48L3N2Zz4%3D)](https://www.tripo3d.ai/)
+   473→[![Sponsored by Hyper3D](https://img.shields.io/badge/Sponsored%20by-Hyper3D-000000.svg?labelColor=1a1a1a&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADlElEQVRYCeWWbWiOURjH9wzDZoYs5i3aF%2FEBiTYZRQ35qGxS%2B2AoFNoHRcl7vlETGcWX1aLkLbKsJTNiXmpKpExt5v2lGWNte%2Fz%2Bd%2Ff9dO6z57mfe08p5arfc851netc57rP23PS0v53iYSZgGg0Ogy%2F5VACU%2BAnnIlEIjWUf1cYvAgaIZ7sxxjqI1LKkuCb4Ue8kV1bB%2BXElIIn60TgLdDnDhRULEsWa8DtjKZp7woa1W37TTljwAMEdSBgFjS5AyQrzuOQ7jKCcnBQ7FBtBCmHZPIdh0oYpaCUObATnoCS3wPzwwzo28F0GkKnezDX7fyJ8gF8hT54Bc3wmCP4mtIn9C%2FCcBbyoQv2QSW%2BqicXAhRAL7yFU3AI6uEoTE8ewZmNqfg%2BB8kL0FFdEqavpnI9qPNe0HRKdkOGHQBbBIbbdunYi6EbfsER%2BAC6yBILDgqoo3cavBOwPXEPZyDNWNxjiP0iSA6CTks7zAyKp8xLwBv8ZKCz24j%2FMVhj%2B2JbCRItoy4syW0YavvGdBovywvRHpgcawio4LcBWmG06YaeB7pFlUAneFJm%2BqWbCvWXrn6FndtqtSVSJ9GgPTLecviG3gDZYH71VjLRn5sjdgKNrv2CWwYWBNItOBZqYZ7l3IN%2BHyaAeUHNQS8AR8wGGe6AvlznP64w6FIaRrosoNTAs6AOTNGXt8Em00hdH10It8CXWRrT%2FpEBTmA3p0x%2BppSj2JtOF403e56vlmA25HoGo1TijtgzIONxiK2R4%2BX%2F6fWrjnaO3xbLnoduJ%2Bq55HgVew%2FIHoUMZiLTc7JKe3Y09TuYPV3VpixE8Z0Ms9Grx2aAAZWMprcCpsEzbFUErqJuyk0Ubbz3oMFr8NETzZagS6fddtYltBbiyeF%2BziEMBCqNF8y1lfpCYNQ1fDegw0batPNDCb6ZkAstYMsjDP6lwaA1b7Y9DV033S5YB1mJsqAtGyrAeSVRFkIj6CbUdVwH%2BWb%2F2HuAhus0rDAbrXotus61LhKt%2FTX4DBLNjv7tVkE9bGNfaDNrabW3dBx74Klnp%2B4XHBeD%2FrWCpJpGvRNMP%2FPh%2BoC20EvlzwCNzmVg%2FnGg9pOHWA7AJdDSeHKVyoCf6LEl8LIhiN5yekoVQ7x7Qq468w2gP68meAc3mN5uygFJvwS83iSyiPpqUELjYAwooU7QgG%2BgGjTwF8qUJGECZjSS0bWqy2cQdEBbKl9Lv39P%2FgAQ2ul5m76dAQAAAABJRU5ErkJggg%3D%3D)](https://hyper3d.ai/)
+   474→
+   475→<table align="center">
+   476→  <tr>
+   477→    <td align="center"></td>
+   478→    <td align="center"><sub><b>DAILY</b></sub></td>
+   479→    <td align="center"><sub><b>WEEKLY</b></sub></td>
+   480→  </tr>
+   481→  <tr>
+   482→    <td align="right"><sub><b>Python</b></sub></td>
+   483→    <td><a href="https://trendshift.io/repositories/83608?utm_source=trendshift-badge&amp;utm_medium=badge&amp;utm_campaign=badge-trendshift-83608" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/trendshift/repositories/83608/daily?language=Python" alt="hoainho%2Fimg2threejs | Trendshift" width="250" height="55"/></a></td>
+   484→    <td><a href="https://trendshift.io/repositories/83608?utm_source=trendshift-badge&amp;utm_medium=badge&amp;utm_campaign=badge-trendshift-83608" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/trendshift/repositories/83608/weekly?language=Python" alt="img2threejs%2Fimg2threejs | Trendshift" width="250" height="55"/></a></td>
+   485→  </tr>
+   486→  <tr>
+   487→    <td align="right"><sub><b>All languages</b></sub></td>
+   488→    <td><a href="https://trendshift.io/repositories/83608?utm_source=trendshift-badge&amp;utm_medium=badge&amp;utm_campaign=badge-trendshift-83608" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/trendshift/repositories/83608/daily" alt="img2threejs%2Fimg2threejs | Trendshift" width="250" height="55"/></a></td>
+   489→    <td><a href="https://trendshift.io/repositories/83608?utm_source=trendshift-badge&amp;utm_medium=badge&amp;utm_campaign=badge-trendshift-83608" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/trendshift/repositories/83608/weekly" alt="img2threejs%2Fimg2threejs | Trendshift" width="250" height="55"/></a></td>
+   490→  </tr>
+   491→</table>
+   492→
+   493→</div>
+   494→
+   495→*Reference images reconstructed in code as animation-ready Three.js models, running live in the browser.*
+   496→
+   497→### [→ Open the Live Demo Gallery](https://img2threejs.io/)
+   498→
+   499→Every model in the gallery is generated code, running in your browser. No mesh files, no downloads.
+   500→
+   501→---
+   502→
+   503→## Live demos
+   504→
+   505→Reconstructions built entirely from primitives, procedural shaders, and generated geometry. Open any model to orbit it, inspect its reference, and read the generated source.
+   506→
+   507→| Demo | Subject | Built with | View | Source |
+   508→| --- | --- | --- | --- | --- |
+   509→| Dual-Sword Warrior — TypeScript procedural surfaces ⚠︎ | character | `v1.5.1` | [Live](https://img2threejs.io/#/demo/girl-character) | [code](https://github.com/img2threejs/img2threejs-showcase/blob/main/src/demos/girl-character/createGirlCharacterModel.ts) |
+   510→| Low-Poly Humanoid — Rigged Character ⚠︎ | character | `v1.5.0` | [Live](https://img2threejs.io/#/demo/low-poly-humanoid) | [code](https://github.com/img2threejs/img2threejs-showcase/blob/main/src/demos/low-poly-humanoid/createLowPolyHumanoidModel.ts) |
+   511→| ★ Talon Knife \| Doppler Ruby (Factory New) | object | `v1.4.4` | [Live](https://img2threejs.io/#/demo/talon-doppler-ruby) | [code](https://github.com/img2threejs/img2threejs-showcase/blob/main/src/demos/talon-doppler-ruby/createTalonDopplerRubyModel.ts) |
+   512→| AWP \| Medusa (Minimal Wear) · V2 rebuild | object | `V2` | [Live](https://img2threejs.io/#/demo/awp-medusa-v2) | [code](https://github.com/img2threejs/img2threejs-showcase/blob/main/src/demos/awp-medusa-v2/createAwpMedusaModelV2.ts) |
+   513→| Pikachu 10K Star Celebration ⚠︎ | character | `v1.5-beta` | [Live](https://img2threejs.io/#/demo/electric-mouse-mascot) | [code](https://github.com/img2threejs/img2threejs-showcase/blob/main/src/demos/electric-mouse-mascot/createElectricMouseMascotModel.ts) |
+   514→| Glock-18 \| Ghost Protocol (Well-Worn) | object | `v1.4.1` | [Live](https://img2threejs.io/#/demo/glock-ghost-protocol) | [code](https://github.com/img2threejs/img2threejs-showcase/blob/main/src/demos/glock-ghost-protocol/createGlockGhostProtocolModel.ts) |
+   515→| Classic Knife \| Fade (Minimal Wear) | object | `v1.3` | [Live](https://img2threejs.io/#/demo/classic-fade) | [code](https://github.com/img2threejs/img2threejs-showcase/blob/main/src/demos/classic-fade/createClassicFadeModel.ts) |
+   516→| BMX Endurance Bike | object | `v1.3` | [Live](https://img2threejs.io/#/demo/bmx-endurance) | [code](https://github.com/img2threejs/img2threejs-showcase/blob/main/src/demos/bmx-endurance/createBmxEnduranceBikeModel.ts) |
+   517→| M9 Bayonet \| Doppler Phase 2 | object | `v1.3` | [Live](https://img2threejs.io/#/demo/m9-doppler) | [code](https://github.com/img2threejs/img2threejs-showcase/blob/main/src/demos/m9-doppler/createM9DopplerModel.ts) |
+   518→| Sony WF-1000XM3 Earbuds + Case | object | `v1.2` | [Live](https://img2threejs.io/#/demo/sony-wf1000xm3) | [code](https://github.com/img2threejs/img2threejs-showcase/blob/main/src/demos/sony-wf1000xm3/createSonyWf1000xm3Model.ts) |
+   519→| ISSACA 12 Gauge Shotgun | object | `v1.2` | [Live](https://img2threejs.io/#/demo/issaca-shotgun) | [code](https://github.com/img2threejs/img2threejs-showcase/blob/main/src/demos/issaca-shotgun/createIssacaShotgunModel.ts) |
+   520→| Gerber Paracord Knife | object | `v1.2` | [Live](https://img2threejs.io/#/demo/gerber-knife) | [code](https://github.com/img2threejs/img2threejs-showcase/blob/main/src/demos/gerber-knife/createGerberKnifeModel.ts) |
+   521→| Doraemon House (isometric diorama) | object | `v1.2` | [Live](https://img2threejs.io/#/demo/doraemon-house) | [code](https://github.com/img2threejs/img2threejs-showcase/blob/main/src/demos/doraemon-house/createDoraemonHouseModel.ts) |
+   522→| War-Hauler "SECTOR 07" | object | `v1.2` | [Live](https://img2threejs.io/#/demo/warhauler) | [code](https://github.com/img2threejs/img2threejs-showcase/blob/main/src/demos/warhauler/createWarHaulerModel.ts) |
+   523→| Crowned Loot Chest ⚠︎ | object | `v1.2` | [Live](https://img2threejs.io/#/demo/crown-chest) | [code](https://github.com/img2threejs/img2threejs-showcase/blob/main/src/demos/crown-chest/createCrownChestModel.ts) |
+   524→
+   525→⚠︎ marks a demo whose registry `status` is still `placeholder` rather than `final` — it renders, but it
+   526→is not finished work. The **Built with** column is the version each demo's own registry entry records in
+   527→`generatedWith`, not an inference from dates; `awp-medusa-v2` records `V2`, which is that demo's rebuild
+   528→pass rather than a release number. Rows are ordered newest first by the commit that added the demo.
+   529→
+   530→The gallery source lives in [img2threejs/img2threejs-showcase](https://github.com/img2threejs/img2threejs-showcase). If this project is useful, a star on this repo helps others find it.
+   531→
+   532→---
+   533→
+   534→## What it does
+   535→
+   536→You give it one reference image of an object. It produces a `THREE.Group` factory written in TypeScript that recreates that object from primitives, procedural shaders, and generated geometry — with a runtime hierarchy (pivots, sockets, colliders) so the result is ready to animate, not an inert lump.
+   537→
+   538→It runs under Claude Code, Codex, or OpenCode. It is agent-agnostic: wherever the docs say "agent vision" or "agent browser tool", it uses whatever the host provides — native image reading, a browser MCP, the project preview, or a user-supplied screenshot.
+   539→
+   540→### Subjects and detail accuracy
+   541→
+   542→- **Objects and characters.** Each subject is classified `object`, `character`, or `hybrid`. Objects follow the hard-surface pipeline; characters route through an anatomy-aware track (head-unit proportions, facial landmarks, pose) documented in `grimoire/character/reconstruction.md`.
+   543→- **Detail-first analysis.** Before code generation the pipeline enumerates a `detailInventory` of identity-defining small details (gloss, bevel/rounding, screws/rivets, engraved or painted linework, contours, stains and wear). Every detail must map to a real component or material entry, and a strict-quality gate blocks generation until the inventory is complete. Taxonomy: `grimoire/intake/detail_inventory.md`.
+   544→- **Maximum likeness for a specific person or character.** An opt-in projection-first path fits a parametric template to image landmarks, de-lights the photo, camera-matches the render, and projects the reference onto the mesh. A single image cannot guarantee 100 percent likeness, so the pipeline reports per-region confidence and asks for more views when it matters. Details: `grimoire/character/likeness_maximization.md`.
+   545→- **Multi-view silhouette carving.** An opt-in `geometryDescriptor.visualHull` intersects at least two deterministic orthographic binary silhouettes into a bounded, welded voxel mesh. It records unseen areas as low-confidence rather than inventing hidden detail. Schema and runtime check: `grimoire/scripts.md`.
+   546→- **CS2 weapon review gates.** Knife and Glock-18 routes use family-specific component contracts. The review records exactness tier, family identity, painted-region and projection coverage, per-region confidence, approximation notes, and versioned review-scene metadata; component-coverage and map-stripped blockout gates prevent a convincing texture from standing in for real structure. Ships with the CS2 domain plugin; see its `docs/cs2/review-gates.md`.
+   547→- **Resumable local workflow.** `forge/state.py` records an ordered, evidence-backed intake/pass checklist for the generic profile and every registered domain (in-repo `character`, plus installed domain plugins such as CS2 and `animated-character` from plugin-character). `forge/next.py --state` resumes from that checklist while the existing spec, render, and review gates remain authoritative.
+   548→- **Material reference pipeline.** Every visible material region can be cropped, analyzed, resolved against the versioned Three.js material registry, fitted into `ObjectSculptSpec`, rendered from controlled camera views, and accepted only after a per-region comparison gate. See [`docs/materials/README.md`](docs/materials/README.md).
+   549→- **Python-assisted browser rendering.** Python may orchestrate camera batches, hashes, manifests, and deterministic diagnostics, but the target browser Three.js route remains the rendering authority. See [`grimoire/build/python_threejs_render_bridge.md`](grimoire/build/python_threejs_render_bridge.md).
+   550→
+   551→---
+   552→
+   553→## How it works
+   554→
+   555→A staged sculpting pipeline turns the reference image into a spec, then generates and vision-reviews one build pass at a time — `blockout → structural → form → material → surface → lighting → interaction → optimization` — self-correcting until every identity-defining feature clears its threshold.
+   556→
+   557→**→ Full pipeline diagram, gates, self-correction logic, and the token-efficiency design: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)**
+   558→A staged sculpting pipeline turns the reference image into a spec, then generates and vision-reviews one build pass at a time — `blockout → structural → form → material → surface → lighting → interaction → optimization` — self-correcting until every identity-defining feature clears its threshold. Deterministic Python scripts handle validation and gating; model tokens are spent only on visual judgment and code.
+   559→
+   560→**→ Full pipeline diagram, gates, self-correction logic, script reference, and the token-efficiency design: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)**
+   561→
+   562→---
+   563→
+   564→## Quick start
+   565→
+   566→### Which project and CLI do I need?
+   567→
+   568→| Project | Role | CLI |
+   569→|---|---|---|
+   570→| **[img2threejs](https://github.com/img2threejs/img2threejs)** — this repository | Base reconstruction skill, procedural Three.js pipeline, scripts and quality gates | `npx --yes img2threejs@latest <command>` |
+   571→| **[img2](https://github.com/img2threejs/img2)** | Optional plugin harness: catalog, registry, host links and capability lookup | `npx --yes @img2threejs/img2@latest <command>` |
+   572→| **Domain and output plugins** — linked below | Additional workflows, domain rules or explicitly selected output routes | Install through `img2 add <plugin-id>` |

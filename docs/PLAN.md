@@ -3,6 +3,18 @@
 > **Status:** PLANNING COMPLETE — ready for development.
 > **Approach:** Option C (Hybrid dark/light multi-page site), built on Next.js 16 App Router.
 > **Rule:** User-visible route is `/` only per environment rules — BUT this is a multi-page site. Solution below.
+> **Skills:** 4 agent skills installed — see `docs/SKILLS-INTEGRATION.md` for full strategy.
+
+## 🆕 Skills Installed (4)
+
+| Skill | Role | Used in Phases |
+|-------|------|----------------|
+| **taste-skill** | Premium frontend art direction (designer) | 3, 5, 6 (dark pages) |
+| **impeccable** | Design QA — 24 commands, 61 detector rules (QA lead) | All phases |
+| **awesome-design-md** | 84 DESIGN.md reference files (mood board) | 1, 4, 7 |
+| **img2threejs** | Image → Three.js 3D model (wow factor, optional) | 8 (polish, optional) |
+
+**Full strategy:** `docs/SKILLS-INTEGRATION.md`
 
 ---
 
