@@ -24,11 +24,8 @@ export function Footer() {
               <img
                 src="/assets/brand/Groneu-logo.svg"
                 alt="Groneu Healthcare"
-                className="h-10 w-auto"
+                className="h-12 w-auto"
               />
-              <span className="font-serif-display text-xl" style={{ color: 'var(--text)' }}>
-                Groneu Healthcare
-              </span>
             </div>
             <p className="mt-4 text-sm leading-relaxed">
               Leading manufacturer of sanitary napkins in Palanpur, Gujarat. White-label &amp;

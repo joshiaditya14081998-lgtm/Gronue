@@ -42,7 +42,7 @@ export function Navbar({ currentPage }: NavbarProps) {
             : { backgroundColor: 'var(--nav-glass-bg)', backdropFilter: 'blur(4px)', WebkitBackdropFilter: 'blur(4px)' }
         }
       >
-        {/* Logo + Brand */}
+        {/* Logo (SVG contains "Groneu Health Care" text — no separate label needed) */}
         <button
           onClick={() => handleNav('home')}
           className="flex items-center gap-2.5"
@@ -50,15 +50,12 @@ export function Navbar({ currentPage }: NavbarProps) {
         >
           <Image
             src="/assets/brand/Groneu-logo.svg"
-            alt="Groneu Healthcare logo"
-            width={32}
+            alt="Groneu Healthcare"
+            width={120}
             height={32}
             className="h-8 w-auto"
             priority
           />
-          <span className="font-serif-display text-lg" style={{ color: 'var(--text)' }}>
-            Groneu
-          </span>
         </button>
 
         {/* Desktop nav */}
