@@ -21,6 +21,7 @@ import { useEnquiry } from '@/components/shell/SiteShell'
 import { company } from '@/data/company'
 import { products } from '@/data/products'
 import { navigateTo, navigateToProduct } from '@/lib/router'
+import { usePageMeta } from '@/hooks/usePageMeta'
 
 const capabilities = [
   {
@@ -78,6 +79,12 @@ const whyUs = [
 export function HomePage() {
   const { openEnquiry } = useEnquiry()
   const featuredProducts = products.slice(0, 4)
+
+  usePageMeta({
+    title: 'Groneu Healthcare — Crafted with care. Built for trust.',
+    description:
+      'Leading sanitary napkin manufacturer in Palanpur, Gujarat. White-label + own-brand. 600K pcs/day capacity. GST & IEC registered, export-ready.',
+  })
 
   return (
     <div className="bg-[#0A0A0A] text-white">

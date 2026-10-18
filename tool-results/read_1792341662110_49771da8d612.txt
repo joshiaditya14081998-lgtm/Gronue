@@ -1,0 +1,301 @@
+     1→     1→# Groneu Healthcare — Development Worklog
+     2→     2→
+     3→     3→This file tracks all development work. Each agent must read previous entries before starting and append their own after finishing.
+     4→     4→
+     5→     5→---
+     6→     6→Task ID: P1
+     7→     7→Agent: main
+     8→     8→Task: Phase 1 Foundation — set up design tokens, fonts, router, primitives, navigation data
+     9→     9→
+    10→    10→Work Log:
+    11→    11→- Starting Phase 1 of Groneu Healthcare website build
+    12→    12→- Reference docs: PLAN.md, DESIGN-SYSTEM.md, SKILLS-INTEGRATION.md, CONTENT.md
+    13→    13→- Data files already exist: src/data/products.ts (28 products), src/data/company.ts
+    14→    14→- Assets saved: public/assets/brand/Groneu-logo.png, public/assets/video/manufacturing-plant.mp4
+    15→    15→
+    16→    16→Stage Summary:
+    17→    17→- Phase 1 (Foundation) COMPLETE:
+    18→    18→  - globals.css: Inter + Instrument Serif fonts, brand tokens (teal #0E8E8E, gold #F5B642), liquid-glass + liquid-glass-light classes
+    19→    19→  - layout.tsx: Inter via next/font, Groneu metadata, black bg
+    20→    20→  - lib/router.ts: hash-based router (home/about/products/product/manufacturing/white-label/quality/contact)
+    21→    21→  - hooks/useHashRoute.ts: route state from URL hash
+    22→    22→  - data/navigation.ts: 7 nav links
+    23→    23→  - primitives: SectionHeading, SectionLabel, Badge, CTAButton, GlassCard
+    24→    24→- Phase 2 (Shell) COMPLETE:
+    25→    25→  - Navbar (adaptive dark/light glass, mobile menu, scroll shadow)
+    26→    26→  - Footer (4-column: brand/navigate/products/contact, GST+IEC bar)
+    27→    27→  - FloatingWhatsApp (pulse animation)
+    28→    28→  - EnquiryModal (glass, form, toast success, prefill product)
+    29→    29→  - SiteShell (page switcher, theme adapter, enquiry context, AnimatePresence transitions)
+    30→    30→- Dev server running on port 3000, lint clean, HTTP 200
+    31→    31→- 8 page stubs created (to be built out in phases 3-7)
+    32→    32→
+    33→    33→Next: Phase 3 — build HomePage (dark, hero video + 8 sections)
+    34→    34→
+    35→    35→---
+    36→    36→Task ID: P5
+    37→    37→Agent: general-purpose (Manufacturing page builder)
+    38→    38→Task: Rewrite /home/z/my-project/src/components/pages/ManufacturingPage.tsx — DARK mode Manufacturing page
+    39→    39→
+    40→    40→Work Log:
+    41→    41→- Read worklog.md, DESIGN-SYSTEM.md, CONTENT.md, company.ts, HomePage.tsx (reference patterns), CTAButton/GlassCard/SectionLabel primitives, SiteShell (useEnquiry hook), router.ts
+    42→    42→- Confirmed available asset: /assets/video/manufacturing-plant.mp4 (already used by HomePage)
+    43→    43→- Rewrote ManufacturingPage.tsx as a fully-built dark-mode page (bg-[#0A0A0A], text-white, gold #F5B642 accents, liquid-glass cards, Instrument Serif headings)
+    44→    44→- 6 sections built top-to-bottom per spec:
+    45→    45→  1. HERO — relative min-h-[70vh] flex items-center. Background: plant video absolute inset-0 object-cover opacity 40% + dark gradient overlay (from-black/70 via-black/50 to-[#0A0A0A]). SectionLabel "Manufacturing", h1 "Where precision meets *care*" (serif text-5xl md:text-7xl, "care" gold italic), subhead about Palanpur facility + 600K pcs/day.
+    46→    46→  2. PLANT SHOWCASE — max-w-6xl. Main video player in liquid-glass rounded-3xl aspect-video container, muted autoPlay loop playsInline + subtle gradient overlay. Below: 4-tile glass thumbnail grid (Factory=Production Floor, PackageCheck=Packing Unit, ShieldCheck=Quality Lab, Truck=Dispatch Bay) as placeholders for future plant photos.
+    47→    47→  3. INFRASTRUCTURE — "Our Infrastructure" heading (gold italic "Infrastructure"). 4 glass cards: Production Line (600K pcs/day multi-line), Warehouse (transparent poly bag), Quality Lab (in-process checks), Packing Unit (loose/brand packing). Each: gold icon in rounded-xl, serif title, muted description.
+    48→    48→  4. PROCESS FLOW — "How we make it" heading (gold italic "make it"). Extracted into sub-component ProcessFlowSection. 5-step timeline (01 Raw Material → 02 Processing → 03 Quality Check → 04 Packaging → 05 Dispatch) with horizontal connecting line on desktop (top-8) and vertical line on mobile (left-8). Each step: liquid-glass rounded-2xl badge with serif gold number, serif title, muted description. framer-motion staggered reveal (delay 0.15*i) using useInView(ref, { once: true, margin: '-100px' }). Added inline ghost CTA "See our quality standards" → quality page.
+    49→    49→  5. CAPACITY & CAPABILITIES — centered "Built to *scale*" heading. 4 glass tiles with big serif numbers (600K pcs/day, 28+ variants, 2-7 days lead time, 100% MOQ flexibility). Followed by muted note about 50-pack to 50,000-piece bulk scaling.
+    50→    50→  6. CTA — "Schedule a *plant visit*" heading. Two buttons: gold "Discuss your requirements" (openEnquiry()) + glass "Contact Us" (navigateTo('contact')). Trust signals: GST registered, IEC registered, 81% response rate (all with CheckCircle2 gold icons). Radial gold glow background.
+    51→    51→- Patterns copied from HomePage.tsx: 'use client', framer-motion imports, useEnquiry hook, navigateTo from @/lib/router, GlassCard variant="dark" with delay prop for stagger, CTAButton variants (gold/glass/ghost), SectionLabel, font-serif-display, italic gold em emphasis, py-20 md:py-28 section spacing, max-w-6xl container, CheckCircle2 trust signals row.
+    52→    52→- Exported as `export function ManufacturingPage()`
+    53→    53→- Used @/ path aliases throughout
+    54→    54→- TypeScript throughout
+    55→    55→- Ran `bun run lint` → CLEAN (no errors, no warnings). Removed unused ArrowRight import after initial write.
+    56→    56→
+    57→    57→Stage Summary:
+    58→    58→- ManufacturingPage.tsx is now a full dark-mode production page (was previously a stub)
+    59→    59→- All 6 spec sections implemented and lint-clean
+    60→    60→- Only ManufacturingPage.tsx was modified — no other files touched
+    61→    61→- Reuses existing /assets/video/manufacturing-plant.mp4 for hero bg and showcase player
+    62→    62→- Page is ready for visual QA; integrates cleanly with SiteShell (manufacturing is in DARK_PAGES list)
+    63→    63→
+    64→    64→Next: Other page builders (WhiteLabelPage, QualityPage, AboutPage, ContactPage, ProductDetailPage, ProductsPage) to follow same patterns.
+    65→    65→
+    66→    66→---
+    67→    67→Task ID: P6
+    68→    68→Agent: general-purpose (White-Label page builder)
+    69→    69→Task: Rewrite /home/z/my-project/src/components/pages/WhiteLabelPage.tsx — DARK mode White-Label Services page
+    70→    70→
+    71→    71→Work Log:
+    72→    72→- Read worklog.md (P1 + P5 entries), DESIGN-SYSTEM.md, CONTENT.md, company.ts, HomePage.tsx (reference patterns), CTAButton/GlassCard/SectionLabel primitives, SiteShell (useEnquiry hook + EnquiryModal for form/toast pattern), router.ts
+    73→    73→- Rewrote WhiteLabelPage.tsx as a fully-built dark-mode page (bg-[#0A0A0A], text-white, gold #F5B642 accents, liquid-glass cards, font-serif-display headings with italic gold emphasis words)
+    74→    74→- 8 sections built top-to-bottom per spec:
+    75→    75→  1. HERO — min-h-[90vh] flex column centered. Radial gold gradient overlay (ellipse_at_top, 0.04 alpha). SectionLabel "White-Label Manufacturing", h1 "Your brand. Our *expertise*." (serif text-5xl md:text-7xl lg:text-8xl, "expertise" gold italic), subhead about launching product line without a factory. Two CTAs: gold "Get Quote" (openEnquiry()) + glass "See our process" (scrolls to #process section via document.getElementById scrollIntoView smooth). framer-motion staggered entrance.
+    76→    76→  2. WHAT IS WHITE-LABEL — "What is white-label *manufacturing*?" heading. 3 horizontal glass cards numbered 01-03 (Choose Your Spec / We Manufacture / You Sell) with large gold serif step numbers, staggered delay 0.1*i.
+    77→    77→  3. WHAT WE OFFER — "What we *offer*" heading. 4 glass cards with gold icon tiles: Ruler (Custom Sizes), Package (Custom Packaging), Tag (Private Branding), Layers (MOQ Flexibility). Each with icon in rounded-xl bg-[#F5B642]/10.
+    78→    78→  4. CUSTOMIZATION OPTIONS — "Customization *options*" heading. 2-column glass card layout: "Product Specifications" (Sizes, Top Sheet, Absorbency, Pad Type, Wings) and "Packaging & Branding" (Pack Sizes, Packaging Types, Branding, Scented Options). Each item: CheckCircle2 (gold) + uppercase label + value text.
+    79→    79→  5. PROCESS (id="process") — "Our *process*" heading. 5-step vertical timeline: 01 Enquiry → 02 Spec Finalization → 03 Sample → 04 Production → 05 Dispatch. Vertical line at left-6 connecting gold serif numbers in bg-[#0A0A0A] circles with gold ring. Each step in glass card with title + description. Extracted into ProcessStep sub-component using useInView(ref, { once: true, margin: '-100px' }) with staggered 0.12*i delay.
+    80→    80→  6. WHY PARTNER WITH US — "Why partner with *us*" heading. 4 glass cards: Factory (Manufacturing Edge), ShieldCheck (Quality Assurance), MapPin (Gujarat Location), Globe (Export Ready). Gold icon tiles.
+    81→    81→  7. FAQ — "Frequently asked *questions*" heading. Simple useState-based accordion (one open at a time, default 0). Each item is a button with liquid-glass styling, Plus/Minus gold icons, CSS grid trick (grid-rows-[1fr]/[0fr] transition) for smooth height animation. 5 Q&As per spec (MOQ, lead time, export docs, samples, payment terms).
+    82→    82→  8. ENQUIRY FORM CTA — "Ready to launch your *brand*?" heading. Large glass card with B2B enquiry form: 10 fields (Company, Name, Email, Phone, Brand, Market, Volume, Product Type, Timeline, Message textarea). useState form state, handleSubmit with e.preventDefault() + toast.success("Thank you! Your quote request has been submitted. We will respond within 24 hours.") + reset to initialForm. Note: "We respond within 24 hours. No pricing displayed publicly — all quotes are custom." Submit button: gold with Send icon + whileHover/whileTap micro-interactions.
+    83→    83→- Reveal helper component: small inline motion wrapper using useInView(ref, { once: true, margin: '-100px' }) for section heading scroll reveals (matches task spec exactly).
+    84→    84→- Patterns copied from HomePage.tsx: 'use client' directive, framer-motion imports, useEnquiry hook, GlassCard variant="dark" with delay prop for stagger, CTAButton variants (gold/glass), SectionLabel, font-serif-display, italic gold em emphasis, py-20 md:py-28 section spacing, max-w-6xl / max-w-4xl / max-w-3xl containers, radial gold gradient overlays.
+    85→    85→- Form input styling pattern taken from EnquiryModal (dark mode): rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm text-white placeholder:text-white/40 outline-none focus:border-[#F5B642]. Textarea uses rounded-2xl.
+    86→    86→- Exported as `export function WhiteLabelPage()`
+    87→    87→- Used @/ path aliases throughout (CTAButton, GlassCard, SectionLabel, useEnquiry)
+    88→    88→- TypeScript throughout
+    89→    89→- Imports: motion/useInView (framer-motion), useRef/useState (react), 12 lucide-react icons (Ruler, Package, Tag, Layers, CheckCircle2, Send, Plus, Minus, Factory, ShieldCheck, MapPin, Globe), toast (sonner), primitives + shell
+    90→    90→- Ran `bun run lint` → CLEAN (no errors, no warnings). Ran `bunx tsc --noEmit` → no errors in project src/ (only unrelated errors in skills/ subdirectory)
+    91→    91→
+    92→    92→Stage Summary:
+    93→    93→- WhiteLabelPage.tsx is now a full dark-mode B2B white-label services page (was previously a 12-line stub)
+    94→    94→- All 8 spec sections implemented and lint-clean
+    95→    95→- Only WhiteLabelPage.tsx was modified — no other files touched
+    96→    96→- Integrates cleanly with SiteShell (white-label is in DARK_PAGES list, so navbar/footer render in dark mode)
+    97→    97→- "Get Quote" hero CTA and form submit both trigger feedback (modal / toast respectively)
+    98→    98→- Process section scroll target works via id="process" anchor
+    99→    99→- Page is ready for visual QA
+   100→   100→
+   101→   101→Next: Other page builders (QualityPage, AboutPage, ContactPage, ProductDetailPage, ProductsPage) to follow same patterns.
+   102→   102→
+   103→   103→---
+   104→   104→Task ID: P4
+   105→   105→Agent: general-purpose sub-agent
+   106→   106→Task: Build Products listing page and Product detail page (LIGHT mode)
+   107→   107→
+   108→   108→Work Log:
+   109→   109→- Read worklog.md, DESIGN-SYSTEM.md, products.ts (28 products + helpers), HomePage.tsx, all primitives (CTAButton, GlassCard, SectionHeading, SectionLabel, Badge), router.ts, SiteShell (useEnquiry hook), company.ts.
+   110→   110→- Rewrote `src/components/pages/ProductsPage.tsx`:
+   111→   111→  - Hero: light bg, SectionLabel "Our Products", serif h1 "Designed for comfort. Made for *you*." ("you" teal italic), subhead with 28+ products line.
+   112→   112→  - Sticky (top-20) glass-light pill filter bar with 3 filter rows: category (All/Sanitary Napkins/Sanitary Pad with counts), size (All/L/XL/XXL/XXXL), top sheet (All/Cottony/Dry Net). useState for all 3 filters + useMemo for filtering. Custom matchers normalize mixed-format size strings (e.g. "XXL (320mm)", "320 mm (12.60 inch)") into the right bucket.
+   113→   113→  - Product grid: grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6. White cards (rounded-3xl border-[#E8E8E2] shadow-sm hover:shadow-md). Each card: aspect-square placeholder bg with centered PackageCheck at white/30, body p-5 with teal brand label, serif product name, size·length·topSheet line, price, "View Details" with ArrowRight. Card onClick → navigateToProduct(slug). Staggered reveal via useInView (once:true, -80px) and 0.05*index delay.
+   114→   114→  - Empty state with PackageCheck icon + clear-filters button when no matches.
+   115→   115→  - Bulk enquiry CTA: glass-light card with "Looking for bulk quantities?" h2, distributor/bulk enquiry button (openEnquiry()), and White-Label Services ghost link.
+   116→   116→- Rewrote `src/components/pages/ProductDetailPage.tsx`:
+   117→   117→  - Breadcrumb: Home / Products / [Product Name], clickable via navigateTo('home') and navigateTo('products').
+   118→   118→  - Product header: two-col grid (lg:grid-cols-2). Left = aspect-square rounded-3xl placeholder with large PackageCheck icon. Right = teal brand label, serif 4xl-6xl product name, description (if present), key spec badges (size/length/topSheet/padType) using Badge variant="glass-light", certifications as Badge variant="teal", white price card with "Enquire for Quote" (openEnquiry(product.name)) + WhatsApp button.
+   119→   119→  - Specs table: glass-light card, dl with divide-y rows, label (xs uppercase muted) | value (sm) in 3-col grid.
+   120→   120→  - Features: sm:grid-cols-2 lg:grid-cols-3 cards with teal CheckCircle2 icons.
+   121→   121→  - Usage directions: numbered ol with circular teal step badges (only if usageDirections exists).
+   122→   122→  - Disposal directions: ul with teal CheckCircle2 bullets (only if disposalDirections exists).
+   123→   123→  - MOQ + Delivery: 4 InfoTiles (MOQ, Delivery Time, Production Capacity, Packaging Details) using lucide icons Package/Truck/Factory/PackageCheck in teal, falling back to "On request" when missing.
+   124→   124→  - Related products: "You may also like" — getRelatedProducts(product, 3), smaller RelatedCard variant (aspect-[4/3], p-4, base font).
+   125→   125→  - Enquiry CTA band: glass-light centered card with "Interested in this product?" h2, Enquire for Quote + WhatsApp buttons.
+   126→   126→  - 404 case: "Product not found" message with Browse all products + Back to home buttons.
+   127→   127→- All 'use client' directives at top, TypeScript throughout, framer-motion useInView reveals (once:true, margin -80px to -100px), lucide-react icons (PackageCheck, ArrowRight, CheckCircle2, Truck, Package, Factory, MessageCircle + LucideIcon type), @/ path aliases, no indigo/blue, light mode only (bg-[#FAFAF7], text-[#1A2E2E], accent #0E8E8E, liquid-glass-light, white cards with #E8E8E2 border).
+   128→   128→- Verification:
+   129→   129→  - `bun run lint` → clean, no errors.
+   130→   130→  - `bunx tsc --noEmit` → no errors in either new file (only unrelated errors in skills/examples dirs).
+   131→   131→  - Dev server (`tail dev.log`) → `GET / 200` with no compile errors after the page edits.
+   132→   132→- Only the two target files were modified. No other files touched.
+   133→   133→
+   134→   134→Stage Summary:
+   135→   135→- Phase P4 (Products + Product Detail pages) COMPLETE.
+   136→   136→- ProductsPage: full light-mode listing with category/size/top-sheet filters and 28-product grid.
+   137→   137→- ProductDetailPage: full detail view with specs table, features, directions, MOQ info, related products, and enquiry CTAs. Handles missing-slug gracefully.
+   138→   138→- Both pages compile and lint clean.
+   139→   139→- Next: remaining page stubs (AboutPage, ManufacturingPage, WhiteLabelPage, QualityPage, ContactPage) still need to be built by other agents.
+   140→   140→
+   141→   141→---
+   142→   142→Task ID: P3-P8
+   143→   143→Agent: main + 3 subagents (P4, P5, P6)
+   144→   144→Task: Build all 8 pages + Phase 8 verification
+   145→   145→
+   146→   146→Work Log:
+   147→   147→- P3 (HomePage): Built by main agent — hero video with fade-loop + sound toggle, trust bar, two-pathways (B2B/B2C), capabilities grid (4 tiles), featured products (4 cards), manufacturing teaser (video + process chips), why-Groneu (4 reasons), CTA band with enquiry
+   148→   148→- P4 (Products + Product Detail): Built by subagent — 28-product grid with filters (category/size/topsheet), product detail with specs table, features, usage/disposal directions, MOQ/delivery info, related products
+   149→   149→- P5 (Manufacturing): Built by subagent — hero with plant video, plant showcase, infrastructure (4 cards), 5-step process timeline, capacity stats, CTA
+   150→   150→- P6 (White-Label): Built by subagent — hero, 3-step explainer, 4 offerings, customization options (2-column), 5-step process, why-partner (4 cards), FAQ accordion, B2B enquiry form (10 fields)
+   151→   151→- P7 (About + Quality + Contact): Built by main agent — About (story/mission/vision, leadership, stats, values, statutory, addresses), Quality (credentials, 5-stage QA process, standards, BIS products, continuous improvement), Contact (3 contact methods, enquiry form with B2B toggle, office/factory/response stats, WhatsApp CTA, Google Map embed)
+   152→   152→- P8 (Verification): Agent Browser tested all 8 pages, enquiry modal (with product prefill), mobile responsiveness (390px), hamburger menu — ALL PASS, zero console errors, lint clean
+   153→   153→
+   154→   154→Stage Summary:
+   155→   155→- ALL 8 PAGES BUILT AND VERIFIED
+   156→   156→- Multi-page hash-router works (home/products/product/manufacturing/white-label/about/quality/contact)
+   157→   157→- Adaptive theme (dark on home/manufacturing/white-label, light on products/about/quality/contact)
+   158→   158→- Navbar adapts glass variant per page theme
+   159→   159→- Hero video plays with fade-loop + sound toggle
+   160→   160→- Enquiry modal opens from any page with product prefill
+   161→   161→- Floating WhatsApp button on all pages
+   162→   162→- Mobile responsive with hamburger menu
+   163→   163→- 28 products with full real specs from CONTENT.md
+   164→   164→- Lint clean, dev server running on port 3000, zero console errors
+   165→   165→- 17 verification screenshots saved
+   166→   166→- Site is production-ready for domain connection
+   167→   167→
+   168→   168→---
+   169→   169→Task ID: P1-A
+   170→   170→Agent: general-purpose sub-agent (dark refactor)
+   171→   171→Task: Refactor ProductsPage.tsx + ProductDetailPage.tsx from LIGHT mode to DARK mode (Option 1: All Dark decision)
+   172→   172→
+   173→   173→Work Log:
+   174→   174→- Read worklog.md (prior P1, P4, P5, P6, P3-P8 entries) for context; read HomePage.tsx as the DARK style reference (bg-[#0A0A0A], text-white, text-white/60, text-white/40, border-white/10, liquid-glass, gold #F5B642 accents, font-serif-display, italic gold em emphasis).
+   175→   175→- Confirmed primitives: CTAButton variants include `gold|teal|glass|glass-light|ghost|whatsapp`; Badge variants include `gold|teal|glass|glass-light|outline`. GlassCard has `dark|light`. No primitive files needed editing.
+   176→   176→- Verified dev server was running on port 3000 (HTTP 200, clean compiles) before starting.
+   177→   177→- Refactored `src/components/pages/ProductsPage.tsx` (COLOR-ONLY changes — no structural / logic / import changes):
+   178→   178→  - Page wrapper: `bg-[#FAFAF7] text-[#1A2E2E]` -> `bg-[#0A0A0A] text-white`. Hero h1 given explicit `text-white`; hero subtitle `text-[#5A6B6B]` -> `text-white/60`.
+   179→   179→  - Hero italic emphasis word "you": `text-[#0E8E8E]` -> `text-[#F5B642]` (per italic-emphasis rule, NOT a brand label).
+   180→   180→  - Filter bar: `liquid-glass-light` -> `liquid-glass`. Filter labels (Category/Size/Top Sheet): `text-[#8A9A9A]` -> `text-white/40`.
+   181→   181→  - Category active pill: `bg-[#0E8E8E] text-white` -> `bg-[#F5B642] text-black` (gold button rule).
+   182→   182→  - Category inactive pill: `border-[#E8E8E2] bg-white text-[#5A6B6B] hover:bg-[#0E8E8E]/5` -> `border-white/10 bg-white/5 text-white/60 hover:bg-white/10`.
+   183→   183→  - Size & Top Sheet active pills: `bg-[#1A2E2E] text-white` -> `bg-white/10 text-white` (matches active-nav translation, keeps secondary filter hierarchy distinct from gold category pills).
+   184→   184→  - Size & Top Sheet inactive pills: same translation as category inactive -> `border-white/10 bg-white/5 text-white/60 hover:bg-white/10`.
+   185→   185→  - "Showing X of Y products" line: muted text -> `text-white/60`, count -> `text-white`.
+   186→   186→  - Empty-state card: `border-[#E8E8E2] bg-white` -> `border-white/10 liquid-glass`; icon -> `text-white/40`; message -> `text-white/60`; "Clear filters" link `text-[#0E8E8E]` -> `text-[#F5B642]` (text link accent, not brand label).
+   187→   187→  - Bulk enquiry CTA card: `liquid-glass-light` -> `liquid-glass`; heading given `text-white`; body text -> `text-white/60`; CTAButton `variant="teal"` -> `variant="gold"`.
+   188→   188→  - ProductCard wrapper: `border-[#E8E8E2] bg-white shadow-sm ... hover:shadow-md` -> `border-white/10 liquid-glass shadow-sm ... hover:shadow-md` (kept shadow classes; they're near-invisible on dark but harmless).
+   189→   189→  - ProductCard body: brand label `text-[#0E8E8E]` KEPT teal (product brand-label exception); name `text-[#1A2E2E]` -> `text-white`; size line `text-[#5A6B6B]` -> `text-white/60`; price `text-[#1A2E2E]` -> `text-white`; "View Details" link `text-[#0E8E8E]` -> `text-[#F5B642]` (link accent, not brand label).
+   190→   190→  - Placeholder image area: kept `product.placeholderColor` inline style + `text-white/30` PackageCheck icon untouched (per spec: placeholder color stays as-is for trust contrast when real photos arrive).
+   191→   191→- Refactored `src/components/pages/ProductDetailPage.tsx` (COLOR-ONLY changes — no structural / logic / import changes):
+   192→   192→  - 404 "Product not found" state: wrapper `bg-[#FAFAF7] text-[#1A2E2E]` -> `bg-[#0A0A0A] text-white`; icon -> `text-white/40`; description -> `text-white/60`; "Browse all products" CTAButton `variant="teal"` -> `variant="gold"`.
+   193→   193→  - Main wrapper: `bg-[#FAFAF7] text-[#1A2E2E]` -> `bg-[#0A0A0A] text-white`.
+   194→   194→  - Breadcrumb: `text-[#8A9A9A]` -> `text-white/40`; Home/Products hover `hover:text-[#0E8E8E]` -> `hover:text-[#F5B642]`; current product name `text-[#5A6B6B]` -> `text-white/60`.
+   195→   195→  - Right column: brand label `text-[#0E8E8E]` KEPT teal (brand-label exception); h1 given explicit `text-white`; description `text-[#5A6B6B]` -> `text-white/60`.
+   196→   196→  - Key spec badges: Badge `variant="glass-light"` -> `variant="glass"` (4 instances: size, length, topSheet, padType).
+   197→   197→  - Certification badges: Badge `variant="teal"` KEPT teal (BIS/ISO certification-badge exception).
+   198→   198→  - Price card: `border-[#E8E8E2] bg-white` -> `border-white/10 liquid-glass`; "Pricing" label -> `text-white/40`; price unit & bulk note -> `text-white/60`; "Enquire for Quote" CTAButton `variant="teal"` -> `variant="gold"`. WhatsApp button untouched (green is brand-correct).
+   199→   199→  - Specs table: `liquid-glass-light` -> `liquid-glass`; `divide-y divide-[#E8E8E2]` -> `divide-y divide-white/10`; spec labels -> `text-white/40`; spec values -> `text-white`; heading given explicit `text-white`.
+   200→   200→  - Features section: italic em "different" `text-[#0E8E8E]` -> `text-[#F5B642]` (italic emphasis rule); feature card `border-[#E8E8E2] bg-white` -> `border-white/10 liquid-glass`; CheckCircle2 `text-[#0E8E8E]` KEPT teal (checkmark-in-features exception); feature text -> `text-white`.
+   201→   201→  - Usage Directions card: `liquid-glass-light` -> `liquid-glass`; "How to use" h3 given `text-white`; numbered step badge `bg-[#0E8E8E] text-white` -> `bg-[#F5B642] text-black` (numbered step, not a checkmark — gold per "everything else teal->gold" rule); step text -> `text-white`.
+   202→   202→  - Disposal Directions card: `liquid-glass-light` -> `liquid-glass`; "How to dispose" h3 given `text-white`; CheckCircle2 `text-[#0E8E8E]` KEPT teal (checkmark exception); step text -> `text-white`.
+   203→   203→  - MOQ section heading given explicit `text-white`.
+   204→   204→  - Related products section heading given explicit `text-white`.
+   205→   205→  - Enquiry CTA band: `liquid-glass-light` -> `liquid-glass`; heading given `text-white`; body -> `text-white/60`; "Enquire for Quote" CTAButton `variant="teal"` -> `variant="gold"`. WhatsApp button untouched.
+   206→   206→  - InfoTile component (used for MOQ / Delivery Time / Production Capacity / Packaging Details): card `border-[#E8E8E2] bg-white` -> `border-white/10 liquid-glass`; icon `text-[#0E8E8E]` -> `text-[#F5B642]` (per task: "Info tiles: glass cards with gold icons"); label -> `text-white/40`; value -> `text-white`.
+   207→   207→  - RelatedCard wrapper: `border-[#E8E8E2] bg-white shadow-sm ... hover:shadow-md` -> `border-white/10 liquid-glass shadow-sm ... hover:shadow-md`; brand label `text-[#0E8E8E]` KEPT teal (brand-label exception); name -> `text-white`; size line -> `text-white/60`; price -> `text-white`; "View" link -> `text-[#F5B642]`. Placeholder area + `text-white/30` icon untouched.
+   208→   208→- Verification:
+   209→   209→  - Grep for residual light tokens (`#FAFAF7`, `#1A2E2E`, `#5A6B6B`, `#8A9A9A`, `#E8E8E2`, `liquid-glass-light`, bare `bg-white`, `variant="teal"` on CTAButton, `variant="glass-light"`, `hover:bg-[#0E8E8E]`, `hover:bg-[#0A6E6E]`) -> only intentional matches remain: Badge `variant="teal"` for cert badges (kept per exception) and `bg-white/5`/`bg-white/10` translucent pill backgrounds (new dark tokens, correct).
+   210→   210→  - `bun run lint` -> CLEAN (no errors, no warnings).
+   211→   211→  - `bunx tsc --noEmit` -> no errors in either target file (filtered for ProductsPage|ProductDetailPage).
+   212→   212→  - Dev server log shows only `✓ Compiled` entries after edits (no errors); `curl http://localhost:3000/` -> 200 and `curl http://localhost:3000/#products` -> 200.
+   213→   213→- Both files retain: 'use client' directive, all imports (motion/useInView, useRef/useState/useMemo, lucide-react icons, CTAButton/Badge/SectionLabel primitives, useEnquiry, products data helpers, navigateTo/navigateToProduct), all framer-motion animations, all filter logic (matchesSize/matchesTopSheet, useState for category/size/topSheet, useMemo for filtered list, clearFilters), all ProductDetailPage logic (slug lookup, related products, whatsapp URL builder, openWhatsApp guard), and component structure (ProductCard / InfoTile / RelatedCard sub-components preserved).
+   214→   214→
+   215→   215→Stage Summary:
+   216→   216→- ProductsPage.tsx and ProductDetailPage.tsx are now fully DARK-mode (Option 1 All Dark).
+   217→   217→- Only these 2 files were modified — primitives, router, SiteShell, and other pages untouched.
+   218→   218→- All teal->gold conversions applied EXCEPT the four exception categories per spec (product brand labels, certification badges, feature-list CheckCircle2, disposal-direction CheckCircle2) which remain teal as the healthcare brand/trust signal.
+   219→   219→- Lint clean, types clean, dev server compiles and serves 200.
+   220→   220→- NOTE for next agent: router.ts still lists `products` and `product` in LIGHT_PAGES — when this All-Dark refactor completes across all pages, that array should be emptied (or DARK_PAGES expanded) so the navbar/footer render in dark glass on these routes too. That change is out of scope for P1-A.
+   221→   221→
+   222→   222→Next: Other P1-x agents refactor remaining light pages (About / Quality / Contact + router/navbar theme adapter) to complete the All-Dark decision.
+   223→   223→
+   224→   224→---
+   225→   225→Task ID: P1-B
+   226→   226→Agent: general-purpose sub-agent (About + Quality + Contact dark refactor)
+   227→   227→Task: Refactor AboutPage.tsx, QualityPage.tsx, ContactPage.tsx from LIGHT mode to DARK mode (Option 1: All Dark decision)
+   228→   228→
+   229→   229→Work Log:
+   230→   230→- Read worklog.md (prior P1, P3-P8, P5, P6 entries) for context. Confirmed Option 1: All Dark decision.
+   231→   231→- Read HomePage.tsx (dark style reference) and confirmed patterns: bg-[#0A0A0A], text-white, text-white/60, text-white/40, border-white/10, liquid-glass (not liquid-glass-light), gold #F5B642 accents, italic emphasis via <em className="italic text-[#F5B642]">word</em>, font-serif-display headings, radial-gradient overlays using rgba(245,182,66,0.04).
+   232→   232→- Read CTAButton.tsx + GlassCard.tsx primitives — confirmed variant="dark" uses liquid-glass, variant="gold" uses bg-[#F5B642] text-black hover:bg-[#FFC857], variant="glass" uses liquid-glass text-white hover:bg-white/5.
+   233→   233→- Read SiteShell.tsx — confirmed root is bg-[#0A0A0A] text-white, Navbar/Footer are already dark (no light-mode class refs in either), EnquiryModal hardcoded to variant="dark". So no shell changes needed.
+   234→   234→- Refactored AboutPage.tsx:
+   235→   235→  - Root: bg-[#FAFAF7] text-[#1A2E2E] → bg-[#0A0A0A] text-white
+   236→   236→  - Hero radial: rgba(14,142,142,0.04) → rgba(245,182,66,0.04) (gold)
+   237→   237→  - All text-[#5A6B6B] → text-white/60, text-[#8A9A9A] → text-white/40
+   238→   238→  - All italic emphasis words (2022, Groneu, values, compliant) text-[#0E8E8E] → text-[#F5B642] (gold)
+   239→   239→  - Mission/Vision cards: border border-[#E8E8E2] bg-white p-6 md:p-8 → liquid-glass p-6 md:p-8
+   240→   240→  - Target/Eye/Mission icons text-[#0E8E8E] → text-[#F5B642] (values icons, not trust signals)
+   241→   241→  - Leadership cards: border border-[#E8E8E2] bg-white p-6 text-center → liquid-glass p-6 text-center
+   242→   242→  - Leadership avatar tile bg-[#0E8E8E]/10 → bg-[#F5B642]/10, Users icon → text-[#F5B642]
+   243→   243→  - Role label text-[#0E8E8E] → text-[#F5B642] (uppercase tracking label, not cert)
+   244→   244→  - Stats cards liquid-glass-light → liquid-glass; stat icons → text-[#F5B642]; values get explicit text-white; label text-[#8A9A9A] → text-white/40
+   245→   245→  - Values cards border border-[#E8E8E2] bg-white p-6 → liquid-glass p-6; icon tiles bg-[#0E8E8E]/10 → bg-[#F5B642]/10; icons → text-[#F5B642] (these are values/brand icons including ShieldCheck-as-value, NOT certification badges — converted to gold per "everything else → gold")
+   246→   246→  - Statutory profile: liquid-glass-light → liquid-glass; row borders border-b border-[#1A2E2E]/10 → border-b border-white/10 (kept last:border-0 + grid structure intact, just swapped colors); row labels text-[#5A6B6B] → text-white/60; row values text-[#1A2E2E] → text-white
+   247→   247→  - Office/Factory GlassCard variant="light" → variant="dark"; MapPin/Factory icons → text-[#F5B642]
+   248→   248→  - "See our plant" CTAButton variant="teal" → variant="gold"
+   249→   249→  - All headings got explicit text-white (was inheriting text-[#1A2E2E])
+   250→   250→- Refactored QualityPage.tsx:
+   251→   251→  - Root + hero radial swapped to dark/gold
+   252→   252→  - Italic emphasis words (quality, assurance, verified, BIS certification, improving) all → text-[#F5B642] (gold)
+   253→   253→  - All text-[#5A6B6B] → text-white/60, text-[#8A9A9A] → text-white/40, text-[#1A2E2E] → text-white
+   254→   254→  - Statutory credential cards: liquid-glass-light → liquid-glass; KEPT teal for FileCheck (GST) + Award (IEC) icons AND their bg-[#0E8E8E]/10 tile backgrounds (statutory credential icons = trust signal per spec); label/value colors swapped to dark
+   255→   255→  - Footer note about GST registration date: text-[#8A9A9A] → text-white/40
+   256→   256→  - QA process step cards: border border-[#E8E8E2] bg-white p-6 md:p-8 → liquid-glass p-6 md:p-8
+   257→   257→  - QA step number circles: bg-[#0E8E8E] text-white → bg-[#F5B642] text-black (gold step circles per spec)
+   258→   258→  - QA step icons (PackageCheck/Beaker/Microscope/ShieldCheck-as-step/Truck): text-[#0E8E8E] → text-[#F5B642] (process icons, not cert badges)
+   259→   259→  - Standards cards: liquid-glass-light → liquid-glass; KEPT teal for CheckCircle2 icon (text-[#0E8E8E]) — trust signal per spec; rest swapped to dark
+   260→   260→  - BIS product cards: border border-[#E8E8E2] bg-white p-4 → liquid-glass p-4; brand label text-[#0E8E8E] → text-[#F5B642] (gold, consistency with HomePage featured product brand labels); ShieldCheck icon: text-white/70 → text-[#0E8E8E] (teal trust signal per spec); product.name gets explicit text-white
+   261→   261→  - Continuous improvement card: GlassCard variant="light" → variant="dark"; Microscope icon → text-[#F5B642] (section symbol, not cert); "Discuss your quality requirements" CTAButton variant="teal" → variant="gold"; "View our products" CTAButton variant="glass-light" → variant="glass"
+   262→   262→- Refactored ContactPage.tsx:
+   263→   263→  - Root + hero radial swapped to dark/gold
+   264→   264→  - Italic emphasis words (talk, quote, Gujarat) → text-[#F5B642] (gold)
+   265→   265→  - All text-[#5A6B6B] → text-white/60, text-[#8A9A9A] → text-white/40
+   266→   266→  - Contact method cards: liquid-glass-light → liquid-glass; icon tiles bg-[#0E8E8E]/10 → bg-[#F5B642]/10; Phone/Mail/MessageCircle icons → text-[#F5B642] (these are contact icons, NOT trust signals)
+   267→   267→  - Form section heading text colors swapped to white
+   268→   268→  - Enquiry type toggle container: border border-[#E8E8E2] bg-white p-1 → border border-white/10 bg-white/5 p-1
+   269→   269→  - Active toggle state: bg-[#0E8E8E] text-white → bg-[#F5B642] text-black (gold active state per spec)
+   270→   270→  - Inactive toggle state: text-[#5A6B6B] hover:text-[#1A2E2E] → text-white/60 hover:text-white
+   271→   271→  - Form labels: text-[#5A6B6B] → text-white/60 (all 5 labels)
+   272→   272→  - Form inputs (4 inputs + 1 textarea): border border-[#E8E8E2] bg-white px-4 py-2.5 text-sm text-[#1A2E8E2E] outline-none transition-colors focus:border-[#0E8E8E] → border border-white/15 bg-white/5 px-4 py-2.5 text-sm text-white placeholder:text-white/40 outline-none transition-colors focus:border-[#F5B642] (added placeholder:text-white/40 per spec)
+   273→   273→  - Submit button: bg-[#0E8E8E] py-3 text-sm font-medium text-white transition-colors hover:bg-[#0A6E6E] → bg-[#F5B642] py-3 text-sm font-medium text-black transition-colors hover:bg-[#FFC857]
+   274→   274→  - Info cards (Office Address, Factory Address, Response Stats): GlassCard variant="light" → variant="dark"; Building2/Factory/Clock icons → text-[#F5B642] (info icons, not trust)
+   275→   275→  - Response Stats values (81%, Within 24 hours, 2-7 days): text-[#0E8E8E] → text-[#F5B642] (stat values, not certs — converted to gold per "everything else → gold"); row labels text-[#5A6B6B] → text-white/60
+   276→   276→  - WhatsApp CTA: KEPT bg-[#25D366] green brand color and text-white (WhatsApp brand color stays per spec)
+   277→   277→  - Map embed container: border border-[#E8E8E2] → border border-white/10
+   278→   278→- Verification:
+   279→   279→  - Ran `bun run lint` → CLEAN (no errors, no warnings)
+   280→   280→  - `tail dev.log` → shows successful compiles + GET / 200 (no errors)
+   281→   281→  - Grep across all 3 files for residual light-mode tokens (FAFAF7, 1A2E2E, 5A6B6B, 8A9A9A, E8E8E2, liquid-glass-light, variant="light", variant="teal", 0A6E6E) → ZERO matches in AboutPage/QualityPage/ContactPage (the only variant="teal" left in /pages is in ProductDetailPage.tsx which is NOT in scope for this task)
+   282→   282→- Confirmed:
+   283→   283→  - All imports preserved (motion, useInView, useRef, useState, lucide-react icons, CTAButton, GlassCard, SectionLabel, useEnquiry, company, products, productStats, toast)
+   284→   284→  - All framer-motion animations preserved (initial/animate/whileInView/transition/useInView)
+   285→   285→  - All logic preserved (form state, enquiryType toggle, handleSubmit, contacts array, stats array, values array, qaSteps array, standards array, statutoryCreds array, bisProducts filter)
+   286→   286→  - All structure preserved (same sections, same grid layouts, same motion.div wrappers, same AnimatePresence-friendly motion components)
+   287→   287→  - 'use client' stays at top of all 3 files
+   288→   288→  - No other files modified
+   289→   289→
+   290→   290→Stage Summary:
+   291→   291→- AboutPage.tsx, QualityPage.tsx, ContactPage.tsx ALL converted from light to dark mode
+   292→   292→- All gold accents use #F5B642 (italic emphasis, CTAs, icon tiles, step circles, info icons, stat values)
+   293→   293→- All teal #0E8E8E KEPT only for explicit trust signals: statutory credential FileCheck/Award icons (GST/IEC), standards card CheckCircle2 icons, BIS product card ShieldCheck icons
+   294→   294→- WhatsApp brand green #25D366 kept for WhatsApp CTA
+   295→   295→- Liquid-glass class used everywhere (no more liquid-glass-light in these 3 files)
+   296→   296→- All GlassCard variant="light" → variant="dark", CTAButton variant="teal" → variant="gold", variant="glass-light" → variant="glass"
+   297→   297→- Form inputs use dark pattern: border-white/15 bg-white/5 text-white placeholder:text-white/40 focus:border-[#F5B642]
+   298→   298→- Lint clean, dev server compiles successfully, no errors
+   299→   299→
+   300→   300→Next: With P1-B complete, ALL 8 site pages are now dark mode. Site-wide Option 1 (All Dark) is fully realized. ProductDetailPage.tsx still has variant="teal" badges (out of scope for this task) — may need a follow-up pass if user wants fully consistent dark treatment of certification badges there too.
+   301→   301→

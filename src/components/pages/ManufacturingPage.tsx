@@ -16,6 +16,7 @@ import { GlassCard } from '@/components/primitives/GlassCard'
 import { SectionLabel } from '@/components/primitives/SectionLabel'
 import { useEnquiry } from '@/components/shell/SiteShell'
 import { navigateTo } from '@/lib/router'
+import { usePageMeta } from '@/hooks/usePageMeta'
 
 const PLANT_VIDEO = '/assets/video/manufacturing-plant.mp4'
 
@@ -87,6 +88,12 @@ const plantThumbnails = [
 
 export function ManufacturingPage() {
   const { openEnquiry } = useEnquiry()
+
+  usePageMeta({
+    title: 'Manufacturing',
+    description:
+      'Our Palanpur facility: 600K pcs/day capacity, BIS-standard QA, 5-stage process. Step inside our plant. GST & IEC registered manufacturer.',
+  })
 
   return (
     <div className="bg-[#0A0A0A] text-white">

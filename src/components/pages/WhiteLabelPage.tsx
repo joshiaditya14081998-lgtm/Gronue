@@ -22,6 +22,7 @@ import { CTAButton } from '@/components/primitives/CTAButton'
 import { GlassCard } from '@/components/primitives/GlassCard'
 import { SectionLabel } from '@/components/primitives/SectionLabel'
 import { useEnquiry } from '@/components/shell/SiteShell'
+import { usePageMeta } from '@/hooks/usePageMeta'
 
 /* ---------------------------------- data ---------------------------------- */
 
@@ -229,6 +230,12 @@ export function WhiteLabelPage() {
   const { openEnquiry } = useEnquiry()
   const [openFaq, setOpenFaq] = useState<number | null>(0)
   const [form, setForm] = useState(initialForm)
+
+  usePageMeta({
+    title: 'White-Label Manufacturing',
+    description:
+      'Launch your sanitary product line. Custom sizes, materials, packaging, branding. MOQ flexible. IEC registered exporter. Enquire for quote.',
+  })
 
   const scrollToProcess = () => {
     document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' })

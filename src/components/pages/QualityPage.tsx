@@ -19,11 +19,18 @@ import { SectionLabel } from '@/components/primitives/SectionLabel'
 import { useEnquiry } from '@/components/shell/SiteShell'
 import { company } from '@/data/company'
 import { products } from '@/data/products'
+import { usePageMeta } from '@/hooks/usePageMeta'
 
 export function QualityPage() {
   const { openEnquiry } = useEnquiry()
   const processRef = useRef(null)
   const processInView = useInView(processRef, { once: true, margin: '-100px' })
+
+  usePageMeta({
+    title: 'Quality & Compliance',
+    description:
+      'GST & IEC registered. 5-stage QA process. BIS-certified products. 36-month shelf life. Honest quality commitment from Groneu Healthcare.',
+  })
 
   const qaSteps = [
     {
@@ -84,25 +91,25 @@ export function QualityPage() {
   const bisProducts = products.filter((p) => p.certifications.includes('BIS'))
 
   return (
-    <div className="bg-[#FAFAF7] text-[#1A2E2E]">
+    <div className="bg-[#0A0A0A] text-white">
       {/* Hero */}
       <section className="relative overflow-hidden px-6 pt-12 pb-16 md:pt-20 md:pb-24">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(14,142,142,0.04)_0%,_transparent_70%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(245,182,66,0.04)_0%,_transparent_70%)]" />
         <div className="relative mx-auto max-w-4xl text-center">
           <SectionLabel className="justify-center text-center">Quality &amp; Compliance</SectionLabel>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="font-serif-display mt-6 text-5xl leading-[1.1] tracking-tight md:text-7xl"
+            className="font-serif-display mt-6 text-5xl leading-[1.1] tracking-tight text-white md:text-7xl"
           >
-            Our commitment to <em className="italic text-[#0E8E8E]">quality</em>
+            Our commitment to <em className="italic text-[#F5B642]">quality</em>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-[#5A6B6B] md:text-lg"
+            className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/60 md:text-lg"
           >
             Quality isn&apos;t a checkpoint — it&apos;s built into every step. From raw material
             inspection to final dispatch, our products are manufactured in compliance with industrial
@@ -116,7 +123,7 @@ export function QualityPage() {
         <div className="mx-auto max-w-4xl">
           <div className="mb-8 text-center">
             <SectionLabel className="justify-center text-center">Registered &amp; Verified</SectionLabel>
-            <h2 className="font-serif-display mt-4 text-3xl tracking-tight md:text-4xl">
+            <h2 className="font-serif-display mt-4 text-3xl tracking-tight text-white md:text-4xl">
               Statutory credentials
             </h2>
           </div>
@@ -127,19 +134,19 @@ export function QualityPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="liquid-glass-light flex items-center gap-5 rounded-3xl p-6 md:p-8"
+                className="liquid-glass flex items-center gap-5 rounded-3xl p-6 md:p-8"
               >
                 <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#0E8E8E]/10">
                   <cred.icon size={26} className="text-[#0E8E8E]" />
                 </div>
                 <div>
-                  <p className="text-xs uppercase tracking-widest text-[#8A9A9A]">{cred.label}</p>
-                  <p className="font-serif-display mt-1 text-2xl text-[#1A2E2E]">{cred.value}</p>
+                  <p className="text-xs uppercase tracking-widest text-white/40">{cred.label}</p>
+                  <p className="font-serif-display mt-1 text-2xl text-white">{cred.value}</p>
                 </div>
               </motion.div>
             ))}
           </div>
-          <p className="mt-6 text-center text-sm text-[#8A9A9A]">
+          <p className="mt-6 text-center text-sm text-white/40">
             These are our verified statutory credentials. GST registration date: {company.gstRegistrationDate} · Legal status: {company.legalStatus}
           </p>
         </div>
@@ -150,8 +157,8 @@ export function QualityPage() {
         <div className="mx-auto max-w-6xl">
           <div className="mb-12">
             <SectionLabel>Our QA Process</SectionLabel>
-            <h2 className="font-serif-display mt-4 text-4xl tracking-tight md:text-5xl">
-              Five stages of <em className="italic text-[#0E8E8E]">assurance</em>
+            <h2 className="font-serif-display mt-4 text-4xl tracking-tight text-white md:text-5xl">
+              Five stages of <em className="italic text-[#F5B642]">assurance</em>
             </h2>
           </div>
           <div className="space-y-4">
@@ -161,17 +168,17 @@ export function QualityPage() {
                 initial={{ opacity: 0, x: -30 }}
                 animate={processInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.6, delay: i * 0.12 }}
-                className="flex items-start gap-5 rounded-3xl border border-[#E8E8E2] bg-white p-6 md:p-8"
+                className="liquid-glass flex items-start gap-5 rounded-3xl p-6 md:p-8"
               >
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#0E8E8E] text-white">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#F5B642] text-black">
                   <span className="font-serif-display text-lg">{String(i + 1).padStart(2, '0')}</span>
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center gap-3">
-                    <step.icon size={20} className="text-[#0E8E8E]" />
-                    <h3 className="font-serif-display text-xl md:text-2xl">{step.title}</h3>
+                    <step.icon size={20} className="text-[#F5B642]" />
+                    <h3 className="font-serif-display text-xl text-white md:text-2xl">{step.title}</h3>
                   </div>
-                  <p className="mt-2 text-sm leading-relaxed text-[#5A6B6B]">{step.description}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-white/60">{step.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -184,8 +191,8 @@ export function QualityPage() {
         <div className="mx-auto max-w-6xl">
           <div className="mb-12">
             <SectionLabel>Standards We Follow</SectionLabel>
-            <h2 className="font-serif-display mt-4 text-4xl tracking-tight md:text-5xl">
-              Tested &amp; <em className="italic text-[#0E8E8E]">verified</em>
+            <h2 className="font-serif-display mt-4 text-4xl tracking-tight text-white md:text-5xl">
+              Tested &amp; <em className="italic text-[#F5B642]">verified</em>
             </h2>
           </div>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -196,16 +203,16 @@ export function QualityPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="liquid-glass-light rounded-3xl p-6 md:p-8"
+                className="liquid-glass rounded-3xl p-6 md:p-8"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <p className="text-xs uppercase tracking-widest text-[#8A9A9A]">{std.label}</p>
-                    <p className="font-serif-display mt-1 text-2xl text-[#1A2E2E]">{std.value}</p>
+                    <p className="text-xs uppercase tracking-widest text-white/40">{std.label}</p>
+                    <p className="font-serif-display mt-1 text-2xl text-white">{std.value}</p>
                   </div>
                   <CheckCircle2 size={24} className="shrink-0 text-[#0E8E8E]" />
                 </div>
-                <p className="mt-3 text-sm leading-relaxed text-[#5A6B6B]">{std.note}</p>
+                <p className="mt-3 text-sm leading-relaxed text-white/60">{std.note}</p>
               </motion.div>
             ))}
           </div>
@@ -217,10 +224,10 @@ export function QualityPage() {
         <div className="mx-auto max-w-6xl">
           <div className="mb-8">
             <SectionLabel>BIS Certified Products</SectionLabel>
-            <h2 className="font-serif-display mt-4 text-4xl tracking-tight md:text-5xl">
-              Products with <em className="italic text-[#0E8E8E]">BIS certification</em>
+            <h2 className="font-serif-display mt-4 text-4xl tracking-tight text-white md:text-5xl">
+              Products with <em className="italic text-[#F5B642]">BIS certification</em>
             </h2>
-            <p className="mt-4 text-sm text-[#5A6B6B]">
+            <p className="mt-4 text-sm text-white/60">
               The following products carry BIS certification as stated in their specifications:
             </p>
           </div>
@@ -232,17 +239,17 @@ export function QualityPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="flex items-center gap-4 rounded-2xl border border-[#E8E8E2] bg-white p-4"
+                className="liquid-glass flex items-center gap-4 rounded-2xl p-4"
               >
                 <div
                   className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl"
                   style={{ backgroundColor: product.placeholderColor }}
                 >
-                  <ShieldCheck size={20} className="text-white/70" />
+                  <ShieldCheck size={20} className="text-[#0E8E8E]" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="text-xs uppercase tracking-widest text-[#0E8E8E]">{product.brand}</p>
-                  <p className="truncate font-serif-display text-base">{product.name}</p>
+                  <p className="text-xs uppercase tracking-widest text-[#F5B642]">{product.brand}</p>
+                  <p className="truncate font-serif-display text-base text-white">{product.name}</p>
                 </div>
               </motion.div>
             ))}
@@ -253,21 +260,21 @@ export function QualityPage() {
       {/* Continuous Improvement */}
       <section className="px-6 py-16 md:py-24">
         <div className="mx-auto max-w-4xl">
-          <GlassCard variant="light" className="p-8 text-center md:p-12">
-            <Microscope size={32} className="mx-auto text-[#0E8E8E]" />
-            <h2 className="font-serif-display mt-4 text-3xl md:text-4xl">
-              Continuously <em className="italic text-[#0E8E8E]">improving</em>
+          <GlassCard variant="dark" className="p-8 text-center md:p-12">
+            <Microscope size={32} className="mx-auto text-[#F5B642]" />
+            <h2 className="font-serif-display mt-4 text-3xl text-white md:text-4xl">
+              Continuously <em className="italic text-[#F5B642]">improving</em>
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-[#5A6B6B]">
+            <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-white/60">
               We&apos;re committed to strengthening our quality systems. Our team invests long
               working hours in manufacturing products as per clients&apos; specifications — and
               we&apos;re always working towards broader certifications and tighter standards.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <CTAButton variant="teal" size="md" onClick={() => openEnquiry()} showArrow>
+              <CTAButton variant="gold" size="md" onClick={() => openEnquiry()} showArrow>
                 Discuss your quality requirements
               </CTAButton>
-              <CTAButton variant="glass-light" size="md" navigateToPage="products">
+              <CTAButton variant="glass" size="md" navigateToPage="products">
                 View our products
               </CTAButton>
             </div>

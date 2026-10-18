@@ -8,7 +8,6 @@ import { Footer } from './Footer'
 import { FloatingWhatsApp } from './FloatingWhatsApp'
 import { EnquiryModal } from './EnquiryModal'
 import { useHashRoute } from '@/hooks/useHashRoute'
-import { isDarkPage } from '@/lib/router'
 import { HomePage } from '@/components/pages/HomePage'
 import { AboutPage } from '@/components/pages/AboutPage'
 import { ProductsPage } from '@/components/pages/ProductsPage'
@@ -20,12 +19,10 @@ import { ContactPage } from '@/components/pages/ContactPage'
 
 interface EnquiryContextValue {
   openEnquiry: (product?: string) => void
-  isDark: boolean
 }
 
 const EnquiryContext = createContext<EnquiryContextValue>({
   openEnquiry: () => {},
-  isDark: true,
 })
 
 export function useEnquiry() {
@@ -34,7 +31,6 @@ export function useEnquiry() {
 
 export function SiteShell() {
   const route = useHashRoute()
-  const dark = isDarkPage(route.page)
   const [enquiryOpen, setEnquiryOpen] = useState(false)
   const [enquiryProduct, setEnquiryProduct] = useState<string | undefined>(undefined)
 
@@ -69,15 +65,11 @@ export function SiteShell() {
   }
 
   return (
-    <EnquiryContext.Provider value={{ openEnquiry, isDark: dark }}>
-      <div
-        className={`flex min-h-screen flex-col transition-colors duration-500 ${
-          dark ? 'bg-[#0A0A0A] text-white' : 'bg-[#FAFAF7] text-[#1A2E2E]'
-        }`}
-      >
-        <Navbar currentPage={route.page} isDark={dark} />
+    <EnquiryContext.Provider value={{ openEnquiry }}>
+      <div className="flex min-h-screen flex-col bg-[#0A0A0A] text-white">
+        <Navbar currentPage={route.page} />
 
-        <main className="flex-1 pt-20">
+        <main className="flex-1 overflow-x-hidden pt-20">
           <AnimatePresence mode="wait">
             <motion.div
               key={route.page + (route.productSlug ?? '')}
@@ -98,7 +90,7 @@ export function SiteShell() {
           open={enquiryOpen}
           onClose={closeEnquiry}
           prefillProduct={enquiryProduct}
-          variant={dark ? 'dark' : 'light'}
+          variant="dark"
         />
       </div>
     </EnquiryContext.Provider>

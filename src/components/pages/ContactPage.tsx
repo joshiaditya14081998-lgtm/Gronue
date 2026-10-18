@@ -19,6 +19,7 @@ import { CTAButton } from '@/components/primitives/CTAButton'
 import { GlassCard } from '@/components/primitives/GlassCard'
 import { SectionLabel } from '@/components/primitives/SectionLabel'
 import { company } from '@/data/company'
+import { usePageMeta } from '@/hooks/usePageMeta'
 
 export function ContactPage() {
   const formRef = useRef(null)
@@ -30,6 +31,12 @@ export function ContactPage() {
     phone: '',
     company: '',
     message: '',
+  })
+
+  usePageMeta({
+    title: 'Contact',
+    description:
+      'Get in touch. Palanpur, Gujarat. Phone +91-8047844175. Email info@groneuhealthcare.com. WhatsApp available. Enquire for quote — 81% response rate.',
   })
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -63,25 +70,25 @@ export function ContactPage() {
   ]
 
   return (
-    <div className="bg-[#FAFAF7] text-[#1A2E2E]">
+    <div className="bg-[#0A0A0A] text-white">
       {/* Hero */}
       <section className="relative overflow-hidden px-6 pt-12 pb-12 md:pt-20 md:pb-16">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(14,142,142,0.04)_0%,_transparent_70%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(245,182,66,0.04)_0%,_transparent_70%)]" />
         <div className="relative mx-auto max-w-4xl text-center">
           <SectionLabel className="justify-center text-center">Get in touch</SectionLabel>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="font-serif-display mt-6 text-5xl leading-[1.1] tracking-tight md:text-7xl"
+            className="font-serif-display mt-6 text-5xl leading-[1.1] tracking-tight text-white md:text-7xl"
           >
-            Let&apos;s <em className="italic text-[#0E8E8E]">talk</em>
+            Let&apos;s <em className="italic text-[#F5B642]">talk</em>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-[#5A6B6B] md:text-lg"
+            className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-white/60 md:text-lg"
           >
             Whether you&apos;re a brand looking for a manufacturing partner, a distributor seeking
             quality products, or just have a question — we&apos;d love to hear from you. Enquire for
@@ -103,16 +110,16 @@ export function ContactPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="liquid-glass-light rounded-3xl p-6 transition-transform hover:-translate-y-1"
+                className="liquid-glass rounded-3xl p-6 transition-transform hover:-translate-y-1"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#0E8E8E]/10">
-                  <method.icon size={22} className="text-[#0E8E8E]" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#F5B642]/10">
+                  <method.icon size={22} className="text-[#F5B642]" />
                 </div>
-                <p className="mt-4 text-xs uppercase tracking-widest text-[#8A9A9A]">
+                <p className="mt-4 text-xs uppercase tracking-widest text-white/40">
                   {method.label}
                 </p>
-                <p className="font-serif-display mt-1 text-lg">{method.value}</p>
-                <p className="mt-1 text-xs text-[#8A9A9A]">{method.note}</p>
+                <p className="font-serif-display mt-1 text-lg text-white">{method.value}</p>
+                <p className="mt-1 text-xs text-white/40">{method.note}</p>
               </motion.a>
             ))}
           </div>
@@ -130,18 +137,18 @@ export function ContactPage() {
               transition={{ duration: 0.7 }}
             >
               <SectionLabel>Send us a message</SectionLabel>
-              <h2 className="font-serif-display mt-4 text-3xl tracking-tight md:text-4xl">
-                Enquire for <em className="italic text-[#0E8E8E]">quote</em>
+              <h2 className="font-serif-display mt-4 text-3xl tracking-tight text-white md:text-4xl">
+                Enquire for <em className="italic text-[#F5B642]">quote</em>
               </h2>
 
               {/* Enquiry type toggle */}
-              <div className="mt-6 inline-flex rounded-full border border-[#E8E8E2] bg-white p-1">
+              <div className="mt-6 inline-flex rounded-full border border-white/10 bg-white/5 p-1">
                 <button
                   onClick={() => setEnquiryType('general')}
                   className={`rounded-full px-5 py-2 text-sm font-medium transition-colors ${
                     enquiryType === 'general'
-                      ? 'bg-[#0E8E8E] text-white'
-                      : 'text-[#5A6B6B] hover:text-[#1A2E2E]'
+                      ? 'bg-[#F5B642] text-black'
+                      : 'text-white/60 hover:text-white'
                   }`}
                 >
                   General Enquiry
@@ -150,8 +157,8 @@ export function ContactPage() {
                   onClick={() => setEnquiryType('b2b')}
                   className={`rounded-full px-5 py-2 text-sm font-medium transition-colors ${
                     enquiryType === 'b2b'
-                      ? 'bg-[#0E8E8E] text-white'
-                      : 'text-[#5A6B6B] hover:text-[#1A2E2E]'
+                      ? 'bg-[#F5B642] text-black'
+                      : 'text-white/60 hover:text-white'
                   }`}
                 >
                   White-Label / B2B
@@ -161,7 +168,7 @@ export function ContactPage() {
               <form onSubmit={handleSubmit} className="mt-6 space-y-4">
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div>
-                    <label className="mb-1.5 block text-xs font-medium text-[#5A6B6B]" htmlFor="c-name">
+                    <label className="mb-1.5 block text-xs font-medium text-white/60" htmlFor="c-name">
                       Name *
                     </label>
                     <input
@@ -169,12 +176,12 @@ export function ContactPage() {
                       required
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      className="w-full rounded-full border border-[#E8E8E2] bg-white px-4 py-2.5 text-sm text-[#1A2E2E] outline-none transition-colors focus:border-[#0E8E8E]"
+                      className="w-full rounded-full border border-white/15 bg-white/5 px-4 py-2.5 text-sm text-white placeholder:text-white/40 outline-none transition-colors focus:border-[#F5B642]"
                       placeholder="Your name"
                     />
                   </div>
                   <div>
-                    <label className="mb-1.5 block text-xs font-medium text-[#5A6B6B]" htmlFor="c-email">
+                    <label className="mb-1.5 block text-xs font-medium text-white/60" htmlFor="c-email">
                       Email *
                     </label>
                     <input
@@ -183,41 +190,41 @@ export function ContactPage() {
                       required
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      className="w-full rounded-full border border-[#E8E8E2] bg-white px-4 py-2.5 text-sm text-[#1A2E2E] outline-none transition-colors focus:border-[#0E8E8E]"
+                      className="w-full rounded-full border border-white/15 bg-white/5 px-4 py-2.5 text-sm text-white placeholder:text-white/40 outline-none transition-colors focus:border-[#F5B642]"
                       placeholder="you@email.com"
                     />
                   </div>
                 </div>
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div>
-                    <label className="mb-1.5 block text-xs font-medium text-[#5A6B6B]" htmlFor="c-phone">
+                    <label className="mb-1.5 block text-xs font-medium text-white/60" htmlFor="c-phone">
                       Phone
                     </label>
                     <input
                       id="c-phone"
                       value={form.phone}
                       onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                      className="w-full rounded-full border border-[#E8E8E2] bg-white px-4 py-2.5 text-sm text-[#1A2E2E] outline-none transition-colors focus:border-[#0E8E8E]"
+                      className="w-full rounded-full border border-white/15 bg-white/5 px-4 py-2.5 text-sm text-white placeholder:text-white/40 outline-none transition-colors focus:border-[#F5B642]"
                       placeholder="+91 ..."
                     />
                   </div>
                   {enquiryType === 'b2b' && (
                     <div>
-                      <label className="mb-1.5 block text-xs font-medium text-[#5A6B6B]" htmlFor="c-company">
+                      <label className="mb-1.5 block text-xs font-medium text-white/60" htmlFor="c-company">
                         Company
                       </label>
                       <input
                         id="c-company"
                         value={form.company}
                         onChange={(e) => setForm({ ...form, company: e.target.value })}
-                        className="w-full rounded-full border border-[#E8E8E2] bg-white px-4 py-2.5 text-sm text-[#1A2E2E] outline-none transition-colors focus:border-[#0E8E8E]"
+                        className="w-full rounded-full border border-white/15 bg-white/5 px-4 py-2.5 text-sm text-white placeholder:text-white/40 outline-none transition-colors focus:border-[#F5B642]"
                         placeholder="Your company"
                       />
                     </div>
                   )}
                 </div>
                 <div>
-                  <label className="mb-1.5 block text-xs font-medium text-[#5A6B6B]" htmlFor="c-msg">
+                  <label className="mb-1.5 block text-xs font-medium text-white/60" htmlFor="c-msg">
                     Message *
                   </label>
                   <textarea
@@ -226,7 +233,7 @@ export function ContactPage() {
                     rows={4}
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    className="w-full rounded-2xl border border-[#E8E8E2] bg-white px-4 py-2.5 text-sm text-[#1A2E2E] outline-none transition-colors focus:border-[#0E8E8E]"
+                    className="w-full rounded-2xl border border-white/15 bg-white/5 px-4 py-2.5 text-sm text-white placeholder:text-white/40 outline-none transition-colors focus:border-[#F5B642]"
                     placeholder={
                       enquiryType === 'b2b'
                         ? 'Tell us about your brand, target market, expected volume, and timeline...'
@@ -236,7 +243,7 @@ export function ContactPage() {
                 </div>
                 <button
                   type="submit"
-                  className="flex w-full items-center justify-center gap-2 rounded-full bg-[#0E8E8E] py-3 text-sm font-medium text-white transition-colors hover:bg-[#0A6E6E]"
+                  className="flex w-full items-center justify-center gap-2 rounded-full bg-[#F5B642] py-3 text-sm font-medium text-black transition-colors hover:bg-[#FFC857]"
                 >
                   <Send size={16} /> Send Enquiry
                 </button>
@@ -250,12 +257,12 @@ export function ContactPage() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="space-y-4"
             >
-              <GlassCard variant="light" className="p-6 md:p-8">
+              <GlassCard variant="dark" className="p-6 md:p-8">
                 <div className="flex items-start gap-4">
-                  <Building2 size={24} className="mt-1 shrink-0 text-[#0E8E8E]" />
+                  <Building2 size={24} className="mt-1 shrink-0 text-[#F5B642]" />
                   <div>
-                    <h3 className="font-serif-display text-xl">Office Address</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-[#5A6B6B]">
+                    <h3 className="font-serif-display text-xl text-white">Office Address</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-white/60">
                       {company.officeAddress.line1}
                       <br />
                       {company.officeAddress.line2}
@@ -269,12 +276,12 @@ export function ContactPage() {
                 </div>
               </GlassCard>
 
-              <GlassCard variant="light" className="p-6 md:p-8">
+              <GlassCard variant="dark" className="p-6 md:p-8">
                 <div className="flex items-start gap-4">
-                  <Factory size={24} className="mt-1 shrink-0 text-[#0E8E8E]" />
+                  <Factory size={24} className="mt-1 shrink-0 text-[#F5B642]" />
                   <div>
-                    <h3 className="font-serif-display text-xl">Factory Address</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-[#5A6B6B]">
+                    <h3 className="font-serif-display text-xl text-white">Factory Address</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-white/60">
                       {company.factoryAddress.line1}
                       <br />
                       {company.factoryAddress.line2}
@@ -284,23 +291,23 @@ export function ContactPage() {
                 </div>
               </GlassCard>
 
-              <GlassCard variant="light" className="p-6 md:p-8">
+              <GlassCard variant="dark" className="p-6 md:p-8">
                 <div className="flex items-start gap-4">
-                  <Clock size={24} className="mt-1 shrink-0 text-[#0E8E8E]" />
+                  <Clock size={24} className="mt-1 shrink-0 text-[#F5B642]" />
                   <div>
-                    <h3 className="font-serif-display text-xl">Response Stats</h3>
+                    <h3 className="font-serif-display text-xl text-white">Response Stats</h3>
                     <div className="mt-3 space-y-2">
                       <div className="flex items-center justify-between text-sm">
-                        <span className="text-[#5A6B6B]">Response Rate</span>
-                        <span className="font-serif-display text-[#0E8E8E]">81%</span>
+                        <span className="text-white/60">Response Rate</span>
+                        <span className="font-serif-display text-[#F5B642]">81%</span>
                       </div>
                       <div className="flex items-center justify-between text-sm">
-                        <span className="text-[#5A6B6B]">Typical Response</span>
-                        <span className="font-serif-display text-[#0E8E8E]">Within 24 hours</span>
+                        <span className="text-white/60">Typical Response</span>
+                        <span className="font-serif-display text-[#F5B642]">Within 24 hours</span>
                       </div>
                       <div className="flex items-center justify-between text-sm">
-                        <span className="text-[#5A6B6B]">Delivery Time</span>
-                        <span className="font-serif-display text-[#0E8E8E]">2-7 days</span>
+                        <span className="text-white/60">Delivery Time</span>
+                        <span className="font-serif-display text-[#F5B642]">2-7 days</span>
                       </div>
                     </div>
                   </div>
@@ -333,11 +340,11 @@ export function ContactPage() {
         <div className="mx-auto max-w-6xl">
           <div className="mb-6 text-center">
             <SectionLabel className="justify-center text-center">Find us</SectionLabel>
-            <h2 className="font-serif-display mt-4 text-3xl tracking-tight md:text-4xl">
-              Palanpur, <em className="italic text-[#0E8E8E]">Gujarat</em>
+            <h2 className="font-serif-display mt-4 text-3xl tracking-tight text-white md:text-4xl">
+              Palanpur, <em className="italic text-[#F5B642]">Gujarat</em>
             </h2>
           </div>
-          <div className="overflow-hidden rounded-3xl border border-[#E8E8E2]">
+          <div className="overflow-hidden rounded-3xl border border-white/10">
             <iframe
               src={company.contact.mapEmbedUrl}
               width="100%"

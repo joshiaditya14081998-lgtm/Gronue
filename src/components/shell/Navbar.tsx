@@ -10,33 +10,33 @@ import { navigateTo, type PageId } from '@/lib/router'
 
 interface NavbarProps {
   currentPage: PageId
-  isDark: boolean
 }
 
-export function Navbar({ currentPage, isDark }: NavbarProps) {
+export function Navbar({ currentPage }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
+    const onScroll = () => setScrolled(window.scrollY > 40)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
-
-  const glassClass = isDark ? 'liquid-glass' : 'liquid-glass-light'
-  const textColor = isDark ? 'text-white' : 'text-[#1A2E2E]'
-  const mutedColor = isDark ? 'text-white/80' : 'text-[#1A2E2E]/80'
 
   const handleNav = (page: PageId) => {
     navigateTo(page)
     setMobileOpen(false)
   }
 
+  // Solid background when scrolled OR mobile menu open (prevents content bleed-through)
+  const solidBg = scrolled || mobileOpen
+
   return (
     <nav className="fixed left-0 right-0 top-0 z-50 px-4 py-4 md:px-6 md:py-5">
       <div
-        className={`${glassClass} mx-auto flex max-w-6xl items-center justify-between rounded-full px-4 py-2.5 transition-shadow md:px-6 md:py-3 ${
-          scrolled ? 'shadow-lg' : ''
+        className={`mx-auto flex max-w-6xl items-center justify-between rounded-full px-4 py-2.5 transition-all duration-300 md:px-6 md:py-3 ${
+          solidBg
+            ? 'bg-[#0A0A0A]/80 shadow-lg shadow-black/20 backdrop-blur-xl'
+            : 'liquid-glass'
         }`}
       >
         {/* Logo + Brand */}
@@ -53,7 +53,7 @@ export function Navbar({ currentPage, isDark }: NavbarProps) {
             className="h-8 w-auto"
             priority
           />
-          <span className={`font-serif-display text-lg ${textColor}`}>Groneu</span>
+          <span className="font-serif-display text-lg text-white">Groneu</span>
         </button>
 
         {/* Desktop nav */}
@@ -64,10 +64,8 @@ export function Navbar({ currentPage, isDark }: NavbarProps) {
               onClick={() => handleNav(link.page)}
               className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
                 currentPage === link.page
-                  ? isDark
-                    ? 'bg-white/10 text-white'
-                    : 'bg-[#0E8E8E]/10 text-[#0E8E8E]'
-                  : `${mutedColor} hover:${isDark ? 'text-white' : 'text-[#1A2E2E]'}`
+                  ? 'bg-white/10 text-white'
+                  : 'text-white/80 hover:text-white'
               }`}
             >
               {link.label}
@@ -79,11 +77,7 @@ export function Navbar({ currentPage, isDark }: NavbarProps) {
         <div className="hidden lg:block">
           <button
             onClick={() => handleNav('contact')}
-            className={`rounded-full px-5 py-2 text-sm font-medium transition-colors ${
-              isDark
-                ? 'bg-[#F5B642] text-black hover:bg-[#FFC857]'
-                : 'bg-[#0E8E8E] text-white hover:bg-[#0A6E6E]'
-            }`}
+            className="rounded-full bg-[#F5B642] px-5 py-2 text-sm font-medium text-black transition-colors hover:bg-[#FFC857]"
           >
             Get Quote
           </button>
@@ -92,7 +86,7 @@ export function Navbar({ currentPage, isDark }: NavbarProps) {
         {/* Mobile toggle */}
         <button
           onClick={() => setMobileOpen((v) => !v)}
-          className={`rounded-full p-2 lg:hidden ${mutedColor}`}
+          className="rounded-full p-2 text-white/80 lg:hidden"
           aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={mobileOpen}
         >
@@ -108,11 +102,9 @@ export function Navbar({ currentPage, isDark }: NavbarProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className={`mt-2 lg:hidden`}
+            className="mt-2 lg:hidden"
           >
-            <div
-              className={`${glassClass} mx-auto max-w-6xl rounded-3xl p-4`}
-            >
+            <div className="mx-auto max-w-6xl rounded-3xl bg-[#0A0A0A]/90 p-4 backdrop-blur-xl">
               <div className="flex flex-col gap-1">
                 {navLinks.map((link) => (
                   <button
@@ -120,10 +112,8 @@ export function Navbar({ currentPage, isDark }: NavbarProps) {
                     onClick={() => handleNav(link.page)}
                     className={`rounded-2xl px-4 py-3 text-left text-sm font-medium transition-colors ${
                       currentPage === link.page
-                        ? isDark
-                          ? 'bg-white/10 text-white'
-                          : 'bg-[#0E8E8E]/10 text-[#0E8E8E]'
-                        : `${mutedColor} hover:bg-current/5`
+                        ? 'bg-white/10 text-white'
+                        : 'text-white/80 hover:bg-white/5'
                     }`}
                   >
                     {link.label}
@@ -131,11 +121,7 @@ export function Navbar({ currentPage, isDark }: NavbarProps) {
                 ))}
                 <button
                   onClick={() => handleNav('contact')}
-                  className={`mt-2 rounded-2xl px-4 py-3 text-center text-sm font-medium transition-colors ${
-                    isDark
-                      ? 'bg-[#F5B642] text-black'
-                      : 'bg-[#0E8E8E] text-white'
-                  }`}
+                  className="mt-2 rounded-2xl bg-[#F5B642] px-4 py-3 text-center text-sm font-medium text-black transition-colors"
                 >
                   Get Quote
                 </button>
