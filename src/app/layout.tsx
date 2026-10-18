@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 
@@ -13,25 +13,40 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
-  title: "Asme — Know it all",
-  description: "Stay updated with the latest news and insights. Subscribe to our newsletter today and never miss out on exciting updates.",
-  keywords: ["Asme", "innovation", "design", "strategy", "newsletter"],
-  authors: [{ name: "Asme" }],
+  title: "Groneu Healthcare — Crafted with care. Built for trust.",
+  description:
+    "Groneu Healthcare is a leading manufacturer of sanitary napkins in Palanpur, Gujarat. White-label & contract manufacturing plus own-brand products. GST & IEC registered, export-ready.",
+  keywords: [
+    "Groneu Healthcare",
+    "sanitary napkins manufacturer",
+    "sanitary pads",
+    "white label manufacturing",
+    "contract manufacturing",
+    "Palanpur Gujarat",
+    "feminine hygiene India",
+  ],
+  authors: [{ name: "Groneu Healthcare" }],
   icons: {
-    icon: "https://z-cdn.chatglm.cn/z-ai/static/logo.svg",
+    icon: "/assets/brand/Groneu-logo.png",
   },
   openGraph: {
-    title: "Asme — Know it all",
-    description: "Pioneering ideas for minds that create, build, and inspire.",
-    url: "https://chat.z.ai",
-    siteName: "Asme",
+    title: "Groneu Healthcare — Crafted with care. Built for trust.",
+    description:
+      "Leading manufacturer of sanitary napkins in Palanpur, Gujarat. White-label + own-brand. 600K pcs/day capacity.",
+    url: "https://www.groneuhealthcare.com",
+    siteName: "Groneu Healthcare",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Asme — Know it all",
-    description: "Pioneering ideas for minds that create, build, and inspire.",
+    title: "Groneu Healthcare",
+    description: "Pioneering care since 2022. Sanitary napkin manufacturer in Palanpur, Gujarat.",
   },
 };
 
@@ -43,7 +58,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased bg-black text-white`}
       >
         {children}
         <Toaster />

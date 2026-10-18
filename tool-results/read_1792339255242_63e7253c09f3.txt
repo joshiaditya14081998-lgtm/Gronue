@@ -1,0 +1,771 @@
+     1→# Groneu Healthcare — Content & Data Reference
+     2→
+     3→> **Source of truth for all real data.** Extracted from the old website (groneuhealthcare.com) on 2026-10-18. All product data below is REAL and must be used verbatim in the new site. Nothing should be omitted.
+     4→
+     5→---
+     6→
+     7→## 1. Company Information
+     8→
+     9→| Field | Value |
+    10→|-------|-------|
+    11→| Legal Name | Groneu Healthcare |
+    12→| Nature of Business | Manufacturer, Trader, Wholesaler/Distributor |
+    13→| Additional Business | Retail Business, Wholesale Business, Factory/Manufacturing, Export, Import |
+    14→| Established | 2022 (Proprietor → now Partnership) |
+    15→| CEO | Nitin Patel |
+    16→| Partners | Nitinkumar Kantibhai Patel, Kamleshkumar Kantibhai Patel, Manan Sanjaykumar Patel |
+    17→| Total Employees | Upto 10 People |
+    18→| Annual Turnover | ₹5 – 25 Cr |
+    19→| GST Registration Date | 07-09-2022 |
+    20→| Legal Status | Partnership |
+    21→| GST No. | 24AAYFG3170H1Z5 |
+    22→| Import Export Code (IEC) | AAYFG3170H |
+    23→| Response Rate | 81% |
+    24→| Country of Origin | India |
+    25→
+    26→### Registered Address (Office)
+    27→Groneu Healthcare
+    28→Unit 4, Survey No - 21 Paike 1,2, Shiv Industrial Park,
+    29→B/H B.K Mercantile Bank, Songadh,
+    30→Palanpur-Abu Highway, At- Songadh, Malan,
+    31→Palanpur - 385001, Banaskantha, Gujarat, India
+    32→
+    33→### Factory Address
+    34→PATELNITIN, Plot 4, Shiv Ind Park,
+    35→Abu Road Highway, Palanpur - 385001, Gujarat, India
+    36→
+    37→### Contact
+    38→- **Phone:** +91-8047844175
+    39→- **Email:** info@groneuhealthcare.com *(assumed standard — confirm with client)*
+    40→- **WhatsApp:** +91-8047844175 (same as phone)
+    41→- **Location coords:** 24.21774000, 72.44681000 (for Google Maps embed)
+    42→
+    43→### Tagline / Positioning (suggested, client to confirm)
+    44→"Crafted with care. Built for trust." — OR use old site's implicit: "Leading Manufacturer of Sanitary Napkins"
+    45→
+    46→---
+    47→
+    48→## 2. Business Models (Two Audiences)
+    49→
+    50→### Model 1 — White-Label / Contract Manufacturing (B2B)
+    51→For other businesses that don't have their own manufacturing facility. Groneu manufactures sanitary pads under the client's brand label.
+    52→
+    53→### Model 2 — Own-Brand Products (B2C + Distributors)
+    54→Products sold under the "Groneu" / "Super13" / "Xtra New" brand labels.
+    55→
+    56→---
+    57→
+    58→## 3. Statutory & Compliance (ONLY certifications available — do NOT invent others)
+    59→
+    60→| Credential | Code |
+    61→|------------|------|
+    62→| GST No. | 24AAYFG3170H1Z5 |
+    63→| Import Export Code (IEC) | AAYFG3170H |
+    64→
+    65→**IMPORTANT:** These are the ONLY statutory credentials. The old site mentions "Compliance with industrial standards" generically and some products list "BIS" / "WHO-GMP, BIS, ISO" in their certifications field. However, no certificate scan copies exist. The Quality page should present:
+    66→- Statutory profile (GST + IEC) — verified facts
+    67→- Internal QA process — described honestly
+    68→- Product-level certifications as stated per product (BIS etc.) — as claimed on old site, NOT as company-level certificates
+    69→
+    70→---
+    71→
+    72→## 4. Infrastructure (from old site)
+    73→
+    74→- **Our Infrastructure:** Board Image referenced (plant)
+    75→- **Our Warehouse:** Stock Image referenced
+    76→- **Infrastructure & Team:** Office Image referenced
+    77→- **Production Capacity:** ranges from 200,000 to 600,000 pcs/day across products (see product data)
+    78→- **Team:** "A talented group of professionals... in constant dialogue with clients"
+    79→
+    80→### Why Us? (from old site, verbatim)
+    81→"Owing to the superior quality of the product range offered, we have carved a firm foothold in the domain. The products offered by us are in compliance with industrial standards and are offered at most affordable prices. The professionals appointed by us invest their long working hours in manufacturing products as per clients' specifications and details to meet their exact requirements."
+    82→
+    83→---
+    84→
+    85→## 5. Complete Product Catalogue
+    86→
+    87→**Total: 28 products** (27 under Sanitary Napkins, 1 under Sanitary Pad)
+    88→
+    89→---
+    90→
+    91→### CATEGORY A: SANITARY NAPKINS (27 products)
+    92→
+    93→---
+    94→
+    95→#### A1. Super13 Dry Net Menstrual Sanitary Napkin
+    96→- **Price:** Rs 14 / Pack (on request)
+    97→- **MOQ:** 600 Pack
+    98→- **Key Specs:**
+    99→  - Length: 280 mm
+   100→  - Pad Type: Straight
+   101→  - Size: XL
+   102→  - Brand: GRONEU
+   103→  - Absorbency: 60 ml
+   104→  - Top Sheet Material: Dry Net
+   105→  - Wing Type: With Wings
+   106→  - Pack Size: 6 Pads/Pack
+   107→  - Packaging Type: Packet
+   108→  - Special Features: Gel Technology, Rash Free, Leak Proof
+   109→  - Certifications: BIS
+   110→  - Pad Style: Day Use
+   111→  - Shelf Life: 36 months
+   112→- **Features:** Disposable, Heavy Flow Coverage, Dry net cover, Odour Control (Keep your Feeling Fresh), Soft Edge Wings (To Control Rashes), Quick Dry
+   113→- **Production Capacity:** 200,000 Pcs per Day
+   114→- **Delivery Time:** 2 Days
+   115→- **Old images:** `https://5.imimg.com/data5/SELLER/Default/2026/7/623101806/XW/CR/UR/87315795/super13-dry-net-menstrual-sanitary-napkin-250x250.png`
+   116→
+   117→---
+   118→
+   119→#### A2. GRONEU ULTRA COMFORT
+   120→- **Price:** Rs 140 / Pack (on request)
+   121→- **MOQ:** 50 Pack
+   122→- **Key Specs:**
+   123→  - Pad Type: Ultra Thin
+   124→  - Size: 320 mm (12.60 inch)
+   125→  - Brand: GRONEU
+   126→  - Pack Size: 16 count
+   127→  - Top Sheet Material: Non Woven
+   128→  - Wing Type: With Wings
+   129→  - Material: Cotton
+   130→  - Special Features: Odor Control, Anion Strip, Anti-Bacterial
+   131→  - Usage: Regular Menstrual Use
+   132→  - Color: White
+   133→  - Packaging Type: Box Packed
+   134→- **Features:** Super Soft, Anti-Allergic
+   135→- **Description:** "Groneu Ultra Comfort Sanitary Napkins – 320 mm. Groneu Ultra Comfort is designed for comfortable, hygienic and reliable menstrual protection. Made with 100% Cotton material for a soft and comfortable feel."
+   136→- **Delivery Time:** Within 1 week
+   137→
+   138→---
+   139→
+   140→#### A3. Groneu Super13 Maxi Care Soft Cottony XXL Sanitary Napkin
+   141→- **Price:** Rs 115 / Pack (on request)
+   142→- **MOQ:** 560 Pack
+   143→- **Key Specs:**
+   144→  - Size: XXL (320mm)
+   145→  - Pad Type: Fluffy Fold
+   146→  - Top Sheet: Cottony Soft
+   147→  - Thickness: Maxi
+   148→  - Brand: Groneu Super Thirteen
+   149→  - Absorbency: 80 ml
+   150→  - Top Sheet Material: Cotton
+   151→  - Wing Type: With Wings
+   152→  - Pack Size: 40 Pads/Pack
+   153→  - Feature: Leak Lock Sys, Odor Control
+   154→  - Special Features: Gel Technology, Scented, Leak Proof, Rash Free
+   155→  - **Certifications: WHO-GMP, BIS, ISO**
+   156→  - Material Feature: Breathable, Fragrance Free
+   157→  - Pad Style: Night Use
+   158→  - Type: Regular Pads
+   159→  - Features: 2x absorbency
+   160→  - Shelf Life: 36 months
+   161→- **Product Detail:** HAT Cotton Top Sheet, Fluid Lock Gel Technology With Fragrance
+   162→- **Direction of use:** Open Sanitary Wrap → Remove Reseal paper from back of pad → Stick Pad Firmly on to the panty → Remove release paper from the wings → Wrap wings around both sides of panty
+   163→- **Direction of disposal:** Wrap used pad in paper and throw into dustbin, do not flush
+   164→- **Production Capacity:** 500,000
+   165→- **Delivery Time:** 5 Days
+   166→- **Packaging Details:** 40 pads in 1 Pack, 28 packs in each Bag. Transparent poly bag for 28 packets, for easy to move and transportation.
+   167→
+   168→---
+   169→
+   170→#### A4. Groneu Ultra Thin Dry Net Sanitary Napkin
+   171→- **Price:** Rs 22 / Pack (on request)
+   172→- **MOQ:** 720 Pack
+   173→- **Key Specs:**
+   174→  - Size (Length): 280mm
+   175→  - Pad Type: Ultra Thin
+   176→  - Size: XL
+   177→  - Top Sheet: Dry Net
+   178→  - Thickness: Ultra-thin
+   179→  - Brand: Groneu
+   180→  - Top Sheet Material: Dry Net
+   181→  - Wings: Yes
+   182→  - Wing Type: With Wings
+   183→  - Packaging Type: Packet
+   184→  - Special Features: Odor Control
+   185→  - Usage: Regular Menstrual Use
+   186→  - Shelf Life: 36 Months
+   187→  - Color: White
+   188→  - Pack Size: 6 Piece
+   189→- **Features:** Disposable, Cotton Dry Feel Top, Quick Dry, Packet Friendly, Comfort Feel, Fluid Lock Technology
+   190→- **Production Capacity:** 550,000
+   191→- **Delivery Time:** 1 week
+   192→
+   193→---
+   194→
+   195→#### A5. XTRA NEW COTTONY XL SANITARY NAPKIN
+   196→- **Price:** Rs 95 / Pack (on request)
+   197→- **MOQ:** 112 Pack
+   198→- **Key Specs:**
+   199→  - Length: 280 mm
+   200→  - Pad Type: Maxi
+   201→  - Size: 280 mm (11.02 inch)
+   202→  - Brand: XTRA NEW
+   203→  - Pack Size: 40 count
+   204→  - Absorbency: 60 ml
+   205→  - Top Sheet Material: Drynet
+   206→  - Wings: With Wings
+   207→  - Type: Regular Pad
+   208→  - Packaging Type: Trifold
+   209→  - Top Fabric: Dry Net
+   210→  - Third Party Manufacturing: No
+   211→  - Absorbency: 2X
+   212→  - Special Features: Leak Proof, Rash Free, Gel Technology
+   213→  - Disposable: Yes
+   214→  - Certifications: BIS
+   215→  - Pad Style: Day Use
+   216→  - Usage: Regular Menstrual Use
+   217→  - Purpose: For Personal Use, For Hospitality Industries, For School Distribution, For NGO Distribution
+   218→- **Product Details:** Comfort Fit, Soft Edge Wings (To Control Rashes), Comfort Top Sheet (Rash Free), Odour Control (Keep Your Feeling Fresh), Quick Dry, Wider Back Wing, Day and Night Protection
+   219→- **Production Capacity:** 200,000 PCS
+   220→- **Delivery Time:** 2 Days
+   221→
+   222→---
+   223→
+   224→#### A6. 320Mm Trifold Fluffy
+   225→- **Price:** Rs 2.2 / Piece (on request)
+   226→- **MOQ:** 50,000 Piece
+   227→- **Key Specs:**
+   228→  - Size (Length): 320mm
+   229→  - Pad Type: Maxi
+   230→  - Size: XXL
+   231→  - Top Sheet: Dry Net
+   232→  - Thickness: Maxi
+   233→  - Brand: Groneu Healthcare
+   234→  - Pack Size: 1200
+   235→  - Top Sheet Material: Dry Net
+   236→  - Wings: Yes
+   237→  - Type: Regular Pad
+   238→  - Packet Contain: 40
+   239→  - Packaging Type: Packet
+   240→  - Third Party Manufacturing: Yes
+   241→  - Feature: Herbal Extracts, Odor Control, Leak Lock Sys, Gel Technology
+   242→  - Special Features: Odor Control, Scented, Anti-Bacterial
+   243→  - Disposable: Yes
+   244→  - Scented: Yes
+   245→  - Material Feature: Breathable, Fragrance Free
+   246→  - Purpose: For NGO Distribution, For Hospitality Industries, For School Distribution, For Personal Use
+   247→  - Usage: Regular Menstrual Use
+   248→- **Description:** "We are engaged in offering 320mm Trifold Fluffy to our clients. Our range of all products is widely appreciated by our clients."
+   249→- **Production Capacity:** 550,000
+   250→- **Delivery Time:** 5 days after order received
+   251→- **Packaging Details:** Available in Loose Packing or Brand Packing
+   252→- **Old images:** `https://5.imimg.com/data5/SELLER/Default/2023/12/372528040/XN/UP/RY/87315795/320mm-trifold-fluffy-125x125.jpg`, `https://5.imimg.com/data5/SELLER/Default/2023/12/372528043/BP/XF/TL/87315795/320mm-trifold-fluffy-500x500.jpg`
+   253→
+   254→---
+   255→
+   256→#### A7. Trifold Ultra Thin Sanitary Pad
+   257→- **Price:** Rs 2.45 / Piece (on request)
+   258→- **MOQ:** 5,000 Piece
+   259→- **Key Specs:**
+   260→  - Size: XL
+   261→  - Type: Ultra Thin Pad
+   262→  - Material: Cotton
+   263→  - Length: 280mm
+   264→  - Wings: Yes
+   265→  - Color: White
+   266→- **Description:** "We are engaged in offering Trifold Ultra Thin Sanitary Pad to our clients. Our range of all products is widely appreciated by our clients."
+   267→- **Old images:** `https://5.imimg.com/data5/SELLER/Default/2023/12/372531558/UZ/DF/RD/87315795/trifold-ultra-thin-sanitary-pad-500x500.jpg`
+   268→
+   269→---
+   270→
+   271→#### A8. XXL Ultra Thin Sanitary Pad (XXL variant)
+   272→- **Price:** Rs 2.6 / Piece (on request)
+   273→- **Key Specs:**
+   274→  - Type: Ultra Thin Pad
+   275→  - Material: Cotton
+   276→  - Brand: Groneu Healthcare
+   277→  - Disposable: Yes
+   278→  - Color: White
+   279→  - Size: XXL
+   280→- **Description:** "We are engaged in offering XXL Ultra Thin Sanitary Pad to our clients. Our range of all products is widely appreciated by our clients."
+   281→
+   282→---
+   283→
+   284→#### A9. XXL Ultra Thin Sanitary Pad (XXXL variant)
+   285→- **Price:** Rs 2.6 / Piece (on request)
+   286→- **Key Specs:**
+   287→  - Size: XXL (labelled; description says XXXL)
+   288→  - Type: Ultra Thin Pad
+   289→  - Material: Cotton
+   290→  - Brand: Groneu Healthcare
+   291→  - Disposable: Yes
+   292→  - Color: White
+   293→- **Description:** "We are engaged in offering XXXL Ultra Thin Sanitary Pad to our clients. Our range of all products is widely appreciated by our clients."
+   294→- **NOTE:** Old site has a duplicate entry — title says "XXL" but description says "XXXL". Keep both as separate products per old site.
+   295→
+   296→---
+   297→
+   298→#### A10. SUPER13, 18+2 PCS, 280mm
+   299→- **Price:** Rs 55 / Pack (on request)
+   300→- **MOQ:** 175 Pack
+   301→- **Key Specs:**
+   302→  - Length: 280 mm
+   303→  - Pad Type: Straight
+   304→  - Pack Size: 20 pads (18+2)
+   305→  - Thickness: Maxi
+   306→  - Top Sheet Material: Cotton
+   307→  - Absorbency: 60 ml
+   308→  - Wings: With Wings
+   309→  - Feature: Gel Technology, Odor Control, Leak Lock Sys
+   310→  - Special Features: Gel Technology, Rash Free, Leak Proof, Scented
+   311→  - Packaging Type: Pouch Pack
+   312→  - Features: Leak Guard, Quick Absorb, Soft Edges, Odour Control, Rash Free
+   313→  - Certifications: BIS
+   314→  - Pad Style: Night Use
+   315→  - Country Of Origin: India
+   316→  - Scent: Scented
+   317→  - Absorbency Level: XL
+   318→- **Product Details:** Comfort Fit, Soft Edge Wings, Comfort Top Sheet (Rash Free), Odour Control, Quick Dry, Wider Back Wing, Day and Night Protection, HAT Cotton Top sheet
+   319→- **Production Capacity:** 500,000 pcs/day
+   320→- **Delivery Time:** 1 week
+   321→
+   322→---
+   323→
+   324→#### A11. 280mm Dry Net Fold Sanitary Napkin
+   325→- **Price:** Rs 1.95 / Piece (on request)
+   326→- **MOQ:** 50,000 Piece
+   327→- **Key Specs:**
+   328→  - Wings: Yes
+   329→  - Type: Day Pad
+   330→  - Minimum Order Qty: 50,000 Pads
+   331→  - Length: 280mm
+   332→  - Dispatch Time: 20 Days
+   333→  - Features: Disposable
+   334→  - Shelf Life: 36 months
+   335→  - Size: XL
+   336→  - Top Sheet Options: Dry Net
+   337→  - Top Fabric: Cotton
+   338→- **Description:** "We are engaged in offering 280mm Dry Net Fold Sanitary Napkin to our clients. Our range of all products is widely appreciated by our clients."
+   339→
+   340→---
+   341→
+   342→#### A12. 280Mm Trifold Fluffy Pad
+   343→- **Price:** Rs 1.95 / Piece (on request)
+   344→- **MOQ:** 5,000 Piece
+   345→- **Key Specs:**
+   346→  - Size: XL
+   347→  - Brand: Groneu Healthcare
+   348→  - Type: Regular Pads
+   349→  - Length: 280mm
+   350→  - Top Fabric: Cotton
+   351→  - Top Sheet Material: Cottony Soft
+   352→  - Flow Type: Regular Flow
+   353→  - Wings: With Wings
+   354→  - Absorbency: 70
+   355→  - Features: Odour Control, Leak-Proof, Rash Free, Quick Dry, Stain Free Comfort, Gel Technology, Super Absorbency
+   356→  - Packaging Type: Pouch
+   357→  - Color: White
+   358→  - Package Size: 80 nos
+   359→  - Width: 150mm
+   360→  - Material: Cotton, Dry Net
+   361→- **Description:** "We are engaged in offering 280mm Trifold Fluffy Pad to our clients."
+   362→- **Production Capacity:** 600,000
+   363→- **Delivery Time:** Within 1 week
+   364→- **Packaging Details:** 1200 PCS EACH BAG
+   365→- **Old images:** `https://5.imimg.com/data5/SELLER/Default/2023/12/372526557/LQ/IR/AU/87315795/280mm-trifold-fluffy-125x125.jpg`
+   366→
+   367→---
+   368→
+   369→#### A13. Xl Ultra Thin Sanitary Pad
+   370→- **Price:** Rs 2.40 / Piece (on request)
+   371→- **MOQ:** 5,000 Piece
+   372→- **Key Specs:**
+   373→  - Size: XL
+   374→  - Type: Ultra Thin Pad
+   375→  - Material: Cotton
+   376→  - Color: White
+   377→  - Disposable: No
+   378→- **Description:** "We are engaged in offering XL Ultra Thin Sanitary Pad to our clients."
+   379→
+   380→---
+   381→
+   382→#### A14. L Ultra Thin Sanitary Pad
+   383→- **Price:** Rs 1.45 / Piece (on request)
+   384→- **Key Specs:**
+   385→  - Size: L
+   386→  - Type: Ultra Thin Pad
+   387→  - Material: Cotton
+   388→  - Disposable: No
+   389→  - Color: White
+   390→- **Description:** "We are engaged in offering L Ultra Thin Sanitary Pad to our clients."
+   391→- **Features (listed):** Comfort Fit, Soft Edge Wings (To Control Rashes), Comfort Top Sheet (Rash Free), Odour Control (Keep Your Feeling Fresh), Quick Dry, Wider Back Wing, Day and Night Protection
+   392→
+   393→---
+   394→
+   395→#### A15. Groneu Dry Net Regular Sanitary Napkin
+   396→- **Price:** Rs 13 / Piece (on request)
+   397→- **MOQ:** 112 Piece
+   398→- **Key Specs:**
+   399→  - Brand: Groneu
+   400→  - Top Sheet Material: Cottony Soft
+   401→  - Wings: Yes
+   402→  - Wing Type: With Wings
+   403→  - Length: 280mm
+   404→  - Top Fabric: Cotton
+   405→  - Material: Cotton
+   406→  - Packaging Type: Pouch Pack
+   407→  - Special Features: Odor Control, Anti-Bacterial
+   408→  - Usage: Regular Menstrual Use
+   409→  - Pack Size: 6 Piece
+   410→  - Pack Type: Packet
+   411→  - Features: 2x absorbency
+   412→- **Features:** Dry Net Cover, Soft Edge Wings, Quick Dry, Odour Control (Keep Your Feeling Fresh)
+   413→
+   414→---
+   415→
+   416→#### A16. Xtra New Cottony Xxl Sanitary Pad
+   417→- **Price:** Rs 102 / Pack (on request)
+   418→- **MOQ:** 112 Pack
+   419→- **Key Specs:**
+   420→  - Brand: GRONEU
+   421→  - Pad Type: Maxi
+   422→  - Top Sheet Material: Cottony Soft
+   423→  - Wing Type: With Wings
+   424→  - Length: 317mm
+   425→  - Packaging Type: Trifold
+   426→  - Top Fabric: Cotton
+   427→  - Wings: Yes
+   428→  - Material: Non-Woven
+   429→  - Special Features: Odor Control
+   430→  - Usage: Regular Menstrual Use
+   431→  - Type: Regular Pads
+   432→  - Pack Size: 40 Piece
+   433→  - Pack Type: Packet
+   434→  - Manufactured By: GRONEU HEALTH CARE
+   435→  - Features: 2x absorbency
+   436→  - Best Before: 36 months
+   437→  - Size: XXXL
+   438→- **Product Details:** Comfort Fit, Soft Edge Wings, Comfort Top Sheet (Rash Free), Odour Control, Quick Dry, Wider Back Wing, Day and Night Protection
+   439→- **Delivery Time:** Within 1 week
+   440→
+   441→---
+   442→
+   443→#### A17. xl Xtra New Dry Net Sanitary Napkin
+   444→- **Price:** Rs 102 / Pack (on request)
+   445→- **MOQ:** 100 Pack
+   446→- **Key Specs:**
+   447→  - Pack Size (Length): 280mm
+   448→  - Top Sheet: Dry Net
+   449→  - Thickness: Maxi
+   450→  - Size: XL
+   451→  - Wings: Yes
+   452→  - Type: Regular Pad
+   453→  - Packet Contain: 40
+   454→  - Length: 280mm
+   455→  - Top Fabric: Dry Net
+   456→  - Feature: Odor Control, Leak Lock Sys
+   457→  - Third Party Manufacturing: No
+   458→  - Brand: XTRA NEW
+   459→  - Material Feature: Fragrance Free, Breathable
+   460→  - Purpose: For Personal Use, For NGO Distribution, For School Distribution, For Hospitality Industries
+   461→- **Product Details:** Comfort Fit, Soft Edge Wings, Comfort Top Sheet (Rash Free), Odour Control, Quick Dry, Wider Back Wing, Day and Night Protection
+   462→
+   463→---
+   464→
+   465→#### A18. XTRA NEW DRY NET XXL SANITARY NAPKIN
+   466→- **Price:** Rs 102 / Pack (on request)
+   467→- **MOQ:** 100 Pack
+   468→- **Key Specs:**
+   469→  - Pack Size (Length): 320mm
+   470→  - Top Sheet: Dry Net
+   471→  - Thickness: Maxi
+   472→  - Size: XXL
+   473→  - Wings: Yes
+   474→  - Type: Regular Pad
+   475→  - Absorbency: 2X
+   476→  - Packet Contain: 40
+   477→  - Packaging Type: Trifold
+   478→  - Top Fabric: Dry Net
+   479→  - Feature: Odor Control, Leak Lock Sys
+   480→  - Third Party Manufacturing: No
+   481→  - Brand: XTRA NEW
+   482→  - Material Feature: Breathable, Fragrance Free
+   483→  - Purpose: For NGO Distribution, For Personal Use, For School Distribution, For Hospitality Industries
+   484→- **Product Details:** Comfort Fit, Soft Edge Wings, Comfort Top Sheet (Rash Free), Odour Control, Quick Dry, Wider Back Wing, Day and Night Protection
+   485→- **Delivery Time:** 1 week
+   486→
+   487→---
+   488→
+   489→#### A19. 320mmCotton Sanitary Pad
+   490→- **Price:** Rs 2.2 / Piece (on request)
+   491→- **Key Specs:**
+   492→  - Type: Regular Pads
+   493→  - Packaging Type: Trifold
+   494→  - Length: 317mm
+   495→  - Top Fabric: Dry Net
+   496→  - Brand: GRONEU HEALTH CARE
+   497→  - Wings: Yes
+   498→  - Absorbency: 50-80
+   499→  - Third Party Manufacturing: No
+   500→- **Description:** "We are engaged in offering 320mmCotton Sanitary Pad to our clients."
+   501→
+   502→---
+   503→
+   504→#### A20. EXTRA PLUS DRY NET XXL 320 MM
+   505→- **Price:** Rs 102 / Pack (on request)
+   506→- **MOQ:** 1,400 Pack
+   507→- **Key Specs:**
+   508→  - Pack Size (Length): 320mm
+   509→  - Top Sheet: Dry Net
+   510→  - Thickness: Maxi
+   511→  - Size: XXL
+   512→  - Type: Regular Pad
+   513→  - Packaging Size: 40 Pads
+   514→  - Packaging Type: Trifold
+   515→  - Top Fabric: Dry Net
+   516→  - Third Party Manufacturing: No
+   517→  - Feature: Leak Lock Sys, Odor Control
+   518→  - Brand: GRONEU
+   519→  - Scented: No
+   520→  - Purpose: For Personal Use
+   521→  - Material Feature: Fragrance Free, Breathable
+   522→- **Product Details:** Comfort Fit, Soft Edge Wings, Comfort Top Sheet (Rash Free), Odour Control, Quick Dry, Wider Back Wing, Day and Night Protection
+   523→- **Delivery Time:** 1 week
+   524→
+   525→---
+   526→
+   527→#### A21. EXTRA PLUS DRY NET XL 280MM
+   528→- **Price:** Rs 90 / Pack (on request)
+   529→- **MOQ:** 1,400 Pack
+   530→- **Key Specs:**
+   531→  - Pack Size (Length): 280mm
+   532→  - Top Sheet: Dry Net
+   533→  - Size: XL
+   534→  - Wings: Yes
+   535→  - Type: Regular Pad
+   536→  - Packaging Size: 40 Pads
+   537→  - Packaging Type: Trifold
+   538→  - Top Fabric: Dry Net
+   539→  - Third Party Manufacturing: No
+   540→  - Brand: GRONEU
+   541→  - Scented: No
+   542→  - Purpose: For Personal Use
+   543→- **Product Details:** Comfort Fit, Soft Edge Wings, Comfort Top Sheet (Rash Free), Odour Control, Quick Dry, Wider Back Wing, Day and Night Protection
+   544→- **Delivery Time:** 1 week
+   545→
+   546→---
+   547→
+   548→#### A22. EXTRA PLUS COTTON XXL 320MM
+   549→- **Price:** Rs 102 / Pack (on request)
+   550→- **MOQ:** 1,400 Pack
+   551→- **Key Specs:**
+   552→  - Pack Size (Length): 320mm
+   553→  - Type: Regular Pads
+   554→  - Top Sheet: Cottony Soft
+   555→  - Thickness: Maxi
+   556→  - Wings: Yes
+   557→  - Packaging Type: Trifold
+   558→  - Top Fabric: Cotton
+   559→  - Brand: GRONEU
+   560→  - Scented: No
+   561→  - Disposable: Yes
+   562→  - Third Party Manufacturing: No
+   563→- **Product Details:** Comfort Fit, Soft Edge Wings, Comfort Top Sheet (Rash Free), Odour Control, Quick Dry, Wider Back Wing, Day and Night Protection
+   564→- **Delivery Time:** 1 week
+   565→
+   566→---
+   567→
+   568→#### A23. GRONEU DRY COMFORT XXL 320MM
+   569→- **Price:** Rs 115 / Pack (on request)
+   570→- **MOQ:** 1,400 Pack
+   571→- **Key Specs:**
+   572→  - Pack Size (Length): 320mm
+   573→  - Top Sheet: Dry Net
+   574→  - Thickness: Maxi
+   575→  - Size: XXL
+   576→  - Wings: Yes
+   577→  - Type: Regular Pad
+   578→  - Packaging Size: 40 Pads
+   579→  - Packaging Type: Trifold
+   580→  - Top Fabric: Dry Net
+   581→  - Third Party Manufacturing: No
+   582→  - Brand: GRONEU
+   583→  - Scented: Yes
+   584→  - Purpose: For Personal Use
+   585→- **Product Details:** Comfort Fit, Soft Edge Wings, Comfort Top Sheet (Rash Free), Odour Control, Quick Dry, Wider Back Wing, Day and Night Protection
+   586→- **Delivery Time:** 1 week
+   587→
+   588→---
+   589→
+   590→#### A24. GRONEU DRY COMFORT XXL 280MM
+   591→- **Price:** Rs 105 / Pack (on request)
+   592→- **MOQ:** 1,400 Pack
+   593→- **Key Specs:**
+   594→  - Pack Size: XXL
+   595→  - Brand: GRONEU
+   596→  - Wings: Yes
+   597→  - Type: Regular Pad
+   598→  - Packaging Size: 40 Pads
+   599→  - Packaging Type: Trifold
+   600→  - Top Fabric: Dry Net
+   601→  - Third Party Manufacturing: No
+   602→  - Scented: Yes
+   603→  - Purpose: For Personal Use
+   604→- **Product Details:** Comfort Fit, Soft Edge Wings, Comfort Top Sheet (Rash Free), Odour Control, Quick Dry, Wider Back Wing, Day and Night Protection
+   605→- **Delivery Time:** 1 week
+   606→
+   607→---
+   608→
+   609→#### A25. EXTRA PLUS COTTON XXL 280MM
+   610→- **Price:** Rs 90 / Pack (on request)
+   611→- **MOQ:** 1,400 Pack
+   612→- **Key Specs:**
+   613→  - Pack Size: XXL
+   614→  - Wings: Yes
+   615→  - Type: Regular Pad
+   616→  - Packaging Size: 40 Pads
+   617→  - Packaging Type: Trifold
+   618→  - Top Fabric: Cotton
+   619→  - Third Party Manufacturing: No
+   620→  - Brand: GRONEU
+   621→  - Scented: No
+   622→  - Purpose: For Personal Use
+   623→- **Product Details:** Comfort Fit, Soft Edge Wings, Comfort Top Sheet (Rash Free), Odour Control, Quick Dry, Wider Back Wing, Day and Night Protection
+   624→- **Delivery Time:** 1 week
+   625→
+   626→---
+   627→
+   628→#### A26. 280Mm Dry Net Menstrual Sanitary Napkin
+   629→- **Price:** Rs 1.80 / Piece (on request)
+   630→- **MOQ:** 4,800 Piece
+   631→- **Key Specs:**
+   632→  - Length: 280 mm
+   633→  - Pad Type: Trifold
+   634→  - Top Sheet Material: Drynet
+   635→  - Type: Regular Pad
+   636→  - Absorbency: 60 ml
+   637→  - Pack Size: 80 Pads/Pack
+   638→  - Packaging Type: Loose
+   639→  - Length: 280mm
+   640→  - Size: XL
+   641→  - Top Fabric: Dry Net
+   642→  - Wings: Yes
+   643→  - Special Features: Leak Proof, Gel Technology, Rash Free
+   644→  - Certifications: BIS
+   645→  - Pad Style: Night Use
+   646→  - Features: 2x absorbency
+   647→  - Color: White
+   648→  - Shelf Life: 36 months
+   649→- **Description:** "We are engaged in offering 280mm Dry Net Menstrual Sanitary Napkin to our clients."
+   650→- **Production Capacity:** 500,000 Pcs
+   651→- **Delivery Time:** 3 Days
+   652→- **Packaging Details:** 1200 pcs bag with 80 Pcs Loose Pack in Transparent poly Bag. Customized Packing Size available.
+   653→
+   654→---
+   655→
+   656→#### A27. 240 Mm Straight Fluffy Sanitary Pad
+   657→- **Price:** Rs 1.45 / Piece (on request)
+   658→- **Key Specs:**
+   659→  - Pad Type: Maxi Thick
+   660→  - Pack Size: Loose
+   661→  - Top Sheet Material: Cottony Soft
+   662→  - With Wings: Yes
+   663→  - Length: 240mm
+   664→  - Top Fabric: Cotton
+   665→  - Brand: Groneu Healthcare
+   666→  - Scented: Yes
+   667→  - Wings: Yes
+   668→  - Scent: Unscented
+   669→  - Features: Leak Guard, Odour Control, Soft Edges, Rash Free
+   670→  - Disposable: Yes
+   671→  - Biodegradable: No
+   672→  - Country Of Origin: India
+   673→  - Type: Ultra-Thin
+   674→  - Size: L
+   675→- **Description:** "We are engaged in offering 240 mm Straight Fluffy Sanitary Pad to our clients."
+   676→- **Old images:** `https://5.imimg.com/data5/SELLER/Default/2023/12/372531208/BL/NS/ZI/87315795/240mm-straight-fluffy-500x500.jpg`
+   677→
+   678→---
+   679→
+   680→### CATEGORY B: SANITARY PAD (1 product)
+   681→
+   682→---
+   683→
+   684→#### B1. GRONEU SUPER 13 COTTON XXL 320MM
+   685→- **Price:** Rs 115 / Pack (on request)
+   686→- **MOQ:** 1,000 Pack
+   687→- **Key Specs:**
+   688→  - Pad Type: Maxi Thick
+   689→  - Absorbency Level: XXL
+   690→  - Size: 320 mm (12.6 inch)
+   691→  - Length: 320 mm
+   692→  - Brand: GRONEU SUPER 13
+   693→  - Type: Trifold
+   694→  - Pack Size: 40 pads
+   695→  - Material: Non Woven
+   696→  - With Wings: Yes
+   697→  - Packaging Type: Trifold
+   698→  - Top Fabric: Cotton
+   699→  - Top Sheet Material: Cottony Soft
+   700→  - Scented: Yes
+   701→  - Wings: Yes
+   702→  - Scent: Fresh
+   703→  - Features: Quick Absorb, Odour Control, Rash Free, Extra Long, Soft Edges, Leak Guard
+   704→  - Country Of Origin: India
+   705→- **Product Details:** Comfort Fit, Soft Edge Wings (To Control Rashes), Comfort Top Sheet (Rash Free), Odour Control (Keep Your Feeling Fresh), Quick Dry, Wider Back Wing, Day and Night Protection, HAT Cotton Top Sheet
+   706→- **Production Capacity:** 500,000
+   707→- **Delivery Time:** 1 week
+   708→- **Old images:** `https://5.imimg.com/data5/SELLER/Default/2026/1/578711185/NS/YJ/IM/87315795/groneu-super-13-cotton-xxl-320mm-125x125.jpeg`, `https://5.imimg.com/data5/SELLER/Default/2026/1/578711569/JZ/FB/EC/87315795/groneu-super-13-cotton-xxl-320mm-125x125.jpeg`
+   709→
+   710→---
+   711→
+   712→## 6. Product Summary Table (for quick reference / catalogue grid)
+   713→
+   714→| # | Name | Cat | Price | MOQ | Size | Len | Top Sheet | Pack |
+   715→|---|------|-----|-------|-----|------|-----|-----------|------|
+   716→| A1 | Super13 Dry Net Menstrual Sanitary Napkin | Napkin | Rs 14/Pack | 600 | XL | 280mm | Dry Net | 6 pads |
+   717→| A2 | Groneu Ultra Comfort | Napkin | Rs 140/Pack | 50 | 320mm | 320mm | Non Woven | 16 ct |
+   718→| A3 | Groneu Super13 Maxi Care Soft Cottony XXL | Napkin | Rs 115/Pack | 560 | XXL | 320mm | Cottony | 40 pads |
+   719→| A4 | Groneu Ultra Thin Dry Net | Napkin | Rs 22/Pack | 720 | XL | 280mm | Dry Net | 6 pcs |
+   720→| A5 | Xtra New Cottony XL | Napkin | Rs 95/Pack | 112 | XL | 280mm | Drynet | 40 ct |
+   721→| A6 | 320mm Trifold Fluffy | Napkin | Rs 2.2/Piece | 50000 | XXL | 320mm | Dry Net | 1200 |
+   722→| A7 | Trifold Ultra Thin Sanitary Pad | Napkin | Rs 2.45/Piece | 5000 | XL | 280mm | Cotton | — |
+   723→| A8 | XXL Ultra Thin Sanitary Pad | Napkin | Rs 2.6/Piece | — | XXL | — | Cotton | — |
+   724→| A9 | XXXL Ultra Thin Sanitary Pad | Napkin | Rs 2.6/Piece | — | XXXL | — | Cotton | — |
+   725→| A10 | Super13, 18+2 PCS, 280mm | Napkin | Rs 55/Pack | 175 | XL | 280mm | Cotton | 20 pads |
+   726→| A11 | 280mm Dry Net Fold Sanitary Napkin | Napkin | Rs 1.95/Piece | 50000 | XL | 280mm | Dry Net | — |
+   727→| A12 | 280mm Trifold Fluffy Pad | Napkin | Rs 1.95/Piece | 5000 | XL | 280mm | Cottony | 80 nos |
+   728→| A13 | XL Ultra Thin Sanitary Pad | Napkin | Rs 2.40/Piece | 5000 | XL | — | Cotton | — |
+   729→| A14 | L Ultra Thin Sanitary Pad | Napkin | Rs 1.45/Piece | — | L | — | Cotton | — |
+   730→| A15 | Groneu Dry Net Regular | Napkin | Rs 13/Piece | 112 | — | 280mm | Cottony | 6 pcs |
+   731→| A16 | Xtra New Cottony XXL Sanitary Pad | Napkin | Rs 102/Pack | 112 | XXXL | 317mm | Cottony | 40 pcs |
+   732→| A17 | XL Xtra New Dry Net | Napkin | Rs 102/Pack | 100 | XL | 280mm | Dry Net | 40 ct |
+   733→| A18 | Xtra New Dry Net XXL | Napkin | Rs 102/Pack | 100 | XXL | 320mm | Dry Net | 40 ct |
+   734→| A19 | 320mm Cotton Sanitary Pad | Napkin | Rs 2.2/Piece | — | — | 317mm | Dry Net | — |
+   735→| A20 | Extra Plus Dry Net XXL 320mm | Napkin | Rs 102/Pack | 1400 | XXL | 320mm | Dry Net | 40 pads |
+   736→| A21 | Extra Plus Dry Net XL 280mm | Napkin | Rs 90/Pack | 1400 | XL | 280mm | Dry Net | 40 pads |
+   737→| A22 | Extra Plus Cotton XXL 320mm | Napkin | Rs 102/Pack | 1400 | XXL | 320mm | Cottony | — |
+   738→| A23 | Groneu Dry Comfort XXL 320mm | Napkin | Rs 115/Pack | 1400 | XXL | 320mm | Dry Net | 40 pads |
+   739→| A24 | Groneu Dry Comfort XXL 280mm | Napkin | Rs 105/Pack | 1400 | XXL | 280mm | Dry Net | 40 pads |
+   740→| A25 | Extra Plus Cotton XXL 280mm | Napkin | Rs 90/Pack | 1400 | XXL | 280mm | Cotton | — |
+   741→| A26 | 280mm Dry Net Menstrual | Napkin | Rs 1.80/Piece | 4800 | XL | 280mm | Drynet | 80 pads |
+   742→| A27 | 240mm Straight Fluffy Sanitary Pad | Napkin | Rs 1.45/Piece | — | L | 240mm | Cottony | Loose |
+   743→| B1 | Groneu Super 13 Cotton XXL 320mm | Pad | Rs 115/Pack | 1000 | XXL | 320mm | Cottony | 40 pads |
+   744→
+   745→---
+   746→
+   747→## 7. Assets Already Saved
+   748→
+   749→| Asset | Path | Status |
+   750→|-------|------|--------|
+   751→| Logo | `/public/assets/brand/Groneu-logo.png` | Saved (124 KB) |
+   752→| Manufacturing plant video | `/public/assets/video/manufacturing-plant.mp4` | Saved (3 MB, 10s, 720p, H.264, has audio) |
+   753→| Product photos | `/public/assets/products/` | Empty — use placeholders until client uploads |
+   754→
+   755→### Logo Brand Colors (extracted via VLM)
+   756→- **Primary:** Teal / Turquoise (cyan-blue) — text "Groneu Health Care"
+   757→- **Accent:** Golden Yellow / Amber — female figure icon + swirl in 'o'
+   758→- **Neutral:** White — background
+   759→- **Style:** Modern, friendly, wellness-oriented, rounded soft sans-serif
+   760→- **Symbol:** Female figure with arms raised in joy/freedom/health
+   761→
+   762→---
+   763→
+   764→## 8. Old Site Product Image URLs (reference only — not to hotlink)
+   765→
+   766→These are hosted on IndiaMART's CDN (imimg.com). Use ONLY as reference for what products look like. The new site should use client-uploaded product photos. Listed where available per product above.
+   767→
+   768→---
+   769→
+   770→*End of content data. All values above are real, extracted from groneuhealthcare.com.*
+   771→
