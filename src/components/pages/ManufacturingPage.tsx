@@ -17,8 +17,9 @@ import { SectionLabel } from '@/components/primitives/SectionLabel'
 import { useEnquiry } from '@/components/shell/SiteShell'
 import { navigateTo } from '@/lib/router'
 import { usePageMeta } from '@/hooks/usePageMeta'
+import { asset } from '@/lib/asset'
 
-const PLANT_VIDEO = '/assets/video/manufacturing-plant.mp4'
+const PLANT_VIDEO = asset('/assets/video/manufacturing-plant.mp4')
 
 const infrastructure = [
   {
@@ -98,7 +99,7 @@ export function ManufacturingPage() {
   return (
     <div className="bg-[var(--bg)] text-[var(--text)]">
       {/* ===== HERO ===== */}
-      <section className="relative flex min-h-[70vh] items-center overflow-hidden">
+      <section className="relative -mt-20 flex min-h-[100vh] items-center overflow-hidden">
         {/* Background video */}
         <div className="absolute inset-0 z-0">
           <video
