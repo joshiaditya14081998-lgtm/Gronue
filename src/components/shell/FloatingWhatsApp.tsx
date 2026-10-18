@@ -17,7 +17,7 @@ export function FloatingWhatsApp() {
       transition={{ delay: 1, duration: 0.4, type: 'spring' }}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
-      className="fixed bottom-24 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] shadow-lg shadow-[#25D366]/30 lg:bottom-6"
+      className="fixed bottom-24 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] shadow-lg shadow-[#25D366]/30 md:bottom-6"
     >
       {/* Pulse ring */}
       <span className="absolute inset-0 animate-ping rounded-full bg-[#25D366]/40" />
