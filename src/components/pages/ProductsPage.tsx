@@ -3,9 +3,10 @@
 
 import { useMemo, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { PackageCheck, ArrowRight } from 'lucide-react'
+import { ArrowRight, PackageCheck } from 'lucide-react'
 import { CTAButton } from '@/components/primitives/CTAButton'
 import { SectionLabel } from '@/components/primitives/SectionLabel'
+import { ProductImage } from '@/components/primitives/ProductImage'
 import { useEnquiry } from '@/components/shell/SiteShell'
 import { products, productStats, type Product } from '@/data/products'
 import { navigateToProduct } from '@/lib/router'
@@ -243,12 +244,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
       className="group cursor-pointer overflow-hidden rounded-3xl border border-[var(--border)] glass-surface shadow-sm transition-shadow hover:shadow-md"
     >
       {/* Image area */}
-      <div
-        className="flex aspect-square items-center justify-center"
-        style={{ backgroundColor: product.placeholderColor }}
-      >
-        <PackageCheck size={56} className="text-[var(--text-dim)]" />
-      </div>
+      <ProductImage product={product} size="lg" rounded="rounded-none" className="aspect-square" />
 
       {/* Body */}
       <div className="p-5">

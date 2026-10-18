@@ -17,6 +17,7 @@ import { HeroVideo } from '@/components/sections/hero/HeroVideo'
 import { CTAButton } from '@/components/primitives/CTAButton'
 import { GlassCard } from '@/components/primitives/GlassCard'
 import { SectionLabel } from '@/components/primitives/SectionLabel'
+import { ProductImage } from '@/components/primitives/ProductImage'
 import { useEnquiry } from '@/components/shell/SiteShell'
 import { company } from '@/data/company'
 import { products } from '@/data/products'
@@ -255,13 +256,8 @@ export function HomePage() {
                   onClick={() => navigateToProduct(product.slug)}
                   className="w-full text-left"
                 >
-                  {/* Placeholder image area */}
-                  <div
-                    className="mb-4 flex aspect-square items-center justify-center rounded-2xl"
-                    style={{ backgroundColor: product.placeholderColor }}
-                  >
-                    <PackageCheck size={32} className="text-[var(--text-dim)]" />
-                  </div>
+                  {/* Product image */}
+                  <ProductImage product={product} size="sm" rounded="rounded-2xl" className="mb-4 aspect-square" />
                   <p className="text-xs uppercase tracking-widest text-[var(--accent)]">
                     {product.brand}
                   </p>

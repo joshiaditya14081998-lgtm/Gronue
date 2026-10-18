@@ -38,6 +38,7 @@ export interface Product {
   purposes?: string[]
   oldImages: string[]
   placeholderColor: string
+  image?: string  // local product photo path (if downloaded from old site)
 }
 
 export const products: Product[] = [
@@ -88,6 +89,7 @@ export const products: Product[] = [
       'https://5.imimg.com/data5/SELLER/Default/2026/7/623101806/XW/CR/UR/87315795/super13-dry-net-menstrual-sanitary-napkin-250x250.png',
     ],
     placeholderColor: '#1a3a3a',
+    image: '/assets/products/super13-dry-net-menstrual-sanitary-napkin-1.webp',
   },
   {
     id: 'a2',
@@ -231,6 +233,7 @@ export const products: Product[] = [
       'https://5.imimg.com/data5/SELLER/Default/2023/10/349455578/NJ/AP/XT/87315795/groneu-ultra-thin-dry-net-sanitary-napkin-500x500.jpeg',
     ],
     placeholderColor: '#2a2a3a',
+    image: '/assets/products/groneu-ultra-thin-dry-net-1.webp',
   },
   {
     id: 'a5',
@@ -331,6 +334,7 @@ export const products: Product[] = [
       'https://5.imimg.com/data5/SELLER/Default/2023/12/372528043/BP/XF/TL/87315795/320mm-trifold-fluffy-500x500.jpg',
     ],
     placeholderColor: '#1a2a3a',
+    image: '/assets/products/320mm-trifold-fluffy-1.webp',
   },
   {
     id: 'a7',
@@ -365,6 +369,7 @@ export const products: Product[] = [
       'https://5.imimg.com/data5/SELLER/Default/2023/12/372531558/UZ/DF/RD/87315795/trifold-ultra-thin-sanitary-pad-500x500.jpg',
     ],
     placeholderColor: '#2a3a1a',
+    image: '/assets/products/trifold-ultra-thin-sanitary-pad-1.webp',
   },
   {
     id: 'a8',
@@ -565,6 +570,7 @@ export const products: Product[] = [
       'https://5.imimg.com/data5/SELLER/Default/2023/12/372526557/LQ/IR/AU/87315795/280mm-trifold-fluffy-125x125.jpg',
     ],
     placeholderColor: '#1a2a2a',
+    image: '/assets/products/280mm-trifold-fluffy-pad-1.webp',
   },
   {
     id: 'a13',
@@ -1203,6 +1209,7 @@ export const products: Product[] = [
       'https://5.imimg.com/data5/SELLER/Default/2023/12/372531208/BL/NS/ZI/87315795/240mm-straight-fluffy-500x500.jpg',
     ],
     placeholderColor: '#2a3a1a',
+    image: '/assets/products/240mm-straight-fluffy-1.webp',
   },
   {
     id: 'b1',
@@ -1263,6 +1270,7 @@ export const products: Product[] = [
       'https://5.imimg.com/data5/SELLER/Default/2026/1/578711569/JZ/FB/EC/87315795/groneu-super-13-cotton-xxl-320mm-125x125.jpeg',
     ],
     placeholderColor: '#1a3a3a',
+    image: '/assets/products/groneu-super-13-cotton-xxl-320mm-2.webp',
   },
 ]
 

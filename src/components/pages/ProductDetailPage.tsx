@@ -16,6 +16,7 @@ import {
 import { CTAButton } from '@/components/primitives/CTAButton'
 import { SectionLabel } from '@/components/primitives/SectionLabel'
 import { Badge } from '@/components/primitives/Badge'
+import { ProductImage } from '@/components/primitives/ProductImage'
 import { useEnquiry } from '@/components/shell/SiteShell'
 import {
   getProductBySlug,
@@ -94,15 +95,13 @@ export function ProductDetailPage({ slug }: { slug?: string }) {
       <section className="px-6 pt-4 pb-12">
         <div className="mx-auto max-w-6xl">
           <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2 lg:gap-12">
-            {/* Image placeholder */}
+            {/* Image */}
             <motion.div
               initial={{ opacity: 0, scale: 0.97 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6 }}
-              className="flex aspect-square items-center justify-center rounded-3xl"
-              style={{ backgroundColor: product.placeholderColor }}
             >
-              <PackageCheck size={120} className="text-[var(--text-dim)]" />
+              <ProductImage product={product} size="xl" rounded="rounded-3xl" className="aspect-square" />
             </motion.div>
 
             {/* Right column */}
@@ -383,12 +382,7 @@ function RelatedCard({ product, index }: { product: Product; index: number }) {
       onClick={() => navigateToProduct(product.slug)}
       className="group flex cursor-pointer flex-col overflow-hidden rounded-3xl border border-[var(--border)] glass-surface shadow-sm transition-shadow hover:shadow-md"
     >
-      <div
-        className="flex aspect-[4/3] items-center justify-center"
-        style={{ backgroundColor: product.placeholderColor }}
-      >
-        <PackageCheck size={40} className="text-[var(--text-dim)]" />
-      </div>
+      <ProductImage product={product} size="sm" rounded="rounded-none" className="aspect-[4/3]" />
       <div className="flex flex-1 flex-col p-4">
         <p className="text-xs uppercase tracking-widest text-[var(--trust)]">{product.brand}</p>
         <h3 className="font-serif-display mt-1 text-base leading-tight text-[var(--text)]">
