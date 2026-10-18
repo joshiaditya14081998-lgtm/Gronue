@@ -1,18 +1,46 @@
 # Groneu Healthcare — Comprehensive Development Plan
 
-> **Status:** PLANNING COMPLETE — ready for development.
-> **Approach:** Option C (Hybrid dark/light multi-page site), built on Next.js 16 App Router.
-> **Rule:** User-visible route is `/` only per environment rules — BUT this is a multi-page site. Solution below.
+> **Status:** First build pass complete (8 pages live). Now in REFINEMENT phase.
+> **Approach:** Option C (Hybrid dark/light) was built first pass — but uniformity issue identified. Awaiting Phase 0 decision to refactor.
+> **Rule:** User-visible route is `/` only per environment rules — multi-page via hash-router.
 > **Skills:** 4 agent skills installed — see `docs/SKILLS-INTEGRATION.md` for full strategy.
+
+## 📋 Current Planning Documents
+
+| Document | Purpose | Status |
+|----------|---------|--------|
+| **`docs/DECISION-MATRIX.md`** | Phase 0 — choose uniformity direction (Option 1/2/3) | ⏳ Awaiting client decision |
+| **`docs/BUILD-PHASES.md`** | Phases 0-10 detailed execution plan | ✅ Ready (supersedes phases below) |
+| `docs/SKILLS-INTEGRATION.md` | How 4 skills are used per phase | ✅ Reference |
+| `docs/CONTENT.md` | All 28 products + company data | ✅ Source of truth |
+| `docs/DESIGN-SYSTEM.md` | Brand colors, typography, components | ✅ Reference (will update per Phase 0) |
+
+## 🚦 Current State (first build pass)
+
+- ✅ 8 pages built + functional (Home, Products, Product Detail, Manufacturing, White-Label, About, Quality, Contact)
+- ✅ Hash-router, hero video, enquiry modal, WhatsApp button, mobile menu
+- ✅ Lint clean, Agent Browser verified, zero console errors
+- ⚠️ **Uniformity issue** — dark/light split feels inconsistent (client flagged)
+- ⚠️ **Navbar overlap** — transparent glass lets content bleed on scroll
+- ⚠️ **Skills not used** — taste-skill, impeccable, awesome-design-md installed but never applied
+- ⚠️ **Quality gates not measured** — no impeccable audit scores yet
+
+## 📌 Next Steps (in order)
+
+1. **Client decides Phase 0** (see `DECISION-MATRIX.md`) — Option 1 (all dark), 2 (all light), or 3 (dark hero + light rest)
+2. **Execute Phases 1-10** per `BUILD-PHASES.md`
+3. Each phase has Definition of Done — no skipping
+
+---
 
 ## 🆕 Skills Installed (4)
 
 | Skill | Role | Used in Phases |
 |-------|------|----------------|
-| **taste-skill** | Premium frontend art direction (designer) | 3, 5, 6 (dark pages) |
-| **impeccable** | Design QA — 24 commands, 61 detector rules (QA lead) | All phases |
-| **awesome-design-md** | 84 DESIGN.md reference files (mood board) | 1, 4, 7 |
-| **img2threejs** | Image → Three.js 3D model (wow factor, optional) | 8 (polish, optional) |
+| **taste-skill** | Premium frontend art direction (designer) | Phase 4 |
+| **impeccable** | Design QA — 24 commands, 61 detector rules (QA lead) | Phase 3 |
+| **awesome-design-md** | 84 DESIGN.md reference files (mood board) | Phase 5 |
+| **img2threejs** | Image → Three.js 3D model (wow factor, optional) | Phase 9 (optional) |
 
 **Full strategy:** `docs/SKILLS-INTEGRATION.md`
 
